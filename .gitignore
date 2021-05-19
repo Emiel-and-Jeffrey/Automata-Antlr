@@ -1,1 +1,3 @@
 .antlr/
+out/
+.idea/
