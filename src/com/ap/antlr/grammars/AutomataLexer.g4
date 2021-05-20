@@ -1,6 +1,6 @@
 lexer grammar AutomataLexer;
 
-NUMBER: [0-9]+;
+NUMBER: '-'?[0-9]+('.'[0-9]+)?;
 ADD: '+';
 TIMES: '*';
 DIVISION: '/';
