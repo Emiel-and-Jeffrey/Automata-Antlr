@@ -58,6 +58,15 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     }
 
     @Override
+    public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) {
+        Double rightNumber = resultStack.pop();
+        Double leftNumber = resultStack.pop();
+
+        Double result = Math.pow(leftNumber, rightNumber);
+        resultStack.push(result);
+    }
+
+    @Override
     public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) {
         resultStack.push(Double.valueOf(ctx.NUMBER().getText()));
     }
