@@ -2,54 +2,63 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
+import org.apache.commons.math3.special.Gamma;
 
 import java.util.Stack;
 
 public class AutomataParserListener extends AutomataParserBaseListener {
-    private Stack<Float> resultStack = new Stack<>();
+    private Stack<Double> resultStack = new Stack<>();
 
-    public Float getResult() {
+    public Double getResult() {
         return resultStack.peek();
     }
 
     @Override
     public void exitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) {
-        Float rightNumber = resultStack.pop();
-        Float leftNumber = resultStack.pop();
+        Double rightNumber = resultStack.pop();
+        Double leftNumber = resultStack.pop();
 
-        Float result = leftNumber + rightNumber;
+        Double result = leftNumber + rightNumber;
         resultStack.push(result);
     }
 
     @Override
     public void exitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) {
-        Float rightNumber = resultStack.pop();
-        Float leftNumber = resultStack.pop();
+        Double rightNumber = resultStack.pop();
+        Double leftNumber = resultStack.pop();
 
-        Float result = leftNumber - rightNumber;
+        Double result = leftNumber - rightNumber;
         resultStack.push(result);
     }
 
     @Override
     public void exitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) {
-        Float rightNumber = resultStack.pop();
-        Float leftNumber = resultStack.pop();
+        Double rightNumber = resultStack.pop();
+        Double leftNumber = resultStack.pop();
 
-        Float result = leftNumber * rightNumber;
+        Double result = leftNumber * rightNumber;
         resultStack.push(result);
     }
 
     @Override
     public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) {
-        Float rightNumber = resultStack.pop();
-        Float leftNumber = resultStack.pop();
+        Double rightNumber = resultStack.pop();
+        Double leftNumber = resultStack.pop();
 
-        Float result = leftNumber / rightNumber;
+        Double result = leftNumber / rightNumber;
+        resultStack.push(result);
+    }
+
+    @Override
+    public void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) {
+        Double number = resultStack.pop();
+
+        Double result = Gamma.gamma(number + 1);
         resultStack.push(result);
     }
 
     @Override
     public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) {
-        resultStack.push(Float.valueOf(ctx.NUMBER().getText()));
+        resultStack.push(Double.valueOf(ctx.NUMBER().getText()));
     }
 }

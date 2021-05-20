@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-        String input = "5.13 / 3";
+        String input = "5!";
 
         AutomataLexer lexer = new AutomataLexer(CharStreams.fromString(input));
 
