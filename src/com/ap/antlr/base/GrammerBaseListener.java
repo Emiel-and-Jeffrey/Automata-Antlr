@@ -1,5 +1,5 @@
 // Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammer\Grammer.g4 by ANTLR 4.9.1
-package com.ap.antlr;
+package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

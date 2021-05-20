@@ -19,7 +19,7 @@
           <option name="outputDir" value="B:\Code\School\Jaar 2\Semester 4\Automata\src" />
           <option name="libDir" value="B:\Code\School\Jaar 2\Semester 4\Automata\src\com\ap\antlr\grammer" />
           <option name="encoding" value="" />
-          <option name="pkg" value="com.ap.antlr" />
+          <option name="pkg" value="com.ap.antlr.base" />
           <option name="language" value="Java" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
