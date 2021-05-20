@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-        String input = "2^3";
+        String input = "((4^2.2 - 3) * 3.2!) / 5 + 2";
 
         AutomataLexer lexer = new AutomataLexer(CharStreams.fromString(input));
 
