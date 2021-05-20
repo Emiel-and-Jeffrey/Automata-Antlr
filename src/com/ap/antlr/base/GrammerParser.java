@@ -1,5 +1,5 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammer\Grammer.g4 by ANTLR 4.9.1
-package com.ap.antlr;
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Grammer.g4 by ANTLR 4.9.1
+package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
