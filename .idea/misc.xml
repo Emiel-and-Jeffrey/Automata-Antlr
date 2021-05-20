@@ -4,20 +4,30 @@
     <option name="perGrammarGenerationSettings">
       <list>
         <PerGrammarGenerationSettings>
-          <option name="fileName" value="$PROJECT_DIR$/src/com/ap/antlr/grammer/BaseGrammer.g4" />
+          <option name="fileName" value="$PROJECT_DIR$/src/com/ap/antlr/grammars/BaseGrammer.g4" />
           <option name="autoGen" value="true" />
           <option name="outputDir" value="B:\Code\School\Jaar 2\Semester 4\Automata\src" />
-          <option name="libDir" value="B:\Code\School\Jaar 2\Semester 4\Automata\src\com\ap\antlr\grammer" />
+          <option name="libDir" value="B:\Code\School\Jaar 2\Semester 4\Automata\src\com\ap\antlr\grammars" />
           <option name="encoding" value="" />
           <option name="pkg" value="com.ap.antlr" />
           <option name="language" value="Java" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
         <PerGrammarGenerationSettings>
-          <option name="fileName" value="$PROJECT_DIR$/src/com/ap/antlr/grammer/Grammer.g4" />
+          <option name="fileName" value="$PROJECT_DIR$/src/com/ap/antlr/grammars/Grammer.g4" />
           <option name="autoGen" value="true" />
           <option name="outputDir" value="$PROJECT_DIR$\src" />
-          <option name="libDir" value="$PROJECT_DIR$\src\com\ap\antlr\grammer" />
+          <option name="libDir" value="$PROJECT_DIR$\src\com\ap\antlr\grammars" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="com.ap.antlr.base" />
+          <option name="language" value="Java" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/src/com/ap/antlr/grammars/RuleSetGrammar.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="$PROJECT_DIR$\src" />
+          <option name="libDir" value="$PROJECT_DIR$\src\com\ap\antlr\grammars" />
           <option name="encoding" value="" />
           <option name="pkg" value="com.ap.antlr.base" />
           <option name="language" value="Java" />
