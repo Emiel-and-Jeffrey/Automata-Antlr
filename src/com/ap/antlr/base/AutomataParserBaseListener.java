@@ -100,13 +100,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx) { }
+	@Override public void enterMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx) { }
+	@Override public void exitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -88,17 +88,17 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code MathExpressionParanthesis}
+	 * Enter a parse tree produced by the {@code MathExpressionParentheses}
 	 * labeled alternative in {@link AutomataParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx);
+	void enterMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code MathExpressionParanthesis}
+	 * Exit a parse tree produced by the {@code MathExpressionParentheses}
 	 * labeled alternative in {@link AutomataParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx);
+	void exitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code MathExpressionPower}
 	 * labeled alternative in {@link AutomataParser#expression}.

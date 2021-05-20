@@ -6,7 +6,7 @@ statement: expression;
 
 expression:
 	NUMBER # MathExpressionBasicNumber
-	| LEFT_PARANTHESIS expression RIGHT_PARANTHESIS # MathExpressionParanthesis
+	| LEFT_PARENTHESIS expression RIGHT_PARENTHESIS # MathExpressionParentheses
 	| expression FACTORIAL # MathExpressionFactorial // Factorial
 	| expression POWER expression # MathExpressionPower // Power
 	| expression TIMES expression # MathExpressionTimes // Times

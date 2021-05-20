@@ -7,7 +7,7 @@ DIVISION: '/';
 MINUS: '-';
 FACTORIAL: '!';
 POWER: '^';
-LEFT_PARANTHESIS: '(';
-RIGHT_PARANTHESIS: ')';
+LEFT_PARENTHESIS: '(';
+RIGHT_PARENTHESIS: ')';
 
 WS: [ \t\r\n]+ -> skip;

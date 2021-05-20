@@ -58,12 +58,12 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code MathExpressionParanthesis}
+	 * Visit a parse tree produced by the {@code MathExpressionParentheses}
 	 * labeled alternative in {@link AutomataParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx);
+	T visitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionPower}
 	 * labeled alternative in {@link AutomataParser#expression}.

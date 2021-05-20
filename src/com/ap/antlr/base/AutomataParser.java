@@ -17,8 +17,8 @@ public class AutomataParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		NUMBER=1, ADD=2, TIMES=3, DIVISION=4, MINUS=5, FACTORIAL=6, POWER=7, LEFT_PARANTHESIS=8, 
-		RIGHT_PARANTHESIS=9, WS=10;
+		NUMBER=1, ADD=2, TIMES=3, DIVISION=4, MINUS=5, FACTORIAL=6, POWER=7, LEFT_PARENTHESIS=8, 
+		RIGHT_PARENTHESIS=9, WS=10;
 	public static final int
 		RULE_program = 0, RULE_statement = 1, RULE_expression = 2;
 	private static String[] makeRuleNames() {
@@ -37,7 +37,7 @@ public class AutomataParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "NUMBER", "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", 
-			"LEFT_PARANTHESIS", "RIGHT_PARANTHESIS", "WS"
+			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -127,7 +127,7 @@ public class AutomataParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==NUMBER || _la==LEFT_PARANTHESIS) {
+			while (_la==NUMBER || _la==LEFT_PARENTHESIS) {
 				{
 				{
 				setState(6);
@@ -312,24 +312,24 @@ public class AutomataParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class MathExpressionParanthesisContext extends ExpressionContext {
-		public TerminalNode LEFT_PARANTHESIS() { return getToken(AutomataParser.LEFT_PARANTHESIS, 0); }
+	public static class MathExpressionParenthesesContext extends ExpressionContext {
+		public TerminalNode LEFT_PARENTHESIS() { return getToken(AutomataParser.LEFT_PARENTHESIS, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RIGHT_PARANTHESIS() { return getToken(AutomataParser.RIGHT_PARANTHESIS, 0); }
-		public MathExpressionParanthesisContext(ExpressionContext ctx) { copyFrom(ctx); }
+		public TerminalNode RIGHT_PARENTHESIS() { return getToken(AutomataParser.RIGHT_PARENTHESIS, 0); }
+		public MathExpressionParenthesesContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionParanthesis(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionParentheses(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionParanthesis(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionParentheses(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionParanthesis(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionParentheses(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -408,17 +408,17 @@ public class AutomataParser extends Parser {
 				match(NUMBER);
 				}
 				break;
-			case LEFT_PARANTHESIS:
+			case LEFT_PARENTHESIS:
 				{
-				_localctx = new MathExpressionParanthesisContext(_localctx);
+				_localctx = new MathExpressionParenthesesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(16);
-				match(LEFT_PARANTHESIS);
+				match(LEFT_PARENTHESIS);
 				setState(17);
 				expression(0);
 				setState(18);
-				match(RIGHT_PARANTHESIS);
+				match(RIGHT_PARENTHESIS);
 				}
 				break;
 			default:
