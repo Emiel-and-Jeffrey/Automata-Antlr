@@ -2,7 +2,6 @@ package com.ap.antlr.listeners;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class NumericListener extends AutomataParserBaseListener
 {
@@ -164,12 +163,5 @@ public class NumericListener extends AutomataParserBaseListener
     @Override
     public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx)
     {
-    }
-
-    @Override
-    public void enterExpression(TerminalNode node)
-    {
-        System.out.println("terminal-node: '" + node.getText() + "'");
-        // TODO: print line+column, token's type, etc.
     }
 }
