@@ -66,7 +66,7 @@ public class AutomataParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

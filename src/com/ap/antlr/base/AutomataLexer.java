@@ -17,8 +17,8 @@ public class AutomataLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		NUMBER=1, ADD=2, TIMES=3, DIVISION=4, MINUS=5, FACTORIAL=6, POWER=7, LEFT_PARANTHESIS=8, 
-		RIGHT_PARANTHESIS=9, WS=10;
+		NUMBER=1, ADD=2, TIMES=3, DIVISION=4, MINUS=5, FACTORIAL=6, POWER=7, LEFT_PARENTHESIS=8, 
+		RIGHT_PARENTHESIS=9, WS=10;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -30,7 +30,7 @@ public class AutomataLexer extends Lexer {
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"NUMBER", "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", 
-			"LEFT_PARANTHESIS", "RIGHT_PARANTHESIS", "WS"
+			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "WS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -44,7 +44,7 @@ public class AutomataLexer extends Lexer {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "NUMBER", "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", 
-			"LEFT_PARANTHESIS", "RIGHT_PARANTHESIS", "WS"
+			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
