@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Grammer.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -6,131 +6,131 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link GrammerListener},
+ * This class provides an empty implementation of {@link AutomataParserListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class GrammerBaseListener implements GrammerListener {
+public class AutomataParserBaseListener implements AutomataParserListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProgram(GrammerParser.ProgramContext ctx) { }
+	@Override public void enterProgram(AutomataParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProgram(GrammerParser.ProgramContext ctx) { }
+	@Override public void exitProgram(AutomataParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(GrammerParser.StatementContext ctx) { }
+	@Override public void enterStatement(AutomataParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatement(GrammerParser.StatementContext ctx) { }
+	@Override public void exitStatement(AutomataParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionSum(GrammerParser.MathExpressionSumContext ctx) { }
+	@Override public void enterMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionSum(GrammerParser.MathExpressionSumContext ctx) { }
+	@Override public void exitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionBasicNumber(GrammerParser.MathExpressionBasicNumberContext ctx) { }
+	@Override public void enterMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionBasicNumber(GrammerParser.MathExpressionBasicNumberContext ctx) { }
+	@Override public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionTimes(GrammerParser.MathExpressionTimesContext ctx) { }
+	@Override public void enterMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionTimes(GrammerParser.MathExpressionTimesContext ctx) { }
+	@Override public void exitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionMinus(GrammerParser.MathExpressionMinusContext ctx) { }
+	@Override public void enterMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionMinus(GrammerParser.MathExpressionMinusContext ctx) { }
+	@Override public void exitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionFactorial(GrammerParser.MathExpressionFactorialContext ctx) { }
+	@Override public void enterMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionFactorial(GrammerParser.MathExpressionFactorialContext ctx) { }
+	@Override public void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionParanthesis(GrammerParser.MathExpressionParanthesisContext ctx) { }
+	@Override public void enterMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionParanthesis(GrammerParser.MathExpressionParanthesisContext ctx) { }
+	@Override public void exitMathExpressionParanthesis(AutomataParser.MathExpressionParanthesisContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionPower(GrammerParser.MathExpressionPowerContext ctx) { }
+	@Override public void enterMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionPower(GrammerParser.MathExpressionPowerContext ctx) { }
+	@Override public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionDivision(GrammerParser.MathExpressionDivisionContext ctx) { }
+	@Override public void enterMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionDivision(GrammerParser.MathExpressionDivisionContext ctx) { }
+	@Override public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

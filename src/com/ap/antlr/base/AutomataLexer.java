@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Grammer.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataLexer.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class GrammerLexer extends Lexer {
+public class AutomataLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.9.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -82,13 +82,13 @@ public class GrammerLexer extends Lexer {
 	}
 
 
-	public GrammerLexer(CharStream input) {
+	public AutomataLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Grammer.g4"; }
+	public String getGrammarFileName() { return "AutomataLexer.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

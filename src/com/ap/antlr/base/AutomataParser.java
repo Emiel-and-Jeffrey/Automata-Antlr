@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Grammer.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class GrammerParser extends Parser {
+public class AutomataParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.9.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -75,7 +75,7 @@ public class GrammerParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Grammer.g4"; }
+	public String getGrammarFileName() { return "AutomataParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -86,7 +86,7 @@ public class GrammerParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public GrammerParser(TokenStream input) {
+	public AutomataParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -104,15 +104,15 @@ public class GrammerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterProgram(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitProgram(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitProgram(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -161,15 +161,15 @@ public class GrammerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_statement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterStatement(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitStatement(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitStatement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitStatement(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitStatement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -213,36 +213,36 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode ADD() { return getToken(GrammerParser.ADD, 0); }
+		public TerminalNode ADD() { return getToken(AutomataParser.ADD, 0); }
 		public MathExpressionSumContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionSum(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionSum(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionSum(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionSum(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionSum(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionSum(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class MathExpressionBasicNumberContext extends ExpressionContext {
-		public TerminalNode NUMBER() { return getToken(GrammerParser.NUMBER, 0); }
+		public TerminalNode NUMBER() { return getToken(AutomataParser.NUMBER, 0); }
 		public MathExpressionBasicNumberContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionBasicNumber(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionBasicNumber(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionBasicNumber(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionBasicNumber(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionBasicNumber(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionBasicNumber(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -253,19 +253,19 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode TIMES() { return getToken(GrammerParser.TIMES, 0); }
+		public TerminalNode TIMES() { return getToken(AutomataParser.TIMES, 0); }
 		public MathExpressionTimesContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionTimes(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionTimes(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionTimes(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionTimes(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionTimes(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionTimes(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -276,19 +276,19 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode MINUS() { return getToken(GrammerParser.MINUS, 0); }
+		public TerminalNode MINUS() { return getToken(AutomataParser.MINUS, 0); }
 		public MathExpressionMinusContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionMinus(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionMinus(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionMinus(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionMinus(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionMinus(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionMinus(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -296,40 +296,40 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode FACTORIAL() { return getToken(GrammerParser.FACTORIAL, 0); }
+		public TerminalNode FACTORIAL() { return getToken(AutomataParser.FACTORIAL, 0); }
 		public MathExpressionFactorialContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionFactorial(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionFactorial(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionFactorial(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionFactorial(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionFactorial(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionFactorial(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 	public static class MathExpressionParanthesisContext extends ExpressionContext {
-		public TerminalNode LEFT_PARANTHESIS() { return getToken(GrammerParser.LEFT_PARANTHESIS, 0); }
+		public TerminalNode LEFT_PARANTHESIS() { return getToken(AutomataParser.LEFT_PARANTHESIS, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RIGHT_PARANTHESIS() { return getToken(GrammerParser.RIGHT_PARANTHESIS, 0); }
+		public TerminalNode RIGHT_PARANTHESIS() { return getToken(AutomataParser.RIGHT_PARANTHESIS, 0); }
 		public MathExpressionParanthesisContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionParanthesis(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionParanthesis(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionParanthesis(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionParanthesis(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionParanthesis(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionParanthesis(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -340,19 +340,19 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode POWER() { return getToken(GrammerParser.POWER, 0); }
+		public TerminalNode POWER() { return getToken(AutomataParser.POWER, 0); }
 		public MathExpressionPowerContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionPower(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionPower(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionPower(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionPower(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionPower(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionPower(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -363,19 +363,19 @@ public class GrammerParser extends Parser {
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode DIVISION() { return getToken(GrammerParser.DIVISION, 0); }
+		public TerminalNode DIVISION() { return getToken(AutomataParser.DIVISION, 0); }
 		public MathExpressionDivisionContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).enterMathExpressionDivision(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterMathExpressionDivision(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammerListener ) ((GrammerListener)listener).exitMathExpressionDivision(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitMathExpressionDivision(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammerVisitor ) return ((GrammerVisitor<? extends T>)visitor).visitMathExpressionDivision(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitMathExpressionDivision(this);
 			else return visitor.visitChildren(this);
 		}
 	}
