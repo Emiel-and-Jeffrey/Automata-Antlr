@@ -8,12 +8,18 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
-        String input = "((4^2.2 - 3) * 3.2!) / 5 + 2";
+
+        //try out the following: ( ( 4^2.2 - 3 ) * 3.2! ) / 5 + 2
+        System.out.print("Please enter your equation:");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
 
         AutomataLexer lexer = new AutomataLexer(CharStreams.fromString(input));
 
