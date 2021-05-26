@@ -2,13 +2,11 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataLexer;
 import com.ap.antlr.base.AutomataParser;
-import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -17,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         //try out the following: ( ( 4^2.2 - 3 ) * 3.2! ) / 5 + 2
-        System.out.print("Please enter your equation:");
+        System.out.println("Please enter your equation:");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
 
@@ -33,14 +31,14 @@ public class Main {
         walker.walk(listener, tree);
 
         String tokenString = tokens.getTokens()
-                                .stream()
-                                .map(token -> token.getText() + " ")
-                                .collect(Collectors.joining());
+                .stream()
+                .map(token -> token.getText() + " ")
+                .collect(Collectors.joining());
         String treeString = tree.toStringTree(parser);
-        String result = listener.getResult().toString();
+        String result = listener.getOutput();
 
-        String[] msg = { "Input string ", "Lexed tokens ", "Generated tree ", "Result " };
-        String[] vals = { input, tokenString, treeString, result };
+        String[] msg = {"Input string ", "Lexed tokens ", "Generated tree ", "Result "};
+        String[] vals = {input, tokenString, treeString, result};
 
         System.out.println("------------------------------------------------------");
         for (int i = 0; i < msg.length; i++) {

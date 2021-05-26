@@ -1,24 +1,34 @@
 package com.ap.automata;
 
-import com.ap.antlr.base.AutomataLexer;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 import org.apache.commons.math3.special.Gamma;
 
-import java.util.Stack;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class AutomataParserListener extends AutomataParserBaseListener {
     private Stack<Double> stack = new Stack<>();
-
     private HashMap<String, Double> symbolTable = new HashMap<>();
+
+    private String output = "";
+
+    private void print(String out) {
+        output += out + ' ';
+    }
+
+    public String getOutput() {
+        return output;
+    }
 
     @Override
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = 0.0;
 
-        //if symbol is already declared raise exception
+        if (symbolTable.containsKey(variableName))
+            throw new Error("Cannot redeclare variable");
+
         symbolTable.put(variableName, variableValue);
     }
 
@@ -27,7 +37,9 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        //if symbol is already declared raise exception
+        if (symbolTable.containsKey(variableName))
+            throw new Error("Cannot redeclare variable");
+
         symbolTable.put(variableName, variableValue);
     }
 
@@ -36,16 +48,20 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        //if symbol is not declared raise exception
+        if (!symbolTable.containsKey(variableName))
+            throw new Error("Variable has not been declared");
+
         symbolTable.replace(variableName, variableValue);
     }
 
     @Override
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
-        //if symbol is not declared raise exception
         String variableName = ctx.IDENTIFIER().getText();
-        Double variableValue = symbolTable.get(variableName);
 
+        if (!symbolTable.containsKey(variableName))
+            throw new Error("Variable has not been declared");
+
+        Double variableValue = symbolTable.get(variableName);
         stack.push(variableValue);
     }
 
@@ -110,6 +126,6 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     @Override
     public void exitPrint_expression(AutomataParser.Print_expressionContext ctx) {
         Double result = stack.pop();
-        System.out.println(result);
+        print(result.toString());
     }
 }
