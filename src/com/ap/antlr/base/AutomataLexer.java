@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataLexer.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataLexer.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -17,8 +17,9 @@ public class AutomataLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		NUMBER=1, ADD=2, TIMES=3, DIVISION=4, MINUS=5, FACTORIAL=6, POWER=7, LEFT_PARENTHESIS=8, 
-		RIGHT_PARENTHESIS=9, WS=10;
+		ADD=1, TIMES=2, DIVISION=3, MINUS=4, FACTORIAL=5, POWER=6, EQUALS=7, LEFT_PARENTHESIS=8, 
+		RIGHT_PARENTHESIS=9, DOT=10, VARIABLE_TYPE_NUMBER=11, PRINT=12, NUMBER=13, 
+		IDENTIFIER=14, WS=15;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -29,22 +30,25 @@ public class AutomataLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"NUMBER", "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", 
-			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "WS"
+			"ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", "EQUALS", 
+			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "DOT", "VARIABLE_TYPE_NUMBER", 
+			"PRINT", "NUMBER", "IDENTIFIER", "WS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'+'", "'*'", "'/'", "'-'", "'!'", "'^'", "'('", "')'"
+			null, "'+'", "'*'", "'/'", "'-'", "'!'", "'^'", "'='", "'('", "')'", 
+			"'.'", "'number'", "'Print'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "NUMBER", "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", 
-			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "WS"
+			null, "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", "EQUALS", 
+			"LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "DOT", "VARIABLE_TYPE_NUMBER", 
+			"PRINT", "NUMBER", "IDENTIFIER", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -106,24 +110,32 @@ public class AutomataLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\f>\b\1\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\21`\b\1\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\3\2\5\2\31\n\2\3\2\6\2\34\n\2\r\2\16\2\35\3\2\3\2\6\2\"\n\2\r\2\16"+
-		"\2#\5\2&\n\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3"+
-		"\n\3\n\3\13\6\139\n\13\r\13\16\13:\3\13\3\13\2\2\f\3\3\5\4\7\5\t\6\13"+
-		"\7\r\b\17\t\21\n\23\13\25\f\3\2\4\3\2\62;\5\2\13\f\17\17\"\"\2B\2\3\3"+
-		"\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2"+
-		"\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\3\30\3\2\2\2\5\'\3"+
-		"\2\2\2\7)\3\2\2\2\t+\3\2\2\2\13-\3\2\2\2\r/\3\2\2\2\17\61\3\2\2\2\21\63"+
-		"\3\2\2\2\23\65\3\2\2\2\258\3\2\2\2\27\31\7/\2\2\30\27\3\2\2\2\30\31\3"+
-		"\2\2\2\31\33\3\2\2\2\32\34\t\2\2\2\33\32\3\2\2\2\34\35\3\2\2\2\35\33\3"+
-		"\2\2\2\35\36\3\2\2\2\36%\3\2\2\2\37!\7\60\2\2 \"\t\2\2\2! \3\2\2\2\"#"+
-		"\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%\37\3\2\2\2%&\3\2\2\2&\4\3\2\2"+
-		"\2\'(\7-\2\2(\6\3\2\2\2)*\7,\2\2*\b\3\2\2\2+,\7\61\2\2,\n\3\2\2\2-.\7"+
-		"/\2\2.\f\3\2\2\2/\60\7#\2\2\60\16\3\2\2\2\61\62\7`\2\2\62\20\3\2\2\2\63"+
-		"\64\7*\2\2\64\22\3\2\2\2\65\66\7+\2\2\66\24\3\2\2\2\679\t\3\2\28\67\3"+
-		"\2\2\29:\3\2\2\2:8\3\2\2\2:;\3\2\2\2;<\3\2\2\2<=\b\13\2\2=\26\3\2\2\2"+
-		"\b\2\30\35#%:\3\b\2\2";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\3\2\3\3\3\3\3\4"+
+		"\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f"+
+		"\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\16\5\16D\n\16\3\16\6\16"+
+		"G\n\16\r\16\16\16H\3\16\3\16\6\16M\n\16\r\16\16\16N\5\16Q\n\16\3\17\3"+
+		"\17\7\17U\n\17\f\17\16\17X\13\17\3\20\6\20[\n\20\r\20\16\20\\\3\20\3\20"+
+		"\2\2\21\3\3\5\4\7\5\t\6\13\7\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17"+
+		"\35\20\37\21\3\2\6\3\2\62;\5\2C\\aac|\6\2\62;C\\aac|\5\2\13\f\17\17\""+
+		"\"\2e\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r"+
+		"\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2"+
+		"\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2\2\37\3\2\2\2\3!\3\2\2\2\5"+
+		"#\3\2\2\2\7%\3\2\2\2\t\'\3\2\2\2\13)\3\2\2\2\r+\3\2\2\2\17-\3\2\2\2\21"+
+		"/\3\2\2\2\23\61\3\2\2\2\25\63\3\2\2\2\27\65\3\2\2\2\31<\3\2\2\2\33C\3"+
+		"\2\2\2\35R\3\2\2\2\37Z\3\2\2\2!\"\7-\2\2\"\4\3\2\2\2#$\7,\2\2$\6\3\2\2"+
+		"\2%&\7\61\2\2&\b\3\2\2\2\'(\7/\2\2(\n\3\2\2\2)*\7#\2\2*\f\3\2\2\2+,\7"+
+		"`\2\2,\16\3\2\2\2-.\7?\2\2.\20\3\2\2\2/\60\7*\2\2\60\22\3\2\2\2\61\62"+
+		"\7+\2\2\62\24\3\2\2\2\63\64\7\60\2\2\64\26\3\2\2\2\65\66\7p\2\2\66\67"+
+		"\7w\2\2\678\7o\2\289\7d\2\29:\7g\2\2:;\7t\2\2;\30\3\2\2\2<=\7R\2\2=>\7"+
+		"t\2\2>?\7k\2\2?@\7p\2\2@A\7v\2\2A\32\3\2\2\2BD\5\t\5\2CB\3\2\2\2CD\3\2"+
+		"\2\2DF\3\2\2\2EG\t\2\2\2FE\3\2\2\2GH\3\2\2\2HF\3\2\2\2HI\3\2\2\2IP\3\2"+
+		"\2\2JL\5\25\13\2KM\t\2\2\2LK\3\2\2\2MN\3\2\2\2NL\3\2\2\2NO\3\2\2\2OQ\3"+
+		"\2\2\2PJ\3\2\2\2PQ\3\2\2\2Q\34\3\2\2\2RV\t\3\2\2SU\t\4\2\2TS\3\2\2\2U"+
+		"X\3\2\2\2VT\3\2\2\2VW\3\2\2\2W\36\3\2\2\2XV\3\2\2\2Y[\t\5\2\2ZY\3\2\2"+
+		"\2[\\\3\2\2\2\\Z\3\2\2\2\\]\3\2\2\2]^\3\2\2\2^_\b\20\2\2_ \3\2\2\2\t\2"+
+		"CHNPV\\\3\b\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -23,59 +23,92 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(AutomataParser.StatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code VariableNumericDeclaration}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VariableNumericInitialization}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AutomataParser#variable_assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable_assignment(AutomataParser.Variable_assignmentContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code MathExpressionSum}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionBasicNumber}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionTimes}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionMinus}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionFactorial}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code MathExpressionVariable}
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code MathExpressionParentheses}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionPower}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionDivision}
-	 * labeled alternative in {@link AutomataParser#expression}.
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AutomataParser#print_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrint_expression(AutomataParser.Print_expressionContext ctx);
 }
