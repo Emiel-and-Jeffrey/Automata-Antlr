@@ -15,6 +15,7 @@ EQUALS: '=';
 LEFT_PARENTHESIS: '(';
 RIGHT_PARENTHESIS: ')';
 DOT: '.';
+SEMICOLON: ';';
 
 //types (lowercase is convention):
 VARIABLE_TYPE_NUMBER: 'number';

@@ -1,12 +1,12 @@
 parser grammar AutomataParser;
 options { tokenVocab= AutomataLexer; }
 
-program: statement*;
+program: statement* EOF;
 
 statement
-    : variable_declaration
-    | variable_assignment
-    | print_expression;
+    : print_expression SEMICOLON
+    | variable_declaration SEMICOLON
+    | variable_assignment SEMICOLON;
 
 variable_declaration
     : VARIABLE_TYPE_NUMBER IDENTIFIER                           #VariableNumericDeclaration
@@ -26,13 +26,6 @@ numeric_expression
 	| numeric_expression ADD numeric_expression             # MathExpressionSum // Sum
 	| numeric_expression MINUS numeric_expression           # MathExpressionMinus; // Minus
 
-//number a = 15
-
-//print 15 + a
-//print
-//+
-//15
-//a
 
 //boolean_expression
 
