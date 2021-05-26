@@ -58,4 +58,11 @@ public class Symbol {
     public String getValue() {
         return value;
     }
+
+    /**
+     * A method that sets the symbol's value
+     */
+    public String setValue(String value) {
+        return value;
+    }
 }
