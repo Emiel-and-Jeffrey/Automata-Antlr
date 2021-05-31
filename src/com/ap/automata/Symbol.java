@@ -16,7 +16,14 @@ public class Symbol {
      * @param value The current value this symbol has
      */
     public Symbol(String name, String type, String value) {
-        this(name, VariableType.valueOf(type), value);
+
+        if (!VariableType.isValidEnum(type)) {
+            throw new IllegalArgumentException("Type was not a valid enum variable");
+        }
+
+        this.name = name;
+        this.type = VariableType.valueOf(type.toUpperCase());
+        this.value = value;
     }
 
     /**
@@ -62,7 +69,7 @@ public class Symbol {
     /**
      * A method that sets the symbol's value
      */
-    public String setValue(String value) {
-        return value;
+    public void setValue(String value) {
+        this.value = value;
     }
 }

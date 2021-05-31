@@ -27,4 +27,22 @@ public enum VariableType {
     public String toString() {
         return text;
     }
+
+
+    /**
+     * Check if the input string is a valid enum
+     *
+     * @param value The string you want to check a value for.
+     * @return True if the enum is valid. False if it is not
+     */
+    public static boolean isValidEnum(String value) {
+
+        value = value.toUpperCase();
+        for (VariableType type : VariableType.values()) {
+            if (type.name().equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
