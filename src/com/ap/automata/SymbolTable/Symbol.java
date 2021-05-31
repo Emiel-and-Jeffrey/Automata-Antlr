@@ -1,4 +1,4 @@
-package com.ap.automata;
+package com.ap.automata.SymbolTable;
 
 /**
  * Class that represents a symbol inside of the Symbol Table

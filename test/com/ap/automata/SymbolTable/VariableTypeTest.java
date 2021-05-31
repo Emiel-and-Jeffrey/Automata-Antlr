@@ -1,4 +1,4 @@
-package com.ap.automata;
+package com.ap.automata.SymbolTable;
 
 import org.junit.jupiter.api.Test;
 
