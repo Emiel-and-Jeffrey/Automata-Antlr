@@ -2,14 +2,18 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
+import com.ap.automata.SymbolTable.Symbol;
+import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.SymbolTable.VariableType;
+import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
+import com.ap.automata.SymbolTable.exceptions.VariableAlreadyDefinedException;
 import org.apache.commons.math3.special.Gamma;
 
-import java.util.HashMap;
 import java.util.Stack;
 
 public class AutomataParserListener extends AutomataParserBaseListener {
     private Stack<Double> stack = new Stack<>();
-    private HashMap<String, Double> symbolTable = new HashMap<>();
+    private SymbolTable symbolTable;
 
     private String output = "";
 
@@ -21,15 +25,21 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         return output;
     }
 
+    public AutomataParserListener(SymbolTable table) {
+        symbolTable = table;
+    }
+
     @Override
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = 0.0;
+        Symbol symbol = new Symbol(variableName, VariableType.NUMBER, variableValue.toString());
 
-        if (symbolTable.containsKey(variableName))
-            throw new Error("Cannot redeclare variable");
-
-        symbolTable.put(variableName, variableValue);
+        try {
+            symbolTable.AddSymbol(symbol);
+        } catch (VariableAlreadyDefinedException e) {
+            throw new Error(e.getMessage());
+        }
     }
 
     @Override
@@ -37,10 +47,13 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        if (symbolTable.containsKey(variableName))
-            throw new Error("Cannot redeclare variable");
+        Symbol symbol = new Symbol(variableName, VariableType.NUMBER, variableValue.toString());
 
-        symbolTable.put(variableName, variableValue);
+        try {
+            symbolTable.AddSymbol(symbol);
+        } catch (VariableAlreadyDefinedException e) {
+            throw new Error(e.getMessage());
+        }
     }
 
     @Override
@@ -48,21 +61,30 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        if (!symbolTable.containsKey(variableName))
-            throw new Error("Variable has not been declared");
+        try {
+            Symbol symbol = symbolTable.GetSymbol(variableName);
+            symbol.setValue(variableValue.toString());
 
-        symbolTable.replace(variableName, variableValue);
+        } catch (UnknownVariableException e) {
+            throw new Error(e.getMessage());
+        }
+
     }
 
     @Override
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
 
-        if (!symbolTable.containsKey(variableName))
-            throw new Error("Variable has not been declared");
-
-        Double variableValue = symbolTable.get(variableName);
-        stack.push(variableValue);
+        try {
+            Symbol symbol = symbolTable.GetSymbol(variableName);
+            if (symbol.getType() == VariableType.NUMBER) {
+                stack.push(Double.parseDouble(symbol.getValue()));
+            } else {
+                throw new Error("Invalid variable type");
+            }
+        } catch (UnknownVariableException e) {
+            throw new Error(e.getMessage());
+        }
     }
 
     @Override
