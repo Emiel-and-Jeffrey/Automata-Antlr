@@ -1,0 +1,5 @@
+number a;
+a = a + 10 * 1000;
+Print a;
+number b = a * -1;
+Print b;
