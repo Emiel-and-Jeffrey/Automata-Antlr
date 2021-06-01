@@ -11,6 +11,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,7 +41,6 @@ public class Main {
     }
 
     private static void HandleParsing(CharStream stream) {
-
 
         AutomataLexer lexer = new AutomataLexer(stream);
 

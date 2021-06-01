@@ -5,3 +5,4 @@ number b = a * -1;
 Print b;
 
 // Expected output: 10 000 -10 000 
+
