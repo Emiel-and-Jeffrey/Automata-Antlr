@@ -19,7 +19,7 @@ class SymbolTableTest {
 
     @Test
     public void addSymbol() throws Exception {
-        Symbol symbol = new Symbol("name", VariableType.NUMBER, "10");
+        NumberSymbol symbol = new NumberSymbol("name", 10);
         table.AddSymbol(symbol);
 
         assertEquals(symbol, table.GetSymbol(symbol.getName()));
@@ -27,11 +27,11 @@ class SymbolTableTest {
 
     @Test
     public void addSymbolAlreadyExistingVariable() throws Exception {
-        Symbol symbol = new Symbol("name", VariableType.NUMBER, "10");
+        StringSymbol symbol = new StringSymbol("name", "10");
         table.AddSymbol(symbol);
 
         Exception exception = assertThrows(VariableAlreadyDefinedException.class, () -> table.AddSymbol(symbol));
-        String expectedMessage = symbol.getName() + "was already defined";
+        String expectedMessage = symbol.getName() + " has already been defined";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
     }
@@ -41,7 +41,7 @@ class SymbolTableTest {
         String name = "fakeName";
 
         Exception exception = assertThrows(UnknownVariableException.class, () -> table.GetSymbol(name));
-        String expectedMessage = name + "has not been added to the symbol table";
+        String expectedMessage = name + " has not been defined";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
     }

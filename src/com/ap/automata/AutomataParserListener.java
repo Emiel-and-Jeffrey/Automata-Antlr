@@ -2,7 +2,8 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
-import com.ap.automata.SymbolTable.Symbol;
+import com.ap.automata.SymbolTable.ISymbol;
+import com.ap.automata.SymbolTable.NumberSymbol;
 import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.VariableType;
 import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
@@ -33,7 +34,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = 0.0;
-        Symbol symbol = new Symbol(variableName, VariableType.NUMBER, variableValue.toString());
+        NumberSymbol symbol = new NumberSymbol(variableName, variableValue);
 
         try {
             symbolTable.AddSymbol(symbol);
@@ -47,7 +48,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        Symbol symbol = new Symbol(variableName, VariableType.NUMBER, variableValue.toString());
+        NumberSymbol symbol = new NumberSymbol(variableName, variableValue);
 
         try {
             symbolTable.AddSymbol(symbol);
@@ -62,8 +63,12 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         Double variableValue = stack.pop();
 
         try {
-            Symbol symbol = symbolTable.GetSymbol(variableName);
-            symbol.setValue(variableValue.toString());
+            ISymbol symbol = symbolTable.GetSymbol(variableName);
+            if (symbol.getType() == VariableType.NUMBER) {
+                ((NumberSymbol) symbol).setValue(variableValue);
+            } else {
+                throw new Error("Type mismatch");
+            }
 
         } catch (UnknownVariableException e) {
             throw new Error(e.getMessage());
@@ -76,11 +81,11 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
 
         try {
-            Symbol symbol = symbolTable.GetSymbol(variableName);
+            ISymbol symbol = symbolTable.GetSymbol(variableName);
             if (symbol.getType() == VariableType.NUMBER) {
-                stack.push(Double.parseDouble(symbol.getValue()));
+                stack.push(((NumberSymbol) symbol).getValue());
             } else {
-                throw new Error("Invalid variable type");
+                throw new Error("Type mismatch");
             }
         } catch (UnknownVariableException e) {
             throw new Error(e.getMessage());

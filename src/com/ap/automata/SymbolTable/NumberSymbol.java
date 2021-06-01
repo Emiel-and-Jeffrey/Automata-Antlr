@@ -3,39 +3,18 @@ package com.ap.automata.SymbolTable;
 /**
  * Class that represents a symbol inside of the Symbol Table
  */
-public class Symbol {
+public class NumberSymbol implements ISymbol {
     private String name;
-    private VariableType type;
-    private String value;
+    private double value;
 
     /**
      * Initialize a symbol with the variable type as an enum
      *
      * @param name  The name this symbol has
-     * @param type  The variable type of this symbol
      * @param value The current value this symbol has
      */
-    public Symbol(String name, String type, String value) {
-
-        if (!VariableType.isValidEnum(type)) {
-            throw new IllegalArgumentException("Type was not a valid enum variable");
-        }
-
+    public NumberSymbol(String name, double value) {
         this.name = name;
-        this.type = VariableType.valueOf(type.toUpperCase());
-        this.value = value;
-    }
-
-    /**
-     * Initialize a symbol with the variable type as an enum
-     *
-     * @param name  The name this symbol has
-     * @param type  The variable type of this symbol
-     * @param value The current value this symbol has
-     */
-    public Symbol(String name, VariableType type, String value) {
-        this.name = name;
-        this.type = type;
         this.value = value;
     }
 
@@ -54,7 +33,7 @@ public class Symbol {
      * @return the symbols type
      */
     public VariableType getType() {
-        return type;
+        return VariableType.NUMBER;
     }
 
     /**
@@ -62,14 +41,14 @@ public class Symbol {
      *
      * @return the symbols value
      */
-    public String getValue() {
+    public double getValue() {
         return value;
     }
 
     /**
      * A method that sets the symbol's value
      */
-    public void setValue(String value) {
+    public void setValue(double value) {
         this.value = value;
     }
 }

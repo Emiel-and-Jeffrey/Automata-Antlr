@@ -5,7 +5,8 @@ package com.ap.automata.SymbolTable;
  * This is used to indicate what type of variable a symbol is.
  */
 public enum VariableType {
-    NUMBER("number");
+    NUMBER("number"),
+    STRING("string");
 
     private final String text;
 
@@ -27,8 +28,6 @@ public enum VariableType {
     public String toString() {
         return text;
     }
-
-
 
     /**
      * Check if the input string is a valid enum
