@@ -2,6 +2,7 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataLexer;
 import com.ap.antlr.base.AutomataParser;
+import com.ap.automata.SymbolTable.SymbolTable;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -27,7 +28,9 @@ public class Main {
         ParseTree tree = parser.program();
 
         ParseTreeWalker walker = new ParseTreeWalker();
-        AutomataParserListener listener = new AutomataParserListener();
+        SymbolTable table = new SymbolTable();
+
+        AutomataParserListener listener = new AutomataParserListener(table);
         walker.walk(listener, tree);
 
         String tokenString = tokens.getTokens()
