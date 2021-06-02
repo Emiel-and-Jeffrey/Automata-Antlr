@@ -28,7 +28,7 @@ variable_declaration
 
 variable_assignment
     : IDENTIFIER EQUALS numeric_expression                          #VariableNumericAssignment
-    | IDENTIFIER EQUALS logical_expression                          #VariableBooleanAssignmetn;
+    | IDENTIFIER EQUALS logical_expression                          #VariableBooleanAssignment;
 
 numeric_expression
     : IDENTIFIER                                                    # MathExpressionVariable // Variable

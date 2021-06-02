@@ -49,7 +49,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     }
 
     @Override
-    public void exitVariable_assignment(AutomataParser.Variable_assignmentContext ctx) {
+    public void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
