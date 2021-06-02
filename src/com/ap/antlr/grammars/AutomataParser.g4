@@ -1,21 +1,21 @@
 parser grammar AutomataParser;
 options { tokenVocab= AutomataLexer; }
 
-program: statement* EOF;
+program
+    : statement* EOF;
 
 statement
     : print_expression SEMICOLON
-    | conditional_expression SEMICOLON
-    | conditional_loop_expression SEMICOLON
+    | conditional_expression
+    | conditional_loop_expression
     | variable_declaration SEMICOLON
     | variable_assignment SEMICOLON;
 
-print_expression: PRINT numeric_expression;
+print_expression
+    : PRINT numeric_expression;
 
 conditional_expression
-    : IF logical_expression THEN statement* FI                      #ConditionalExpressionIf
-    | ELSE IF logical_expression THEN statement* FI                 #ConditionalExpressionElseIf
-    | ELSE statement* FI                                            #ConditionalExpressionElse;
+    : IF logical_expression THEN statement* FI                      #ConditionalExpressionIf;
 
 conditional_loop_expression
     : WHILE logical_expression THEN statement* ELIHW;
@@ -27,8 +27,8 @@ variable_declaration
     | VARIABLE_TYPE_BOOLEAN IDENTIFIER EQUALS logical_expression    #VariableBooleanInitialization;
 
 variable_assignment
-    : IDENTIFIER EQUALS numeric_expression
-    | IDENTIFIER EQUALS logical_expression;
+    : IDENTIFIER EQUALS numeric_expression                          #VariableNumericAssignment
+    | IDENTIFIER EQUALS logical_expression                          #VariableBooleanAssignmetn;
 
 numeric_expression
     : IDENTIFIER                                                    # MathExpressionVariable // Variable
@@ -43,7 +43,8 @@ numeric_expression
 
 logical_expression
     : IDENTIFIER                                                    # LogicalExpressionVariable
-	| LEFT_PARENTHESIS numeric_expression RIGHT_PARENTHESIS         # LogicalExpressionParentheses
+    | BOOLEAN                                                       # LogicalExpressionBoolean
+	| LEFT_PARENTHESIS logical_expression RIGHT_PARENTHESIS         # LogicalExpressionParentheses
 	| logical_expression AND logical_expression                     # LogicalExpressionAnd
 	| logical_expression OR logical_expression                      # LogicalExpressionOr
 	| comparision_expression                                        # LogicalExpressionComparison
@@ -53,9 +54,6 @@ comparision_expression
     : numeric_expression GREATER_THAN numeric_expression            # ComparisionExpressionGreaterThan
     | numeric_expression GREATER_THAN_OR_EQUAL numeric_expression   # ComparisionExpressionGreaterThanOrEqual
     | numeric_expression LESS_THAN numeric_expression               # ComparisionExpressionLessThan
-    | numeric_expression LESS_THAN_OR_EQUAL numeric_expression      # ComparisionExpressionLessThanOrEqual;
-
-//boolean_expression
-
-//string_expression
+    | numeric_expression LESS_THAN_OR_EQUAL numeric_expression      # ComparisionExpressionLessThanOrEqual
+    | numeric_expression EQUAL_TO numeric_expression                # ComparisionExpressionEqualTo;
 
