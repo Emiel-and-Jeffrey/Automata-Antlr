@@ -28,6 +28,62 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitStatement(AutomataParser.StatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AutomataParser#print_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrint_expression(AutomataParser.Print_expressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AutomataParser#print_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrint_expression(AutomataParser.Print_expressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ConditionalExpressionIf}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConditionalExpressionIf}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ConditionalExpressionElseIf}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConditionalExpressionElseIf}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ConditionalExpressionElse}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConditionalExpressionElse}
+	 * labeled alternative in {@link AutomataParser#conditional_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code VariableNumericDeclaration}
 	 * labeled alternative in {@link AutomataParser#variable_declaration}.
 	 * @param ctx the parse tree
@@ -51,6 +107,30 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableBooleanDeclaration}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableBooleanDeclaration}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableBooleanInitialization}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableBooleanInitialization}
+	 * labeled alternative in {@link AutomataParser#variable_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AutomataParser#variable_assignment}.
 	 * @param ctx the parse tree
@@ -170,13 +250,123 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AutomataParser#print_expression}.
+	 * Enter a parse tree produced by the {@code LogicalExpressionParentheses}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrint_expression(AutomataParser.Print_expressionContext ctx);
+	void enterLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AutomataParser#print_expression}.
+	 * Exit a parse tree produced by the {@code LogicalExpressionParentheses}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrint_expression(AutomataParser.Print_expressionContext ctx);
+	void exitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionComparison}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionComparison}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionVariable}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionVariable}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionAnd}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionAnd}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionNegation}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionNegation}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionOr}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionOr}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisionExpressionGreaterThan}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisionExpressionGreaterThan}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisionExpressionGreaterThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisionExpressionGreaterThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisionExpressionLessThan}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisionExpressionLessThan}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisionExpressionLessThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisionExpressionLessThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx);
 }
