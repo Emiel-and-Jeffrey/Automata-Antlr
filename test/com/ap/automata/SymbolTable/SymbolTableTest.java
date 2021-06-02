@@ -18,7 +18,7 @@ class SymbolTableTest {
     }
 
     @Test
-    public void addSymbol() throws Exception {
+    public void addSymbol() {
         NumberSymbol symbol = new NumberSymbol("name", 10);
         table.AddSymbol(symbol);
 
@@ -26,7 +26,7 @@ class SymbolTableTest {
     }
 
     @Test
-    public void addSymbolAlreadyExistingVariable() throws Exception {
+    public void addSymbolAlreadyExistingVariable() {
         StringSymbol symbol = new StringSymbol("name", "10");
         table.AddSymbol(symbol);
 
