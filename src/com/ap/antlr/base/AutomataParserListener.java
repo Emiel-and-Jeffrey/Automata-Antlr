@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -49,30 +49,6 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ConditionalExpressionElseIf}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ConditionalExpressionElseIf}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ConditionalExpressionElse}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ConditionalExpressionElse}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
 	 * @param ctx the parse tree
@@ -132,15 +108,29 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AutomataParser#variable_assignment}.
+	 * Enter a parse tree produced by the {@code VariableNumericAssignment}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariable_assignment(AutomataParser.Variable_assignmentContext ctx);
+	void enterVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AutomataParser#variable_assignment}.
+	 * Exit a parse tree produced by the {@code VariableNumericAssignment}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariable_assignment(AutomataParser.Variable_assignmentContext ctx);
+	void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableBooleanAssignmetn}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableBooleanAssignmetn}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code MathExpressionSum}
 	 * labeled alternative in {@link AutomataParser#numeric_expression}.
@@ -310,6 +300,18 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionBoolean}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionBoolean}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code LogicalExpressionOr}
 	 * labeled alternative in {@link AutomataParser#logical_expression}.
 	 * @param ctx the parse tree
@@ -369,4 +371,16 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisionExpressionEqualTo}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisionExpressionEqualTo}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx);
 }

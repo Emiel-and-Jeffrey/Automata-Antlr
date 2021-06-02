@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -36,20 +36,6 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ConditionalExpressionElseIf}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ConditionalExpressionElse}
-	 * labeled alternative in {@link AutomataParser#conditional_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -84,11 +70,19 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AutomataParser#variable_assignment}.
+	 * Visit a parse tree produced by the {@code VariableNumericAssignment}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariable_assignment(AutomataParser.Variable_assignmentContext ctx);
+	T visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VariableBooleanAssignmetn}
+	 * labeled alternative in {@link AutomataParser#variable_assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionSum}
 	 * labeled alternative in {@link AutomataParser#numeric_expression}.
@@ -188,6 +182,13 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionBoolean}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code LogicalExpressionOr}
 	 * labeled alternative in {@link AutomataParser#logical_expression}.
 	 * @param ctx the parse tree
@@ -222,4 +223,11 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisionExpressionEqualTo}
+	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx);
 }

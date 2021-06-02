@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -18,11 +18,11 @@ public class AutomataParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		ADD=1, TIMES=2, DIVISION=3, MINUS=4, FACTORIAL=5, POWER=6, GREATER_THAN=7, 
-		LESS_THAN=8, GREATER_THAN_OR_EQUAL=9, LESS_THAN_OR_EQUAL=10, AND=11, OR=12, 
-		NEGATION=13, EQUALS=14, LEFT_PARENTHESIS=15, RIGHT_PARENTHESIS=16, DOT=17, 
-		SEMICOLON=18, VARIABLE_TYPE_NUMBER=19, VARIABLE_TYPE_BOOLEAN=20, VARIABLE_TYPE_STRING=21, 
-		PRINT=22, IF=23, THEN=24, FI=25, ELSE=26, WHILE=27, ELIHW=28, NUMBER=29, 
-		IDENTIFIER=30, WS=31;
+		LESS_THAN=8, GREATER_THAN_OR_EQUAL=9, LESS_THAN_OR_EQUAL=10, EQUAL_TO=11, 
+		AND=12, OR=13, NEGATION=14, EQUALS=15, LEFT_PARENTHESIS=16, RIGHT_PARENTHESIS=17, 
+		DOT=18, SEMICOLON=19, VARIABLE_TYPE_NUMBER=20, VARIABLE_TYPE_BOOLEAN=21, 
+		VARIABLE_TYPE_STRING=22, PRINT=23, IF=24, THEN=25, FI=26, ELSE=27, WHILE=28, 
+		ELIHW=29, NUMBER=30, BOOLEAN=31, IDENTIFIER=32, WS=33;
 	public static final int
 		RULE_program = 0, RULE_statement = 1, RULE_print_expression = 2, RULE_conditional_expression = 3, 
 		RULE_conditional_loop_expression = 4, RULE_variable_declaration = 5, RULE_variable_assignment = 6, 
@@ -39,20 +39,20 @@ public class AutomataParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'+'", "'*'", "'/'", "'-'", null, "'^'", "'>'", "'<'", "'>='", 
-			"'<='", "'&&'", "'||'", null, "'='", "'('", "')'", "'.'", "';'", "'number'", 
-			"'bool'", "'string'", "'Print'", "'if'", "'then'", "'fi'", "'else'", 
-			"'while'", "'elihw'"
+			"'<='", "'=='", "'&&'", "'||'", null, "'='", "'('", "')'", "'.'", "';'", 
+			"'number'", "'bool'", "'string'", "'Print'", "'if'", "'then'", "'fi'", 
+			"'else'", "'while'", "'elihw'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", "GREATER_THAN", 
-			"LESS_THAN", "GREATER_THAN_OR_EQUAL", "LESS_THAN_OR_EQUAL", "AND", "OR", 
-			"NEGATION", "EQUALS", "LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "DOT", 
-			"SEMICOLON", "VARIABLE_TYPE_NUMBER", "VARIABLE_TYPE_BOOLEAN", "VARIABLE_TYPE_STRING", 
-			"PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", "ELIHW", "NUMBER", "IDENTIFIER", 
-			"WS"
+			"LESS_THAN", "GREATER_THAN_OR_EQUAL", "LESS_THAN_OR_EQUAL", "EQUAL_TO", 
+			"AND", "OR", "NEGATION", "EQUALS", "LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", 
+			"DOT", "SEMICOLON", "VARIABLE_TYPE_NUMBER", "VARIABLE_TYPE_BOOLEAN", 
+			"VARIABLE_TYPE_STRING", "PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", 
+			"ELIHW", "NUMBER", "BOOLEAN", "IDENTIFIER", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -143,7 +143,7 @@ public class AutomataParser extends Parser {
 			setState(23);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << ELSE) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
 				{
 				{
 				setState(20);
@@ -209,7 +209,7 @@ public class AutomataParser extends Parser {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_statement);
 		try {
-			setState(43);
+			setState(39);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case PRINT:
@@ -222,40 +222,35 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case IF:
-			case ELSE:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(31);
 				conditional_expression();
-				setState(32);
-				match(SEMICOLON);
 				}
 				break;
 			case WHILE:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(34);
+				setState(32);
 				conditional_loop_expression();
-				setState(35);
-				match(SEMICOLON);
 				}
 				break;
 			case VARIABLE_TYPE_NUMBER:
 			case VARIABLE_TYPE_BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(37);
+				setState(33);
 				variable_declaration();
-				setState(38);
+				setState(34);
 				match(SEMICOLON);
 				}
 				break;
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(40);
+				setState(36);
 				variable_assignment();
-				setState(41);
+				setState(37);
 				match(SEMICOLON);
 				}
 				break;
@@ -304,9 +299,9 @@ public class AutomataParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45);
+			setState(41);
 			match(PRINT);
-			setState(46);
+			setState(42);
 			numeric_expression(0);
 			}
 		}
@@ -330,59 +325,6 @@ public class AutomataParser extends Parser {
 		public Conditional_expressionContext() { }
 		public void copyFrom(Conditional_expressionContext ctx) {
 			super.copyFrom(ctx);
-		}
-	}
-	public static class ConditionalExpressionElseIfContext extends Conditional_expressionContext {
-		public TerminalNode ELSE() { return getToken(AutomataParser.ELSE, 0); }
-		public TerminalNode IF() { return getToken(AutomataParser.IF, 0); }
-		public Logical_expressionContext logical_expression() {
-			return getRuleContext(Logical_expressionContext.class,0);
-		}
-		public TerminalNode THEN() { return getToken(AutomataParser.THEN, 0); }
-		public TerminalNode FI() { return getToken(AutomataParser.FI, 0); }
-		public List<StatementContext> statement() {
-			return getRuleContexts(StatementContext.class);
-		}
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
-		public ConditionalExpressionElseIfContext(Conditional_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterConditionalExpressionElseIf(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitConditionalExpressionElseIf(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitConditionalExpressionElseIf(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class ConditionalExpressionElseContext extends Conditional_expressionContext {
-		public TerminalNode ELSE() { return getToken(AutomataParser.ELSE, 0); }
-		public TerminalNode FI() { return getToken(AutomataParser.FI, 0); }
-		public List<StatementContext> statement() {
-			return getRuleContexts(StatementContext.class);
-		}
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
-		public ConditionalExpressionElseContext(Conditional_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterConditionalExpressionElse(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitConditionalExpressionElse(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitConditionalExpressionElse(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ConditionalExpressionIfContext extends Conditional_expressionContext {
@@ -419,91 +361,31 @@ public class AutomataParser extends Parser {
 		enterRule(_localctx, 6, RULE_conditional_expression);
 		int _la;
 		try {
-			setState(79);
+			_localctx = new ConditionalExpressionIfContext(_localctx);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(44);
+			match(IF);
+			setState(45);
+			logical_expression(0);
+			setState(46);
+			match(THEN);
+			setState(50);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-			case 1:
-				_localctx = new ConditionalExpressionIfContext(_localctx);
-				enterOuterAlt(_localctx, 1);
+			_la = _input.LA(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
 				{
-				setState(48);
-				match(IF);
-				setState(49);
-				logical_expression(0);
-				setState(50);
-				match(THEN);
-				setState(54);
+				{
+				setState(47);
+				statement();
+				}
+				}
+				setState(52);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << ELSE) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
-					{
-					{
-					setState(51);
-					statement();
-					}
-					}
-					setState(56);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(57);
-				match(FI);
-				}
-				break;
-			case 2:
-				_localctx = new ConditionalExpressionElseIfContext(_localctx);
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(59);
-				match(ELSE);
-				setState(60);
-				match(IF);
-				setState(61);
-				logical_expression(0);
-				setState(62);
-				match(THEN);
-				setState(66);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << ELSE) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
-					{
-					{
-					setState(63);
-					statement();
-					}
-					}
-					setState(68);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(69);
-				match(FI);
-				}
-				break;
-			case 3:
-				_localctx = new ConditionalExpressionElseContext(_localctx);
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(71);
-				match(ELSE);
-				setState(75);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << ELSE) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
-					{
-					{
-					setState(72);
-					statement();
-					}
-					}
-					setState(77);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(78);
-				match(FI);
-				}
-				break;
+			}
+			setState(53);
+			match(FI);
 			}
 		}
 		catch (RecognitionException re) {
@@ -556,27 +438,27 @@ public class AutomataParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(55);
 			match(WHILE);
-			setState(82);
+			setState(56);
 			logical_expression(0);
-			setState(83);
+			setState(57);
 			match(THEN);
-			setState(87);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << ELSE) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE_TYPE_NUMBER) | (1L << VARIABLE_TYPE_BOOLEAN) | (1L << PRINT) | (1L << IF) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
 				{
 				{
-				setState(84);
+				setState(58);
 				statement();
 				}
 				}
-				setState(89);
+				setState(63);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(90);
+			setState(64);
 			match(ELIHW);
 			}
 		}
@@ -687,16 +569,16 @@ public class AutomataParser extends Parser {
 		Variable_declarationContext _localctx = new Variable_declarationContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_variable_declaration);
 		try {
-			setState(104);
+			setState(78);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				_localctx = new VariableNumericDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(92);
+				setState(66);
 				match(VARIABLE_TYPE_NUMBER);
-				setState(93);
+				setState(67);
 				match(IDENTIFIER);
 				}
 				break;
@@ -704,13 +586,13 @@ public class AutomataParser extends Parser {
 				_localctx = new VariableNumericInitializationContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(94);
+				setState(68);
 				match(VARIABLE_TYPE_NUMBER);
-				setState(95);
+				setState(69);
 				match(IDENTIFIER);
-				setState(96);
+				setState(70);
 				match(EQUALS);
-				setState(97);
+				setState(71);
 				numeric_expression(0);
 				}
 				break;
@@ -718,9 +600,9 @@ public class AutomataParser extends Parser {
 				_localctx = new VariableBooleanDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(98);
+				setState(72);
 				match(VARIABLE_TYPE_BOOLEAN);
-				setState(99);
+				setState(73);
 				match(IDENTIFIER);
 				}
 				break;
@@ -728,13 +610,13 @@ public class AutomataParser extends Parser {
 				_localctx = new VariableBooleanInitializationContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(100);
+				setState(74);
 				match(VARIABLE_TYPE_BOOLEAN);
-				setState(101);
+				setState(75);
 				match(IDENTIFIER);
-				setState(102);
+				setState(76);
 				match(EQUALS);
-				setState(103);
+				setState(77);
 				logical_expression(0);
 				}
 				break;
@@ -752,29 +634,55 @@ public class AutomataParser extends Parser {
 	}
 
 	public static class Variable_assignmentContext extends ParserRuleContext {
+		public Variable_assignmentContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_variable_assignment; }
+	 
+		public Variable_assignmentContext() { }
+		public void copyFrom(Variable_assignmentContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class VariableBooleanAssignmetnContext extends Variable_assignmentContext {
+		public TerminalNode IDENTIFIER() { return getToken(AutomataParser.IDENTIFIER, 0); }
+		public TerminalNode EQUALS() { return getToken(AutomataParser.EQUALS, 0); }
+		public Logical_expressionContext logical_expression() {
+			return getRuleContext(Logical_expressionContext.class,0);
+		}
+		public VariableBooleanAssignmetnContext(Variable_assignmentContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterVariableBooleanAssignmetn(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitVariableBooleanAssignmetn(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitVariableBooleanAssignmetn(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class VariableNumericAssignmentContext extends Variable_assignmentContext {
 		public TerminalNode IDENTIFIER() { return getToken(AutomataParser.IDENTIFIER, 0); }
 		public TerminalNode EQUALS() { return getToken(AutomataParser.EQUALS, 0); }
 		public Numeric_expressionContext numeric_expression() {
 			return getRuleContext(Numeric_expressionContext.class,0);
 		}
-		public Logical_expressionContext logical_expression() {
-			return getRuleContext(Logical_expressionContext.class,0);
-		}
-		public Variable_assignmentContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_variable_assignment; }
+		public VariableNumericAssignmentContext(Variable_assignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterVariable_assignment(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterVariableNumericAssignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitVariable_assignment(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitVariableNumericAssignment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitVariable_assignment(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitVariableNumericAssignment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -783,28 +691,30 @@ public class AutomataParser extends Parser {
 		Variable_assignmentContext _localctx = new Variable_assignmentContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_variable_assignment);
 		try {
-			setState(112);
+			setState(86);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
+				_localctx = new VariableNumericAssignmentContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(106);
+				setState(80);
 				match(IDENTIFIER);
-				setState(107);
+				setState(81);
 				match(EQUALS);
-				setState(108);
+				setState(82);
 				numeric_expression(0);
 				}
 				break;
 			case 2:
+				_localctx = new VariableBooleanAssignmetnContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(109);
+				setState(83);
 				match(IDENTIFIER);
-				setState(110);
+				setState(84);
 				match(EQUALS);
-				setState(111);
+				setState(85);
 				logical_expression(0);
 				}
 				break;
@@ -1038,7 +948,7 @@ public class AutomataParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(121);
+			setState(95);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
@@ -1047,7 +957,7 @@ public class AutomataParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(115);
+				setState(89);
 				match(IDENTIFIER);
 				}
 				break;
@@ -1056,7 +966,7 @@ public class AutomataParser extends Parser {
 				_localctx = new MathExpressionBasicNumberContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(116);
+				setState(90);
 				match(NUMBER);
 				}
 				break;
@@ -1065,11 +975,11 @@ public class AutomataParser extends Parser {
 				_localctx = new MathExpressionParenthesesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(117);
+				setState(91);
 				match(LEFT_PARENTHESIS);
-				setState(118);
+				setState(92);
 				numeric_expression(0);
-				setState(119);
+				setState(93);
 				match(RIGHT_PARENTHESIS);
 				}
 				break;
@@ -1077,26 +987,26 @@ public class AutomataParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(142);
+			setState(116);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(140);
+					setState(114);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 					case 1:
 						{
 						_localctx = new MathExpressionPowerContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(123);
+						setState(97);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(124);
+						setState(98);
 						match(POWER);
-						setState(125);
+						setState(99);
 						numeric_expression(6);
 						}
 						break;
@@ -1104,11 +1014,11 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new MathExpressionTimesContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(126);
+						setState(100);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(127);
+						setState(101);
 						match(TIMES);
-						setState(128);
+						setState(102);
 						numeric_expression(5);
 						}
 						break;
@@ -1116,11 +1026,11 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new MathExpressionDivisionContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(129);
+						setState(103);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(130);
+						setState(104);
 						match(DIVISION);
-						setState(131);
+						setState(105);
 						numeric_expression(4);
 						}
 						break;
@@ -1128,11 +1038,11 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new MathExpressionSumContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(132);
+						setState(106);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(133);
+						setState(107);
 						match(ADD);
-						setState(134);
+						setState(108);
 						numeric_expression(3);
 						}
 						break;
@@ -1140,11 +1050,11 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new MathExpressionMinusContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(135);
+						setState(109);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(136);
+						setState(110);
 						match(MINUS);
-						setState(137);
+						setState(111);
 						numeric_expression(2);
 						}
 						break;
@@ -1152,18 +1062,18 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new MathExpressionFactorialContext(new Numeric_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_numeric_expression);
-						setState(138);
+						setState(112);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(139);
+						setState(113);
 						match(FACTORIAL);
 						}
 						break;
 					}
 					} 
 				}
-				setState(144);
+				setState(118);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
 			}
 		}
@@ -1191,8 +1101,8 @@ public class AutomataParser extends Parser {
 	}
 	public static class LogicalExpressionParenthesesContext extends Logical_expressionContext {
 		public TerminalNode LEFT_PARENTHESIS() { return getToken(AutomataParser.LEFT_PARENTHESIS, 0); }
-		public Numeric_expressionContext numeric_expression() {
-			return getRuleContext(Numeric_expressionContext.class,0);
+		public Logical_expressionContext logical_expression() {
+			return getRuleContext(Logical_expressionContext.class,0);
 		}
 		public TerminalNode RIGHT_PARENTHESIS() { return getToken(AutomataParser.RIGHT_PARENTHESIS, 0); }
 		public LogicalExpressionParenthesesContext(Logical_expressionContext ctx) { copyFrom(ctx); }
@@ -1289,6 +1199,23 @@ public class AutomataParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class LogicalExpressionBooleanContext extends Logical_expressionContext {
+		public TerminalNode BOOLEAN() { return getToken(AutomataParser.BOOLEAN, 0); }
+		public LogicalExpressionBooleanContext(Logical_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterLogicalExpressionBoolean(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitLogicalExpressionBoolean(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitLogicalExpressionBoolean(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class LogicalExpressionOrContext extends Logical_expressionContext {
 		public List<Logical_expressionContext> logical_expression() {
 			return getRuleContexts(Logical_expressionContext.class);
@@ -1328,74 +1255,83 @@ public class AutomataParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(154);
+			setState(129);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				{
 				_localctx = new LogicalExpressionVariableContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(146);
+				setState(120);
 				match(IDENTIFIER);
 				}
 				break;
 			case 2:
 				{
-				_localctx = new LogicalExpressionParenthesesContext(_localctx);
+				_localctx = new LogicalExpressionBooleanContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(147);
-				match(LEFT_PARENTHESIS);
-				setState(148);
-				numeric_expression(0);
-				setState(149);
-				match(RIGHT_PARENTHESIS);
+				setState(121);
+				match(BOOLEAN);
 				}
 				break;
 			case 3:
 				{
-				_localctx = new LogicalExpressionComparisonContext(_localctx);
+				_localctx = new LogicalExpressionParenthesesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(151);
-				comparision_expression();
+				setState(122);
+				match(LEFT_PARENTHESIS);
+				setState(123);
+				logical_expression(0);
+				setState(124);
+				match(RIGHT_PARENTHESIS);
 				}
 				break;
 			case 4:
 				{
+				_localctx = new LogicalExpressionComparisonContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(126);
+				comparision_expression();
+				}
+				break;
+			case 5:
+				{
 				_localctx = new LogicalExpressionNegationContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(152);
+				setState(127);
 				match(NEGATION);
-				setState(153);
+				setState(128);
 				logical_expression(1);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(164);
+			setState(139);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(162);
+					setState(137);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 					case 1:
 						{
 						_localctx = new LogicalExpressionAndContext(new Logical_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_logical_expression);
-						setState(156);
+						setState(131);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(157);
+						setState(132);
 						match(AND);
-						setState(158);
+						setState(133);
 						logical_expression(5);
 						}
 						break;
@@ -1403,20 +1339,20 @@ public class AutomataParser extends Parser {
 						{
 						_localctx = new LogicalExpressionOrContext(new Logical_expressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_logical_expression);
-						setState(159);
+						setState(134);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(160);
+						setState(135);
 						match(OR);
-						setState(161);
+						setState(136);
 						logical_expression(4);
 						}
 						break;
 					}
 					} 
 				}
-				setState(166);
+				setState(141);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,14,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			}
 			}
 		}
@@ -1534,23 +1470,46 @@ public class AutomataParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class ComparisionExpressionEqualToContext extends Comparision_expressionContext {
+		public List<Numeric_expressionContext> numeric_expression() {
+			return getRuleContexts(Numeric_expressionContext.class);
+		}
+		public Numeric_expressionContext numeric_expression(int i) {
+			return getRuleContext(Numeric_expressionContext.class,i);
+		}
+		public TerminalNode EQUAL_TO() { return getToken(AutomataParser.EQUAL_TO, 0); }
+		public ComparisionExpressionEqualToContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionEqualTo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionEqualTo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionEqualTo(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final Comparision_expressionContext comparision_expression() throws RecognitionException {
 		Comparision_expressionContext _localctx = new Comparision_expressionContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_comparision_expression);
 		try {
-			setState(183);
+			setState(162);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				_localctx = new ComparisionExpressionGreaterThanContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(167);
+				setState(142);
 				numeric_expression(0);
-				setState(168);
+				setState(143);
 				match(GREATER_THAN);
-				setState(169);
+				setState(144);
 				numeric_expression(0);
 				}
 				break;
@@ -1558,11 +1517,11 @@ public class AutomataParser extends Parser {
 				_localctx = new ComparisionExpressionGreaterThanOrEqualContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(171);
+				setState(146);
 				numeric_expression(0);
-				setState(172);
+				setState(147);
 				match(GREATER_THAN_OR_EQUAL);
-				setState(173);
+				setState(148);
 				numeric_expression(0);
 				}
 				break;
@@ -1570,11 +1529,11 @@ public class AutomataParser extends Parser {
 				_localctx = new ComparisionExpressionLessThanContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(175);
+				setState(150);
 				numeric_expression(0);
-				setState(176);
+				setState(151);
 				match(LESS_THAN);
-				setState(177);
+				setState(152);
 				numeric_expression(0);
 				}
 				break;
@@ -1582,11 +1541,23 @@ public class AutomataParser extends Parser {
 				_localctx = new ComparisionExpressionLessThanOrEqualContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(179);
+				setState(154);
 				numeric_expression(0);
-				setState(180);
+				setState(155);
 				match(LESS_THAN_OR_EQUAL);
-				setState(181);
+				setState(156);
+				numeric_expression(0);
+				}
+				break;
+			case 5:
+				_localctx = new ComparisionExpressionEqualToContext(_localctx);
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(158);
+				numeric_expression(0);
+				setState(159);
+				match(EQUAL_TO);
+				setState(160);
 				numeric_expression(0);
 				}
 				break;
@@ -1640,63 +1611,55 @@ public class AutomataParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!\u00bc\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u00a7\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\3\2\7\2\30\n\2\f\2\16\2\33\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3.\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3"+
-		"\5\7\5\67\n\5\f\5\16\5:\13\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\7\5C\n\5\f\5"+
-		"\16\5F\13\5\3\5\3\5\3\5\3\5\7\5L\n\5\f\5\16\5O\13\5\3\5\5\5R\n\5\3\6\3"+
-		"\6\3\6\3\6\7\6X\n\6\f\6\16\6[\13\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7"+
-		"\3\7\3\7\3\7\3\7\3\7\5\7k\n\7\3\b\3\b\3\b\3\b\3\b\3\b\5\bs\n\b\3\t\3\t"+
-		"\3\t\3\t\3\t\3\t\3\t\5\t|\n\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t"+
-		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\7\t\u008f\n\t\f\t\16\t\u0092\13\t\3\n\3\n"+
-		"\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n\u009d\n\n\3\n\3\n\3\n\3\n\3\n\3\n\7\n"+
-		"\u00a5\n\n\f\n\16\n\u00a8\13\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
-		"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u00ba\n\13\3\13\2\4\20\22"+
-		"\f\2\4\6\b\n\f\16\20\22\24\2\2\2\u00d0\2\31\3\2\2\2\4-\3\2\2\2\6/\3\2"+
-		"\2\2\bQ\3\2\2\2\nS\3\2\2\2\fj\3\2\2\2\16r\3\2\2\2\20{\3\2\2\2\22\u009c"+
-		"\3\2\2\2\24\u00b9\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\30\33\3\2\2\2\31"+
-		"\27\3\2\2\2\31\32\3\2\2\2\32\34\3\2\2\2\33\31\3\2\2\2\34\35\7\2\2\3\35"+
-		"\3\3\2\2\2\36\37\5\6\4\2\37 \7\24\2\2 .\3\2\2\2!\"\5\b\5\2\"#\7\24\2\2"+
-		"#.\3\2\2\2$%\5\n\6\2%&\7\24\2\2&.\3\2\2\2\'(\5\f\7\2()\7\24\2\2).\3\2"+
-		"\2\2*+\5\16\b\2+,\7\24\2\2,.\3\2\2\2-\36\3\2\2\2-!\3\2\2\2-$\3\2\2\2-"+
-		"\'\3\2\2\2-*\3\2\2\2.\5\3\2\2\2/\60\7\30\2\2\60\61\5\20\t\2\61\7\3\2\2"+
-		"\2\62\63\7\31\2\2\63\64\5\22\n\2\648\7\32\2\2\65\67\5\4\3\2\66\65\3\2"+
-		"\2\2\67:\3\2\2\28\66\3\2\2\289\3\2\2\29;\3\2\2\2:8\3\2\2\2;<\7\33\2\2"+
-		"<R\3\2\2\2=>\7\34\2\2>?\7\31\2\2?@\5\22\n\2@D\7\32\2\2AC\5\4\3\2BA\3\2"+
-		"\2\2CF\3\2\2\2DB\3\2\2\2DE\3\2\2\2EG\3\2\2\2FD\3\2\2\2GH\7\33\2\2HR\3"+
-		"\2\2\2IM\7\34\2\2JL\5\4\3\2KJ\3\2\2\2LO\3\2\2\2MK\3\2\2\2MN\3\2\2\2NP"+
-		"\3\2\2\2OM\3\2\2\2PR\7\33\2\2Q\62\3\2\2\2Q=\3\2\2\2QI\3\2\2\2R\t\3\2\2"+
-		"\2ST\7\35\2\2TU\5\22\n\2UY\7\32\2\2VX\5\4\3\2WV\3\2\2\2X[\3\2\2\2YW\3"+
-		"\2\2\2YZ\3\2\2\2Z\\\3\2\2\2[Y\3\2\2\2\\]\7\36\2\2]\13\3\2\2\2^_\7\25\2"+
-		"\2_k\7 \2\2`a\7\25\2\2ab\7 \2\2bc\7\20\2\2ck\5\20\t\2de\7\26\2\2ek\7 "+
-		"\2\2fg\7\26\2\2gh\7 \2\2hi\7\20\2\2ik\5\22\n\2j^\3\2\2\2j`\3\2\2\2jd\3"+
-		"\2\2\2jf\3\2\2\2k\r\3\2\2\2lm\7 \2\2mn\7\20\2\2ns\5\20\t\2op\7 \2\2pq"+
-		"\7\20\2\2qs\5\22\n\2rl\3\2\2\2ro\3\2\2\2s\17\3\2\2\2tu\b\t\1\2u|\7 \2"+
-		"\2v|\7\37\2\2wx\7\21\2\2xy\5\20\t\2yz\7\22\2\2z|\3\2\2\2{t\3\2\2\2{v\3"+
-		"\2\2\2{w\3\2\2\2|\u0090\3\2\2\2}~\f\7\2\2~\177\7\b\2\2\177\u008f\5\20"+
-		"\t\b\u0080\u0081\f\6\2\2\u0081\u0082\7\4\2\2\u0082\u008f\5\20\t\7\u0083"+
-		"\u0084\f\5\2\2\u0084\u0085\7\5\2\2\u0085\u008f\5\20\t\6\u0086\u0087\f"+
-		"\4\2\2\u0087\u0088\7\3\2\2\u0088\u008f\5\20\t\5\u0089\u008a\f\3\2\2\u008a"+
-		"\u008b\7\6\2\2\u008b\u008f\5\20\t\4\u008c\u008d\f\b\2\2\u008d\u008f\7"+
-		"\7\2\2\u008e}\3\2\2\2\u008e\u0080\3\2\2\2\u008e\u0083\3\2\2\2\u008e\u0086"+
-		"\3\2\2\2\u008e\u0089\3\2\2\2\u008e\u008c\3\2\2\2\u008f\u0092\3\2\2\2\u0090"+
-		"\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091\21\3\2\2\2\u0092\u0090\3\2\2"+
-		"\2\u0093\u0094\b\n\1\2\u0094\u009d\7 \2\2\u0095\u0096\7\21\2\2\u0096\u0097"+
-		"\5\20\t\2\u0097\u0098\7\22\2\2\u0098\u009d\3\2\2\2\u0099\u009d\5\24\13"+
-		"\2\u009a\u009b\7\17\2\2\u009b\u009d\5\22\n\3\u009c\u0093\3\2\2\2\u009c"+
-		"\u0095\3\2\2\2\u009c\u0099\3\2\2\2\u009c\u009a\3\2\2\2\u009d\u00a6\3\2"+
-		"\2\2\u009e\u009f\f\6\2\2\u009f\u00a0\7\r\2\2\u00a0\u00a5\5\22\n\7\u00a1"+
-		"\u00a2\f\5\2\2\u00a2\u00a3\7\16\2\2\u00a3\u00a5\5\22\n\6\u00a4\u009e\3"+
-		"\2\2\2\u00a4\u00a1\3\2\2\2\u00a5\u00a8\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a6"+
-		"\u00a7\3\2\2\2\u00a7\23\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a9\u00aa\5\20\t"+
-		"\2\u00aa\u00ab\7\t\2\2\u00ab\u00ac\5\20\t\2\u00ac\u00ba\3\2\2\2\u00ad"+
-		"\u00ae\5\20\t\2\u00ae\u00af\7\13\2\2\u00af\u00b0\5\20\t\2\u00b0\u00ba"+
-		"\3\2\2\2\u00b1\u00b2\5\20\t\2\u00b2\u00b3\7\n\2\2\u00b3\u00b4\5\20\t\2"+
-		"\u00b4\u00ba\3\2\2\2\u00b5\u00b6\5\20\t\2\u00b6\u00b7\7\f\2\2\u00b7\u00b8"+
-		"\5\20\t\2\u00b8\u00ba\3\2\2\2\u00b9\u00a9\3\2\2\2\u00b9\u00ad\3\2\2\2"+
-		"\u00b9\u00b1\3\2\2\2\u00b9\u00b5\3\2\2\2\u00ba\25\3\2\2\2\22\31-8DMQY"+
-		"jr{\u008e\u0090\u009c\u00a4\u00a6\u00b9";
+		"\3\3\3\3\3\3\3\3\3\5\3*\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\7\5\63\n\5\f\5"+
+		"\16\5\66\13\5\3\5\3\5\3\6\3\6\3\6\3\6\7\6>\n\6\f\6\16\6A\13\6\3\6\3\6"+
+		"\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7Q\n\7\3\b\3\b\3\b"+
+		"\3\b\3\b\3\b\5\bY\n\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\tb\n\t\3\t\3\t\3\t"+
+		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\7\tu\n\t\f\t"+
+		"\16\tx\13\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n\u0084\n\n\3\n"+
+		"\3\n\3\n\3\n\3\n\3\n\7\n\u008c\n\n\f\n\16\n\u008f\13\n\3\13\3\13\3\13"+
+		"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
+		"\3\13\3\13\3\13\5\13\u00a5\n\13\3\13\2\4\20\22\f\2\4\6\b\n\f\16\20\22"+
+		"\24\2\2\2\u00b9\2\31\3\2\2\2\4)\3\2\2\2\6+\3\2\2\2\b.\3\2\2\2\n9\3\2\2"+
+		"\2\fP\3\2\2\2\16X\3\2\2\2\20a\3\2\2\2\22\u0083\3\2\2\2\24\u00a4\3\2\2"+
+		"\2\26\30\5\4\3\2\27\26\3\2\2\2\30\33\3\2\2\2\31\27\3\2\2\2\31\32\3\2\2"+
+		"\2\32\34\3\2\2\2\33\31\3\2\2\2\34\35\7\2\2\3\35\3\3\2\2\2\36\37\5\6\4"+
+		"\2\37 \7\25\2\2 *\3\2\2\2!*\5\b\5\2\"*\5\n\6\2#$\5\f\7\2$%\7\25\2\2%*"+
+		"\3\2\2\2&\'\5\16\b\2\'(\7\25\2\2(*\3\2\2\2)\36\3\2\2\2)!\3\2\2\2)\"\3"+
+		"\2\2\2)#\3\2\2\2)&\3\2\2\2*\5\3\2\2\2+,\7\31\2\2,-\5\20\t\2-\7\3\2\2\2"+
+		"./\7\32\2\2/\60\5\22\n\2\60\64\7\33\2\2\61\63\5\4\3\2\62\61\3\2\2\2\63"+
+		"\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\67\3\2\2\2\66\64\3\2\2\2\67"+
+		"8\7\34\2\28\t\3\2\2\29:\7\36\2\2:;\5\22\n\2;?\7\33\2\2<>\5\4\3\2=<\3\2"+
+		"\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@B\3\2\2\2A?\3\2\2\2BC\7\37\2\2C\13"+
+		"\3\2\2\2DE\7\26\2\2EQ\7\"\2\2FG\7\26\2\2GH\7\"\2\2HI\7\21\2\2IQ\5\20\t"+
+		"\2JK\7\27\2\2KQ\7\"\2\2LM\7\27\2\2MN\7\"\2\2NO\7\21\2\2OQ\5\22\n\2PD\3"+
+		"\2\2\2PF\3\2\2\2PJ\3\2\2\2PL\3\2\2\2Q\r\3\2\2\2RS\7\"\2\2ST\7\21\2\2T"+
+		"Y\5\20\t\2UV\7\"\2\2VW\7\21\2\2WY\5\22\n\2XR\3\2\2\2XU\3\2\2\2Y\17\3\2"+
+		"\2\2Z[\b\t\1\2[b\7\"\2\2\\b\7 \2\2]^\7\22\2\2^_\5\20\t\2_`\7\23\2\2`b"+
+		"\3\2\2\2aZ\3\2\2\2a\\\3\2\2\2a]\3\2\2\2bv\3\2\2\2cd\f\7\2\2de\7\b\2\2"+
+		"eu\5\20\t\bfg\f\6\2\2gh\7\4\2\2hu\5\20\t\7ij\f\5\2\2jk\7\5\2\2ku\5\20"+
+		"\t\6lm\f\4\2\2mn\7\3\2\2nu\5\20\t\5op\f\3\2\2pq\7\6\2\2qu\5\20\t\4rs\f"+
+		"\b\2\2su\7\7\2\2tc\3\2\2\2tf\3\2\2\2ti\3\2\2\2tl\3\2\2\2to\3\2\2\2tr\3"+
+		"\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\21\3\2\2\2xv\3\2\2\2yz\b\n\1\2z"+
+		"\u0084\7\"\2\2{\u0084\7!\2\2|}\7\22\2\2}~\5\22\n\2~\177\7\23\2\2\177\u0084"+
+		"\3\2\2\2\u0080\u0084\5\24\13\2\u0081\u0082\7\20\2\2\u0082\u0084\5\22\n"+
+		"\3\u0083y\3\2\2\2\u0083{\3\2\2\2\u0083|\3\2\2\2\u0083\u0080\3\2\2\2\u0083"+
+		"\u0081\3\2\2\2\u0084\u008d\3\2\2\2\u0085\u0086\f\6\2\2\u0086\u0087\7\16"+
+		"\2\2\u0087\u008c\5\22\n\7\u0088\u0089\f\5\2\2\u0089\u008a\7\17\2\2\u008a"+
+		"\u008c\5\22\n\6\u008b\u0085\3\2\2\2\u008b\u0088\3\2\2\2\u008c\u008f\3"+
+		"\2\2\2\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\23\3\2\2\2\u008f"+
+		"\u008d\3\2\2\2\u0090\u0091\5\20\t\2\u0091\u0092\7\t\2\2\u0092\u0093\5"+
+		"\20\t\2\u0093\u00a5\3\2\2\2\u0094\u0095\5\20\t\2\u0095\u0096\7\13\2\2"+
+		"\u0096\u0097\5\20\t\2\u0097\u00a5\3\2\2\2\u0098\u0099\5\20\t\2\u0099\u009a"+
+		"\7\n\2\2\u009a\u009b\5\20\t\2\u009b\u00a5\3\2\2\2\u009c\u009d\5\20\t\2"+
+		"\u009d\u009e\7\f\2\2\u009e\u009f\5\20\t\2\u009f\u00a5\3\2\2\2\u00a0\u00a1"+
+		"\5\20\t\2\u00a1\u00a2\7\r\2\2\u00a2\u00a3\5\20\t\2\u00a3\u00a5\3\2\2\2"+
+		"\u00a4\u0090\3\2\2\2\u00a4\u0094\3\2\2\2\u00a4\u0098\3\2\2\2\u00a4\u009c"+
+		"\3\2\2\2\u00a4\u00a0\3\2\2\2\u00a5\25\3\2\2\2\17\31)\64?PXatv\u0083\u008b"+
+		"\u008d\u00a4";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

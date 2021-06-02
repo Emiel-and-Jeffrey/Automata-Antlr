@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -64,30 +64,6 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConditionalExpressionElseIf(AutomataParser.ConditionalExpressionElseIfContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConditionalExpressionElse(AutomataParser.ConditionalExpressionElseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -148,13 +124,25 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable_assignment(AutomataParser.Variable_assignmentContext ctx) { }
+	@Override public void enterVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable_assignment(AutomataParser.Variable_assignmentContext ctx) { }
+	@Override public void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -328,6 +316,18 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -383,6 +383,18 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
