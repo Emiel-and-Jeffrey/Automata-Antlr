@@ -1,5 +1,6 @@
 package com.ap.automata.SymbolTable;
 
+import com.ap.automata.SymbolTable.value.VariableType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
