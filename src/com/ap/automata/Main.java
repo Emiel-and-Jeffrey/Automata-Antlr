@@ -8,6 +8,8 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -30,6 +32,9 @@ public class Main {
         ParseTreeWalker walker = new ParseTreeWalker();
         SymbolTable table = new SymbolTable();
 
+        AutomataParserVisitor visitor = new AutomataParserVisitor();
+        visitor.visit(tree);
+
         AutomataParserListener listener = new AutomataParserListener(table);
         walker.walk(listener, tree);
 
@@ -48,5 +53,13 @@ public class Main {
             System.out.printf("%22s: %10s%n", msg[i], vals[i]);
         }
         System.out.println("------------------------------------------------------");
+
+        List<Double> list = new ArrayList<>();
+        test(list);
+    }
+
+    public static void test(List<? extends Number> test)
+    {
+
     }
 }
