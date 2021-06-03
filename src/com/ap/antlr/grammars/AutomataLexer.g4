@@ -5,7 +5,6 @@ ADD: '+';
 TIMES: '*';
 DIVISION: '/';
 MINUS: '-';
-FACTORIAL: '!';
 POWER: '^';
 
 // logical operators:
@@ -16,7 +15,6 @@ LESS_THAN_OR_EQUAL: '<=' ;
 EQUAL_TO: '==';
 AND: '&&';
 OR: '||';
-NEGATION: '!';
 
 //assignment operator:
 EQUALS: '=';
@@ -26,6 +24,7 @@ LEFT_PARENTHESIS: '(';
 RIGHT_PARENTHESIS: ')';
 DOT: '.';
 SEMICOLON: ';';
+EXLAMATION_MARK: '!';
 
 //types (lowercase is convention):
 VARIABLE_TYPE_NUMBER: 'number';

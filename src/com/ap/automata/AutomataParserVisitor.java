@@ -32,7 +32,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx) {
         boolean condition = visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue();
 
-        if(condition) {
+        if (condition) {
             visitChildren(ctx);
         }
 
@@ -41,7 +41,15 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx) {
-        return super.visitConditional_loop_expression(ctx);
+
+        while (visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue()) {
+
+            for (var statement : ctx.statement()) {
+                visit(statement);
+            }
+        }
+
+        return new VoidValue();
     }
 
     @Override
@@ -143,7 +151,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     @Override
     public Value visitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) {
         Boolean value = Boolean.valueOf(ctx.BOOLEAN().getText());
-        return  new BooleanValue(value);
+        return new BooleanValue(value);
     }
 
     @Override
@@ -162,27 +170,27 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx) {
-        return super.visitComparisionExpressionGreaterThan(ctx);
+    public Value visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) {
+        return super.visitComparisonExpressionGreaterThan(ctx);
     }
 
     @Override
-    public Value visitComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx) {
-        return super.visitComparisionExpressionGreaterThanOrEqual(ctx);
+    public Value visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) {
+        return super.visitComparisonExpressionGreaterThanOrEqual(ctx);
     }
 
     @Override
-    public Value visitComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx) {
-        return super.visitComparisionExpressionLessThan(ctx);
+    public Value visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) {
+        return super.visitComparisonExpressionLessThan(ctx);
     }
 
     @Override
-    public Value visitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx) {
-        return super.visitComparisionExpressionLessThanOrEqual(ctx);
+    public Value visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) {
+        return super.visitComparisonExpressionLessThanOrEqual(ctx);
     }
 
     @Override
-    public Value visitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx) {
+    public Value visitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) {
         Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
         Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
 

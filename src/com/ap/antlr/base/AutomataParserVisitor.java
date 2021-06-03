@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -77,12 +77,12 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code VariableBooleanAssignmetn}
+	 * Visit a parse tree produced by the {@code VariableBooleanAssignment}
 	 * labeled alternative in {@link AutomataParser#variable_assignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx);
+	T visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionSum}
 	 * labeled alternative in {@link AutomataParser#numeric_expression}.
@@ -196,38 +196,38 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ComparisionExpressionGreaterThan}
-	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThan}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx);
+	T visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ComparisionExpressionGreaterThanOrEqual}
-	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx);
+	T visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ComparisionExpressionLessThan}
-	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThan}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx);
+	T visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ComparisionExpressionLessThanOrEqual}
-	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx);
+	T visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ComparisionExpressionEqualTo}
-	 * labeled alternative in {@link AutomataParser#comparision_expression}.
+	 * Visit a parse tree produced by the {@code ComparisonExpressionEqualTo}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx);
+	T visitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx);
 }

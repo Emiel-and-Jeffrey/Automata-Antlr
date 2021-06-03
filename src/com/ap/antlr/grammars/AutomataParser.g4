@@ -34,7 +34,7 @@ numeric_expression
     : IDENTIFIER                                                    # MathExpressionVariable // Variable
 	| NUMBER                                                        # MathExpressionBasicNumber // Number
 	| LEFT_PARENTHESIS numeric_expression RIGHT_PARENTHESIS         # MathExpressionParentheses // Parenthesis
-	| numeric_expression FACTORIAL                                  # MathExpressionFactorial // Factorial
+	| numeric_expression EXLAMATION_MARK                            # MathExpressionFactorial // Factorial
 	| numeric_expression POWER numeric_expression                   # MathExpressionPower // Power
 	| numeric_expression TIMES numeric_expression                   # MathExpressionTimes // Times
     | numeric_expression DIVISION numeric_expression                # MathExpressionDivision // Division
@@ -47,13 +47,13 @@ logical_expression
 	| LEFT_PARENTHESIS logical_expression RIGHT_PARENTHESIS         # LogicalExpressionParentheses
 	| logical_expression AND logical_expression                     # LogicalExpressionAnd
 	| logical_expression OR logical_expression                      # LogicalExpressionOr
-	| comparision_expression                                        # LogicalExpressionComparison
-	| NEGATION logical_expression                                   # LogicalExpressionNegation;
+	| comparison_expression                                         # LogicalExpressionComparison
+	| EXLAMATION_MARK logical_expression                            # LogicalExpressionNegation;
 
-comparision_expression
-    : numeric_expression GREATER_THAN numeric_expression            # ComparisionExpressionGreaterThan
-    | numeric_expression GREATER_THAN_OR_EQUAL numeric_expression   # ComparisionExpressionGreaterThanOrEqual
-    | numeric_expression LESS_THAN numeric_expression               # ComparisionExpressionLessThan
-    | numeric_expression LESS_THAN_OR_EQUAL numeric_expression      # ComparisionExpressionLessThanOrEqual
-    | numeric_expression EQUAL_TO numeric_expression                # ComparisionExpressionEqualTo;
+comparison_expression
+    : numeric_expression GREATER_THAN numeric_expression            # ComparisonExpressionGreaterThan
+    | numeric_expression GREATER_THAN_OR_EQUAL numeric_expression   # ComparisonExpressionGreaterThanOrEqual
+    | numeric_expression LESS_THAN numeric_expression               # ComparisonExpressionLessThan
+    | numeric_expression LESS_THAN_OR_EQUAL numeric_expression      # ComparisonExpressionLessThanOrEqual
+    | numeric_expression EQUAL_TO numeric_expression                # ComparisonExpressionEqualTo;
 

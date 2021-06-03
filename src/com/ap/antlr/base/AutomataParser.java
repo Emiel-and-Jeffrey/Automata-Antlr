@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -17,42 +17,42 @@ public class AutomataParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		ADD=1, TIMES=2, DIVISION=3, MINUS=4, FACTORIAL=5, POWER=6, GREATER_THAN=7, 
-		LESS_THAN=8, GREATER_THAN_OR_EQUAL=9, LESS_THAN_OR_EQUAL=10, EQUAL_TO=11, 
-		AND=12, OR=13, NEGATION=14, EQUALS=15, LEFT_PARENTHESIS=16, RIGHT_PARENTHESIS=17, 
-		DOT=18, SEMICOLON=19, VARIABLE_TYPE_NUMBER=20, VARIABLE_TYPE_BOOLEAN=21, 
-		VARIABLE_TYPE_STRING=22, PRINT=23, IF=24, THEN=25, FI=26, ELSE=27, WHILE=28, 
-		ELIHW=29, NUMBER=30, BOOLEAN=31, IDENTIFIER=32, WS=33;
+		ADD=1, TIMES=2, DIVISION=3, MINUS=4, POWER=5, GREATER_THAN=6, LESS_THAN=7, 
+		GREATER_THAN_OR_EQUAL=8, LESS_THAN_OR_EQUAL=9, EQUAL_TO=10, AND=11, OR=12, 
+		EQUALS=13, LEFT_PARENTHESIS=14, RIGHT_PARENTHESIS=15, DOT=16, SEMICOLON=17, 
+		EXLAMATION_MARK=18, VARIABLE_TYPE_NUMBER=19, VARIABLE_TYPE_BOOLEAN=20, 
+		VARIABLE_TYPE_STRING=21, PRINT=22, IF=23, THEN=24, FI=25, ELSE=26, WHILE=27, 
+		ELIHW=28, NUMBER=29, BOOLEAN=30, IDENTIFIER=31, WS=32;
 	public static final int
 		RULE_program = 0, RULE_statement = 1, RULE_print_expression = 2, RULE_conditional_expression = 3, 
 		RULE_conditional_loop_expression = 4, RULE_variable_declaration = 5, RULE_variable_assignment = 6, 
-		RULE_numeric_expression = 7, RULE_logical_expression = 8, RULE_comparision_expression = 9;
+		RULE_numeric_expression = 7, RULE_logical_expression = 8, RULE_comparison_expression = 9;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "statement", "print_expression", "conditional_expression", 
 			"conditional_loop_expression", "variable_declaration", "variable_assignment", 
-			"numeric_expression", "logical_expression", "comparision_expression"
+			"numeric_expression", "logical_expression", "comparison_expression"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'+'", "'*'", "'/'", "'-'", null, "'^'", "'>'", "'<'", "'>='", 
-			"'<='", "'=='", "'&&'", "'||'", null, "'='", "'('", "')'", "'.'", "';'", 
-			"'number'", "'bool'", "'string'", "'Print'", "'if'", "'then'", "'fi'", 
-			"'else'", "'while'", "'elihw'"
+			null, "'+'", "'*'", "'/'", "'-'", "'^'", "'>'", "'<'", "'>='", "'<='", 
+			"'=='", "'&&'", "'||'", "'='", "'('", "')'", "'.'", "';'", "'!'", "'number'", 
+			"'bool'", "'string'", "'Print'", "'if'", "'then'", "'fi'", "'else'", 
+			"'while'", "'elihw'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "ADD", "TIMES", "DIVISION", "MINUS", "FACTORIAL", "POWER", "GREATER_THAN", 
-			"LESS_THAN", "GREATER_THAN_OR_EQUAL", "LESS_THAN_OR_EQUAL", "EQUAL_TO", 
-			"AND", "OR", "NEGATION", "EQUALS", "LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", 
-			"DOT", "SEMICOLON", "VARIABLE_TYPE_NUMBER", "VARIABLE_TYPE_BOOLEAN", 
-			"VARIABLE_TYPE_STRING", "PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", 
-			"ELIHW", "NUMBER", "BOOLEAN", "IDENTIFIER", "WS"
+			null, "ADD", "TIMES", "DIVISION", "MINUS", "POWER", "GREATER_THAN", "LESS_THAN", 
+			"GREATER_THAN_OR_EQUAL", "LESS_THAN_OR_EQUAL", "EQUAL_TO", "AND", "OR", 
+			"EQUALS", "LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "DOT", "SEMICOLON", 
+			"EXLAMATION_MARK", "VARIABLE_TYPE_NUMBER", "VARIABLE_TYPE_BOOLEAN", "VARIABLE_TYPE_STRING", 
+			"PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", "ELIHW", "NUMBER", "BOOLEAN", 
+			"IDENTIFIER", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -644,24 +644,24 @@ public class AutomataParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class VariableBooleanAssignmetnContext extends Variable_assignmentContext {
+	public static class VariableBooleanAssignmentContext extends Variable_assignmentContext {
 		public TerminalNode IDENTIFIER() { return getToken(AutomataParser.IDENTIFIER, 0); }
 		public TerminalNode EQUALS() { return getToken(AutomataParser.EQUALS, 0); }
 		public Logical_expressionContext logical_expression() {
 			return getRuleContext(Logical_expressionContext.class,0);
 		}
-		public VariableBooleanAssignmetnContext(Variable_assignmentContext ctx) { copyFrom(ctx); }
+		public VariableBooleanAssignmentContext(Variable_assignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterVariableBooleanAssignmetn(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterVariableBooleanAssignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitVariableBooleanAssignmetn(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitVariableBooleanAssignment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitVariableBooleanAssignmetn(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitVariableBooleanAssignment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -707,7 +707,7 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case 2:
-				_localctx = new VariableBooleanAssignmetnContext(_localctx);
+				_localctx = new VariableBooleanAssignmentContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(83);
@@ -832,7 +832,7 @@ public class AutomataParser extends Parser {
 		public Numeric_expressionContext numeric_expression() {
 			return getRuleContext(Numeric_expressionContext.class,0);
 		}
-		public TerminalNode FACTORIAL() { return getToken(AutomataParser.FACTORIAL, 0); }
+		public TerminalNode EXLAMATION_MARK() { return getToken(AutomataParser.EXLAMATION_MARK, 0); }
 		public MathExpressionFactorialContext(Numeric_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -1065,7 +1065,7 @@ public class AutomataParser extends Parser {
 						setState(112);
 						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
 						setState(113);
-						match(FACTORIAL);
+						match(EXLAMATION_MARK);
 						}
 						break;
 					}
@@ -1121,8 +1121,8 @@ public class AutomataParser extends Parser {
 		}
 	}
 	public static class LogicalExpressionComparisonContext extends Logical_expressionContext {
-		public Comparision_expressionContext comparision_expression() {
-			return getRuleContext(Comparision_expressionContext.class,0);
+		public Comparison_expressionContext comparison_expression() {
+			return getRuleContext(Comparison_expressionContext.class,0);
 		}
 		public LogicalExpressionComparisonContext(Logical_expressionContext ctx) { copyFrom(ctx); }
 		@Override
@@ -1180,7 +1180,7 @@ public class AutomataParser extends Parser {
 		}
 	}
 	public static class LogicalExpressionNegationContext extends Logical_expressionContext {
-		public TerminalNode NEGATION() { return getToken(AutomataParser.NEGATION, 0); }
+		public TerminalNode EXLAMATION_MARK() { return getToken(AutomataParser.EXLAMATION_MARK, 0); }
 		public Logical_expressionContext logical_expression() {
 			return getRuleContext(Logical_expressionContext.class,0);
 		}
@@ -1296,7 +1296,7 @@ public class AutomataParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(126);
-				comparision_expression();
+				comparison_expression();
 				}
 				break;
 			case 5:
@@ -1305,7 +1305,7 @@ public class AutomataParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(127);
-				match(NEGATION);
+				match(EXLAMATION_MARK);
 				setState(128);
 				logical_expression(1);
 				}
@@ -1367,18 +1367,18 @@ public class AutomataParser extends Parser {
 		return _localctx;
 	}
 
-	public static class Comparision_expressionContext extends ParserRuleContext {
-		public Comparision_expressionContext(ParserRuleContext parent, int invokingState) {
+	public static class Comparison_expressionContext extends ParserRuleContext {
+		public Comparison_expressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_comparision_expression; }
+		@Override public int getRuleIndex() { return RULE_comparison_expression; }
 	 
-		public Comparision_expressionContext() { }
-		public void copyFrom(Comparision_expressionContext ctx) {
+		public Comparison_expressionContext() { }
+		public void copyFrom(Comparison_expressionContext ctx) {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class ComparisionExpressionGreaterThanContext extends Comparision_expressionContext {
+	public static class ComparisonExpressionGreaterThanContext extends Comparison_expressionContext {
 		public List<Numeric_expressionContext> numeric_expression() {
 			return getRuleContexts(Numeric_expressionContext.class);
 		}
@@ -1386,45 +1386,22 @@ public class AutomataParser extends Parser {
 			return getRuleContext(Numeric_expressionContext.class,i);
 		}
 		public TerminalNode GREATER_THAN() { return getToken(AutomataParser.GREATER_THAN, 0); }
-		public ComparisionExpressionGreaterThanContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
+		public ComparisonExpressionGreaterThanContext(Comparison_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionGreaterThan(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisonExpressionGreaterThan(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionGreaterThan(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisonExpressionGreaterThan(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionGreaterThan(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisonExpressionGreaterThan(this);
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ComparisionExpressionGreaterThanOrEqualContext extends Comparision_expressionContext {
-		public List<Numeric_expressionContext> numeric_expression() {
-			return getRuleContexts(Numeric_expressionContext.class);
-		}
-		public Numeric_expressionContext numeric_expression(int i) {
-			return getRuleContext(Numeric_expressionContext.class,i);
-		}
-		public TerminalNode GREATER_THAN_OR_EQUAL() { return getToken(AutomataParser.GREATER_THAN_OR_EQUAL, 0); }
-		public ComparisionExpressionGreaterThanOrEqualContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionGreaterThanOrEqual(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionGreaterThanOrEqual(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionGreaterThanOrEqual(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class ComparisionExpressionLessThanContext extends Comparision_expressionContext {
+	public static class ComparisonExpressionLessThanContext extends Comparison_expressionContext {
 		public List<Numeric_expressionContext> numeric_expression() {
 			return getRuleContexts(Numeric_expressionContext.class);
 		}
@@ -1432,22 +1409,22 @@ public class AutomataParser extends Parser {
 			return getRuleContext(Numeric_expressionContext.class,i);
 		}
 		public TerminalNode LESS_THAN() { return getToken(AutomataParser.LESS_THAN, 0); }
-		public ComparisionExpressionLessThanContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
+		public ComparisonExpressionLessThanContext(Comparison_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionLessThan(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisonExpressionLessThan(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionLessThan(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisonExpressionLessThan(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionLessThan(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisonExpressionLessThan(this);
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ComparisionExpressionLessThanOrEqualContext extends Comparision_expressionContext {
+	public static class ComparisonExpressionLessThanOrEqualContext extends Comparison_expressionContext {
 		public List<Numeric_expressionContext> numeric_expression() {
 			return getRuleContexts(Numeric_expressionContext.class);
 		}
@@ -1455,22 +1432,22 @@ public class AutomataParser extends Parser {
 			return getRuleContext(Numeric_expressionContext.class,i);
 		}
 		public TerminalNode LESS_THAN_OR_EQUAL() { return getToken(AutomataParser.LESS_THAN_OR_EQUAL, 0); }
-		public ComparisionExpressionLessThanOrEqualContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
+		public ComparisonExpressionLessThanOrEqualContext(Comparison_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionLessThanOrEqual(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisonExpressionLessThanOrEqual(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionLessThanOrEqual(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisonExpressionLessThanOrEqual(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionLessThanOrEqual(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisonExpressionLessThanOrEqual(this);
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ComparisionExpressionEqualToContext extends Comparision_expressionContext {
+	public static class ComparisonExpressionEqualToContext extends Comparison_expressionContext {
 		public List<Numeric_expressionContext> numeric_expression() {
 			return getRuleContexts(Numeric_expressionContext.class);
 		}
@@ -1478,31 +1455,54 @@ public class AutomataParser extends Parser {
 			return getRuleContext(Numeric_expressionContext.class,i);
 		}
 		public TerminalNode EQUAL_TO() { return getToken(AutomataParser.EQUAL_TO, 0); }
-		public ComparisionExpressionEqualToContext(Comparision_expressionContext ctx) { copyFrom(ctx); }
+		public ComparisonExpressionEqualToContext(Comparison_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisionExpressionEqualTo(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisonExpressionEqualTo(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisionExpressionEqualTo(this);
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisonExpressionEqualTo(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisionExpressionEqualTo(this);
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisonExpressionEqualTo(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class ComparisonExpressionGreaterThanOrEqualContext extends Comparison_expressionContext {
+		public List<Numeric_expressionContext> numeric_expression() {
+			return getRuleContexts(Numeric_expressionContext.class);
+		}
+		public Numeric_expressionContext numeric_expression(int i) {
+			return getRuleContext(Numeric_expressionContext.class,i);
+		}
+		public TerminalNode GREATER_THAN_OR_EQUAL() { return getToken(AutomataParser.GREATER_THAN_OR_EQUAL, 0); }
+		public ComparisonExpressionGreaterThanOrEqualContext(Comparison_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).enterComparisonExpressionGreaterThanOrEqual(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AutomataParserListener ) ((AutomataParserListener)listener).exitComparisonExpressionGreaterThanOrEqual(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AutomataParserVisitor ) return ((AutomataParserVisitor<? extends T>)visitor).visitComparisonExpressionGreaterThanOrEqual(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final Comparision_expressionContext comparision_expression() throws RecognitionException {
-		Comparision_expressionContext _localctx = new Comparision_expressionContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_comparision_expression);
+	public final Comparison_expressionContext comparison_expression() throws RecognitionException {
+		Comparison_expressionContext _localctx = new Comparison_expressionContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_comparison_expression);
 		try {
 			setState(162);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
-				_localctx = new ComparisionExpressionGreaterThanContext(_localctx);
+				_localctx = new ComparisonExpressionGreaterThanContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(142);
@@ -1514,7 +1514,7 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case 2:
-				_localctx = new ComparisionExpressionGreaterThanOrEqualContext(_localctx);
+				_localctx = new ComparisonExpressionGreaterThanOrEqualContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(146);
@@ -1526,7 +1526,7 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case 3:
-				_localctx = new ComparisionExpressionLessThanContext(_localctx);
+				_localctx = new ComparisonExpressionLessThanContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(150);
@@ -1538,7 +1538,7 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case 4:
-				_localctx = new ComparisionExpressionLessThanOrEqualContext(_localctx);
+				_localctx = new ComparisonExpressionLessThanOrEqualContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(154);
@@ -1550,7 +1550,7 @@ public class AutomataParser extends Parser {
 				}
 				break;
 			case 5:
-				_localctx = new ComparisionExpressionEqualToContext(_localctx);
+				_localctx = new ComparisonExpressionEqualToContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(158);
@@ -1611,7 +1611,7 @@ public class AutomataParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u00a7\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u00a7\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\3\2\7\2\30\n\2\f\2\16\2\33\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\5\3*\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\7\5\63\n\5\f\5"+
@@ -1627,38 +1627,38 @@ public class AutomataParser extends Parser {
 		"\2\fP\3\2\2\2\16X\3\2\2\2\20a\3\2\2\2\22\u0083\3\2\2\2\24\u00a4\3\2\2"+
 		"\2\26\30\5\4\3\2\27\26\3\2\2\2\30\33\3\2\2\2\31\27\3\2\2\2\31\32\3\2\2"+
 		"\2\32\34\3\2\2\2\33\31\3\2\2\2\34\35\7\2\2\3\35\3\3\2\2\2\36\37\5\6\4"+
-		"\2\37 \7\25\2\2 *\3\2\2\2!*\5\b\5\2\"*\5\n\6\2#$\5\f\7\2$%\7\25\2\2%*"+
-		"\3\2\2\2&\'\5\16\b\2\'(\7\25\2\2(*\3\2\2\2)\36\3\2\2\2)!\3\2\2\2)\"\3"+
-		"\2\2\2)#\3\2\2\2)&\3\2\2\2*\5\3\2\2\2+,\7\31\2\2,-\5\20\t\2-\7\3\2\2\2"+
-		"./\7\32\2\2/\60\5\22\n\2\60\64\7\33\2\2\61\63\5\4\3\2\62\61\3\2\2\2\63"+
+		"\2\37 \7\23\2\2 *\3\2\2\2!*\5\b\5\2\"*\5\n\6\2#$\5\f\7\2$%\7\23\2\2%*"+
+		"\3\2\2\2&\'\5\16\b\2\'(\7\23\2\2(*\3\2\2\2)\36\3\2\2\2)!\3\2\2\2)\"\3"+
+		"\2\2\2)#\3\2\2\2)&\3\2\2\2*\5\3\2\2\2+,\7\30\2\2,-\5\20\t\2-\7\3\2\2\2"+
+		"./\7\31\2\2/\60\5\22\n\2\60\64\7\32\2\2\61\63\5\4\3\2\62\61\3\2\2\2\63"+
 		"\66\3\2\2\2\64\62\3\2\2\2\64\65\3\2\2\2\65\67\3\2\2\2\66\64\3\2\2\2\67"+
-		"8\7\34\2\28\t\3\2\2\29:\7\36\2\2:;\5\22\n\2;?\7\33\2\2<>\5\4\3\2=<\3\2"+
-		"\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@B\3\2\2\2A?\3\2\2\2BC\7\37\2\2C\13"+
-		"\3\2\2\2DE\7\26\2\2EQ\7\"\2\2FG\7\26\2\2GH\7\"\2\2HI\7\21\2\2IQ\5\20\t"+
-		"\2JK\7\27\2\2KQ\7\"\2\2LM\7\27\2\2MN\7\"\2\2NO\7\21\2\2OQ\5\22\n\2PD\3"+
-		"\2\2\2PF\3\2\2\2PJ\3\2\2\2PL\3\2\2\2Q\r\3\2\2\2RS\7\"\2\2ST\7\21\2\2T"+
-		"Y\5\20\t\2UV\7\"\2\2VW\7\21\2\2WY\5\22\n\2XR\3\2\2\2XU\3\2\2\2Y\17\3\2"+
-		"\2\2Z[\b\t\1\2[b\7\"\2\2\\b\7 \2\2]^\7\22\2\2^_\5\20\t\2_`\7\23\2\2`b"+
-		"\3\2\2\2aZ\3\2\2\2a\\\3\2\2\2a]\3\2\2\2bv\3\2\2\2cd\f\7\2\2de\7\b\2\2"+
-		"eu\5\20\t\bfg\f\6\2\2gh\7\4\2\2hu\5\20\t\7ij\f\5\2\2jk\7\5\2\2ku\5\20"+
-		"\t\6lm\f\4\2\2mn\7\3\2\2nu\5\20\t\5op\f\3\2\2pq\7\6\2\2qu\5\20\t\4rs\f"+
-		"\b\2\2su\7\7\2\2tc\3\2\2\2tf\3\2\2\2ti\3\2\2\2tl\3\2\2\2to\3\2\2\2tr\3"+
-		"\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\21\3\2\2\2xv\3\2\2\2yz\b\n\1\2z"+
-		"\u0084\7\"\2\2{\u0084\7!\2\2|}\7\22\2\2}~\5\22\n\2~\177\7\23\2\2\177\u0084"+
-		"\3\2\2\2\u0080\u0084\5\24\13\2\u0081\u0082\7\20\2\2\u0082\u0084\5\22\n"+
-		"\3\u0083y\3\2\2\2\u0083{\3\2\2\2\u0083|\3\2\2\2\u0083\u0080\3\2\2\2\u0083"+
-		"\u0081\3\2\2\2\u0084\u008d\3\2\2\2\u0085\u0086\f\6\2\2\u0086\u0087\7\16"+
-		"\2\2\u0087\u008c\5\22\n\7\u0088\u0089\f\5\2\2\u0089\u008a\7\17\2\2\u008a"+
+		"8\7\33\2\28\t\3\2\2\29:\7\35\2\2:;\5\22\n\2;?\7\32\2\2<>\5\4\3\2=<\3\2"+
+		"\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@B\3\2\2\2A?\3\2\2\2BC\7\36\2\2C\13"+
+		"\3\2\2\2DE\7\25\2\2EQ\7!\2\2FG\7\25\2\2GH\7!\2\2HI\7\17\2\2IQ\5\20\t\2"+
+		"JK\7\26\2\2KQ\7!\2\2LM\7\26\2\2MN\7!\2\2NO\7\17\2\2OQ\5\22\n\2PD\3\2\2"+
+		"\2PF\3\2\2\2PJ\3\2\2\2PL\3\2\2\2Q\r\3\2\2\2RS\7!\2\2ST\7\17\2\2TY\5\20"+
+		"\t\2UV\7!\2\2VW\7\17\2\2WY\5\22\n\2XR\3\2\2\2XU\3\2\2\2Y\17\3\2\2\2Z["+
+		"\b\t\1\2[b\7!\2\2\\b\7\37\2\2]^\7\20\2\2^_\5\20\t\2_`\7\21\2\2`b\3\2\2"+
+		"\2aZ\3\2\2\2a\\\3\2\2\2a]\3\2\2\2bv\3\2\2\2cd\f\7\2\2de\7\7\2\2eu\5\20"+
+		"\t\bfg\f\6\2\2gh\7\4\2\2hu\5\20\t\7ij\f\5\2\2jk\7\5\2\2ku\5\20\t\6lm\f"+
+		"\4\2\2mn\7\3\2\2nu\5\20\t\5op\f\3\2\2pq\7\6\2\2qu\5\20\t\4rs\f\b\2\2s"+
+		"u\7\24\2\2tc\3\2\2\2tf\3\2\2\2ti\3\2\2\2tl\3\2\2\2to\3\2\2\2tr\3\2\2\2"+
+		"ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\21\3\2\2\2xv\3\2\2\2yz\b\n\1\2z\u0084"+
+		"\7!\2\2{\u0084\7 \2\2|}\7\20\2\2}~\5\22\n\2~\177\7\21\2\2\177\u0084\3"+
+		"\2\2\2\u0080\u0084\5\24\13\2\u0081\u0082\7\24\2\2\u0082\u0084\5\22\n\3"+
+		"\u0083y\3\2\2\2\u0083{\3\2\2\2\u0083|\3\2\2\2\u0083\u0080\3\2\2\2\u0083"+
+		"\u0081\3\2\2\2\u0084\u008d\3\2\2\2\u0085\u0086\f\6\2\2\u0086\u0087\7\r"+
+		"\2\2\u0087\u008c\5\22\n\7\u0088\u0089\f\5\2\2\u0089\u008a\7\16\2\2\u008a"+
 		"\u008c\5\22\n\6\u008b\u0085\3\2\2\2\u008b\u0088\3\2\2\2\u008c\u008f\3"+
 		"\2\2\2\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\23\3\2\2\2\u008f"+
-		"\u008d\3\2\2\2\u0090\u0091\5\20\t\2\u0091\u0092\7\t\2\2\u0092\u0093\5"+
-		"\20\t\2\u0093\u00a5\3\2\2\2\u0094\u0095\5\20\t\2\u0095\u0096\7\13\2\2"+
-		"\u0096\u0097\5\20\t\2\u0097\u00a5\3\2\2\2\u0098\u0099\5\20\t\2\u0099\u009a"+
-		"\7\n\2\2\u009a\u009b\5\20\t\2\u009b\u00a5\3\2\2\2\u009c\u009d\5\20\t\2"+
-		"\u009d\u009e\7\f\2\2\u009e\u009f\5\20\t\2\u009f\u00a5\3\2\2\2\u00a0\u00a1"+
-		"\5\20\t\2\u00a1\u00a2\7\r\2\2\u00a2\u00a3\5\20\t\2\u00a3\u00a5\3\2\2\2"+
-		"\u00a4\u0090\3\2\2\2\u00a4\u0094\3\2\2\2\u00a4\u0098\3\2\2\2\u00a4\u009c"+
-		"\3\2\2\2\u00a4\u00a0\3\2\2\2\u00a5\25\3\2\2\2\17\31)\64?PXatv\u0083\u008b"+
+		"\u008d\3\2\2\2\u0090\u0091\5\20\t\2\u0091\u0092\7\b\2\2\u0092\u0093\5"+
+		"\20\t\2\u0093\u00a5\3\2\2\2\u0094\u0095\5\20\t\2\u0095\u0096\7\n\2\2\u0096"+
+		"\u0097\5\20\t\2\u0097\u00a5\3\2\2\2\u0098\u0099\5\20\t\2\u0099\u009a\7"+
+		"\t\2\2\u009a\u009b\5\20\t\2\u009b\u00a5\3\2\2\2\u009c\u009d\5\20\t\2\u009d"+
+		"\u009e\7\13\2\2\u009e\u009f\5\20\t\2\u009f\u00a5\3\2\2\2\u00a0\u00a1\5"+
+		"\20\t\2\u00a1\u00a2\7\f\2\2\u00a2\u00a3\5\20\t\2\u00a3\u00a5\3\2\2\2\u00a4"+
+		"\u0090\3\2\2\2\u00a4\u0094\3\2\2\2\u00a4\u0098\3\2\2\2\u00a4\u009c\3\2"+
+		"\2\2\u00a4\u00a0\3\2\2\2\u00a5\25\3\2\2\2\17\31)\64?PXatv\u0083\u008b"+
 		"\u008d\u00a4";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

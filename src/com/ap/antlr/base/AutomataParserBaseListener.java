@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -136,13 +136,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx) { }
+	@Override public void enterVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableBooleanAssignmetn(AutomataParser.VariableBooleanAssignmetnContext ctx) { }
+	@Override public void exitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -340,61 +340,61 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx) { }
+	@Override public void enterComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisionExpressionGreaterThan(AutomataParser.ComparisionExpressionGreaterThanContext ctx) { }
+	@Override public void exitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx) { }
+	@Override public void enterComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisionExpressionGreaterThanOrEqual(AutomataParser.ComparisionExpressionGreaterThanOrEqualContext ctx) { }
+	@Override public void exitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx) { }
+	@Override public void enterComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisionExpressionLessThan(AutomataParser.ComparisionExpressionLessThanContext ctx) { }
+	@Override public void exitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx) { }
+	@Override public void enterComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisionExpressionLessThanOrEqual(AutomataParser.ComparisionExpressionLessThanOrEqualContext ctx) { }
+	@Override public void exitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx) { }
+	@Override public void enterComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisionExpressionEqualTo(AutomataParser.ComparisionExpressionEqualToContext ctx) { }
+	@Override public void exitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
