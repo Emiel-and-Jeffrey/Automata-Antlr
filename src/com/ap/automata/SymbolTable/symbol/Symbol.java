@@ -1,11 +1,13 @@
-package com.ap.automata.SymbolTable;
+package com.ap.automata.SymbolTable.symbol;
+
+import com.ap.automata.SymbolTable.value.Value;
 
 /**
  * Class that represents a symbol inside of the Symbol Table
  */
-public class NumberSymbol implements ISymbol {
+public class Symbol implements ISymbol {
     private String name;
-    private double value;
+    private Value value;
 
     /**
      * Initialize a symbol with the variable type as an enum
@@ -13,7 +15,7 @@ public class NumberSymbol implements ISymbol {
      * @param name  The name this symbol has
      * @param value The current value this symbol has
      */
-    public NumberSymbol(String name, double value) {
+    public Symbol(String name, Value value) {
         this.name = name;
         this.value = value;
     }
@@ -28,27 +30,18 @@ public class NumberSymbol implements ISymbol {
     }
 
     /**
-     * A method that gets the symbol's type
-     *
-     * @return the symbols type
-     */
-    public VariableType getType() {
-        return VariableType.NUMBER;
-    }
-
-    /**
      * A method that gets the symbol's value
      *
      * @return the symbols value
      */
-    public double getValue() {
+    public Value getValue() {
         return value;
     }
 
     /**
      * A method that sets the symbol's value
      */
-    public void setValue(double value) {
+    public void setValue(Value value) {
         this.value = value;
     }
 }

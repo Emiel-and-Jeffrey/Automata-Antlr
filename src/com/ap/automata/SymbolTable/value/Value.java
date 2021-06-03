@@ -1,4 +1,4 @@
-package com.ap.automata;
+package com.ap.automata.SymbolTable.value;
 
 import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 

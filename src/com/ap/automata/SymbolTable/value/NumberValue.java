@@ -1,10 +1,8 @@
-package com.ap.automata;
-
-import com.ap.automata.SymbolTable.VariableType;
+package com.ap.automata.SymbolTable.value;
 
 public class NumberValue extends Value {
 
-    private final Double value;
+    private Double value;
 
     public NumberValue(Double value) {
         this.value = value;
@@ -12,6 +10,10 @@ public class NumberValue extends Value {
 
     public Double getValue() {
         return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 
     @Override

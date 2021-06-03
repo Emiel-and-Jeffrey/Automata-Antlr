@@ -1,4 +1,4 @@
-package com.ap.automata;
+package com.ap.automata.SymbolTable.value;
 
 public class VoidValue extends Value {
     @Override
