@@ -32,7 +32,7 @@ public class Main {
         ParseTreeWalker walker = new ParseTreeWalker();
         SymbolTable table = new SymbolTable();
 
-        AutomataParserVisitor visitor = new AutomataParserVisitor();
+        AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
         visitor.visit(tree);
 
         AutomataParserListener listener = new AutomataParserListener(table);
@@ -58,8 +58,7 @@ public class Main {
         test(list);
     }
 
-    public static void test(List<? extends Number> test)
-    {
+    public static void test(List<? extends Number> test) {
 
     }
 }

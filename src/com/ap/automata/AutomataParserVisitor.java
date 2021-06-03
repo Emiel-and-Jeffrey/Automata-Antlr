@@ -2,26 +2,30 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseVisitor;
+import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.SymbolTable.symbol.Symbol;
+import com.ap.automata.SymbolTable.value.BooleanValue;
+import com.ap.automata.SymbolTable.value.NumberValue;
+import com.ap.automata.SymbolTable.value.Value;
+import com.ap.automata.SymbolTable.value.VoidValue;
+import org.apache.commons.math3.special.Gamma;
 
 //first we need a value payload type
 //then implement the visitor methods
 
 public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
-    @Override
-    public Value visitProgram(AutomataParser.ProgramContext ctx) {
-        return super.visitProgram(ctx);
-    }
 
-    @Override
-    public Value visitStatement(AutomataParser.StatementContext ctx) {
-        return super.visitStatement(ctx);
+    private final SymbolTable table;
+
+    public AutomataParserVisitor(SymbolTable table) {
+        this.table = table;
     }
 
     @Override
     public Value visitPrint_expression(AutomataParser.Print_expressionContext ctx) {
         Double value = visit(ctx.numeric_expression()).getValueAs(NumberValue.class).getValue();
         System.out.println(value);
-        return null;
+        return new VoidValue();
     }
 
     @Override
@@ -44,33 +48,56 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
                 visit(statement);
             }
         }
-
         return new VoidValue();
     }
 
     @Override
     public Value visitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
-        return super.visitVariableNumericDeclaration(ctx);
+
+        NumberValue value = new NumberValue(0.0);
+        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
+        table.AddSymbol(symbol);
+        return value;
     }
 
     @Override
     public Value visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) {
-        return super.visitVariableNumericInitialization(ctx);
+        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
+        table.AddSymbol(symbol);
+        return symbol.getValue();
     }
 
     @Override
     public Value visitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) {
-        return super.visitVariableBooleanDeclaration(ctx);
+        BooleanValue value = new BooleanValue(Boolean.FALSE);
+        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
+        table.AddSymbol(symbol);
+        return value;
     }
 
     @Override
     public Value visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) {
-        return super.visitVariableBooleanInitialization(ctx);
+        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
+        table.AddSymbol(symbol);
+        return symbol.getValue();
     }
 
     @Override
     public Value visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
-        return super.visitVariableNumericAssignment(ctx);
+        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
+        NumberValue value = symbol.getValue().getValueAs(NumberValue.class);
+        NumberValue newValue = visit(ctx.numeric_expression()).getValueAs(NumberValue.class);
+        value.setValue(newValue.getValue());
+        return value;
+    }
+
+    @Override
+    public Value visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) {
+        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
+        BooleanValue value = symbol.getValue().getValueAs(BooleanValue.class);
+        BooleanValue newValue = visit(ctx.logical_expression()).getValueAs(BooleanValue.class);
+        value.setValue(newValue.getValue());
+        return value;
     }
 
     @Override
@@ -89,7 +116,10 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) {
-        return super.visitMathExpressionTimes(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new NumberValue(value1 * value2);
     }
 
     @Override
@@ -102,46 +132,48 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) {
-        return super.visitMathExpressionFactorial(ctx);
+        Double value = visit(ctx.numeric_expression()).getValueAs(NumberValue.class).getValue();
+
+        Double result = Gamma.gamma(value + 1);
+        return new NumberValue(result);
     }
 
     @Override
     public Value visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
-        //get symbol
-        //get value from symbol table
-        //return value
-
-        return super.visitMathExpressionVariable(ctx);
+        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(NumberValue.class);
     }
 
     @Override
     public Value visitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) {
-        return super.visitMathExpressionParentheses(ctx);
+        return visit(ctx.numeric_expression());
     }
 
     @Override
     public Value visitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) {
-        return super.visitMathExpressionPower(ctx);
+
+        Double value = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double power = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        Double result = Math.pow(value, power);
+        return new NumberValue(result);
     }
 
     @Override
     public Value visitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) {
-        return super.visitMathExpressionDivision(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new NumberValue(value1 / value2);
     }
 
     @Override
     public Value visitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx) {
-        return super.visitLogicalExpressionParentheses(ctx);
+        return visit(ctx.logical_expression());
     }
-
-    @Override
-    public Value visitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx) {
-        return super.visitLogicalExpressionComparison(ctx);
-    }
-
+    
     @Override
     public Value visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) {
-        return super.visitLogicalExpressionVariable(ctx);
+        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(BooleanValue.class);
     }
 
     @Override
@@ -152,37 +184,57 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx) {
-        return super.visitLogicalExpressionAnd(ctx);
+        Boolean leftStatement = visit(ctx.logical_expression(0)).getValueAs(BooleanValue.class).getValue();
+        Boolean rightStatement = visit(ctx.logical_expression(1)).getValueAs(BooleanValue.class).getValue();
+
+        return new BooleanValue(leftStatement && rightStatement);
     }
 
     @Override
     public Value visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx) {
-        return super.visitLogicalExpressionNegation(ctx);
+        Boolean value = visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue();
+
+        return new BooleanValue(!value);
     }
 
     @Override
     public Value visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) {
-        return super.visitLogicalExpressionOr(ctx);
+        Boolean leftStatement = visit(ctx.logical_expression(0)).getValueAs(BooleanValue.class).getValue();
+        Boolean rightStatement = visit(ctx.logical_expression(1)).getValueAs(BooleanValue.class).getValue();
+
+        return new BooleanValue(leftStatement || rightStatement);
     }
 
     @Override
     public Value visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) {
-        return super.visitComparisonExpressionGreaterThan(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new BooleanValue(value1 > value2);
     }
 
     @Override
     public Value visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) {
-        return super.visitComparisonExpressionGreaterThanOrEqual(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new BooleanValue(value1 >= value2);
     }
 
     @Override
     public Value visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) {
-        return super.visitComparisonExpressionLessThan(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new BooleanValue(value1 < value2);
     }
 
     @Override
     public Value visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) {
-        return super.visitComparisonExpressionLessThanOrEqual(ctx);
+        Double value1 = visit(ctx.numeric_expression(0)).getValueAs(NumberValue.class).getValue();
+        Double value2 = visit(ctx.numeric_expression(1)).getValueAs(NumberValue.class).getValue();
+
+        return new BooleanValue(value1 <= value2);
     }
 
     @Override
