@@ -1,9 +1,15 @@
 package com.ap.automata;
 
-import com.ap.automata.SymbolTable.ISymbol;
+import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 
 public abstract class Value {
+
+    protected abstract boolean isOfCorrectType(Class<? extends Value> type);
+
     public <T extends Value> T getValueAs(Class<T> type) {
+        if (!isOfCorrectType(type))
+            throw new TypeMismatchException("Types are not equal");
+
         return type.cast(this);
     }
 }

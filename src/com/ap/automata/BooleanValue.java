@@ -10,4 +10,9 @@ public class BooleanValue extends Value {
     public Boolean getValue() {
         return value;
     }
+
+    @Override
+    protected boolean isOfCorrectType(Class<? extends Value> type) {
+        return type.equals(BooleanValue.class);
+    }
 }
