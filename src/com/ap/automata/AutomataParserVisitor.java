@@ -19,10 +19,6 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitPrint_expression(AutomataParser.Print_expressionContext ctx) {
-        Value test = new BooleanValue(Boolean.TRUE);
-
-        Double test2 = test.getValueAs(NumberValue.class).getValue();
-
         Double value = visit(ctx.numeric_expression()).getValueAs(NumberValue.class).getValue();
         System.out.println(value);
         return null;
