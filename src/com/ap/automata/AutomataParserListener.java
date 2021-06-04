@@ -123,7 +123,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     }
 
     @Override
-    public void exitPrint_expression(AutomataParser.Print_expressionContext ctx) {
+    public void exitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) {
         Double result = stack.pop();
         print(result.toString());
     }

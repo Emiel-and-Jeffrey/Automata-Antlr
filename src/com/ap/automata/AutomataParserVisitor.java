@@ -10,6 +10,8 @@ import com.ap.automata.SymbolTable.value.Value;
 import com.ap.automata.SymbolTable.value.VoidValue;
 import org.apache.commons.math3.special.Gamma;
 
+import java.util.List;
+
 //first we need a value payload type
 //then implement the visitor methods
 
@@ -22,7 +24,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     }
 
     @Override
-    public Value visitPrint_expression(AutomataParser.Print_expressionContext ctx) {
+    public Value visitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) {
         Double value = visit(ctx.numeric_expression()).getValueAs(NumberValue.class).getValue();
         System.out.println(value);
         return new VoidValue();
@@ -30,21 +32,35 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx) {
-        boolean condition = visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue();
 
-        if (condition) {
-            visitChildren(ctx);
+        List<AutomataParser.Logical_expressionContext> conditions = ctx.logical_expression();
+        List<AutomataParser.Statement_blockContext> statements = ctx.statement_block();
+
+        boolean ifStatementEvaluated = false;
+
+        for(int i = 0; i < conditions.size() && !ifStatementEvaluated; i++)
+        {
+            BooleanValue ifStatementEvaluation = visit(conditions.get(i)).getValueAs(BooleanValue.class);
+            ifStatementEvaluated = ifStatementEvaluation.getValue();
+
+            if (ifStatementEvaluated) {
+                visitChildren(statements.get(i));
+            }
+        }
+
+        if (!ifStatementEvaluated && statements.size() == conditions.size() + 1) {
+            visitChildren(statements.get(statements.size() - 1));
         }
 
         return new VoidValue();
     }
 
     @Override
-    public Value visitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx) {
+    public Value visitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) {
 
         while (visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue()) {
 
-            for (var statement : ctx.statement()) {
+            for (var statement : ctx.statement_block().statement()) {
                 visit(statement);
             }
         }

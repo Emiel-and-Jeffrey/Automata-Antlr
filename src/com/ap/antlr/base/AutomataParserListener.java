@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -18,6 +18,16 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitProgram(AutomataParser.ProgramContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AutomataParser#statement_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement_block(AutomataParser.Statement_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AutomataParser#statement_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement_block(AutomataParser.Statement_blockContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AutomataParser#statement}.
 	 * @param ctx the parse tree
 	 */
@@ -28,15 +38,17 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitStatement(AutomataParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AutomataParser#print_expression}.
+	 * Enter a parse tree produced by the {@code PrintExpressionNumeric}
+	 * labeled alternative in {@link AutomataParser#print_expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrint_expression(AutomataParser.Print_expressionContext ctx);
+	void enterPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AutomataParser#print_expression}.
+	 * Exit a parse tree produced by the {@code PrintExpressionNumeric}
+	 * labeled alternative in {@link AutomataParser#print_expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrint_expression(AutomataParser.Print_expressionContext ctx);
+	void exitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ConditionalExpressionIf}
 	 * labeled alternative in {@link AutomataParser#conditional_expression}.
@@ -50,15 +62,17 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
+	 * Enter a parse tree produced by the {@code ConditionalExpressionWhile}
+	 * labeled alternative in {@link AutomataParser#conditional_loop_expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx);
+	void enterConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
+	 * Exit a parse tree produced by the {@code ConditionalExpressionWhile}
+	 * labeled alternative in {@link AutomataParser#conditional_loop_expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx);
+	void exitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code VariableNumericDeclaration}
 	 * labeled alternative in {@link AutomataParser#variable_declaration}.

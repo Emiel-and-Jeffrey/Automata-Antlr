@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -17,17 +17,24 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(AutomataParser.ProgramContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AutomataParser#statement_block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement_block(AutomataParser.Statement_blockContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AutomataParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStatement(AutomataParser.StatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AutomataParser#print_expression}.
+	 * Visit a parse tree produced by the {@code PrintExpressionNumeric}
+	 * labeled alternative in {@link AutomataParser#print_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrint_expression(AutomataParser.Print_expressionContext ctx);
+	T visitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ConditionalExpressionIf}
 	 * labeled alternative in {@link AutomataParser#conditional_expression}.
@@ -36,11 +43,12 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AutomataParser#conditional_loop_expression}.
+	 * Visit a parse tree produced by the {@code ConditionalExpressionWhile}
+	 * labeled alternative in {@link AutomataParser#conditional_loop_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx);
+	T visitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableNumericDeclaration}
 	 * labeled alternative in {@link AutomataParser#variable_declaration}.

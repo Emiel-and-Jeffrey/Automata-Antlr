@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -28,6 +28,18 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatement_block(AutomataParser.Statement_blockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement_block(AutomataParser.Statement_blockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStatement(AutomataParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -40,13 +52,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrint_expression(AutomataParser.Print_expressionContext ctx) { }
+	@Override public void enterPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrint_expression(AutomataParser.Print_expressionContext ctx) { }
+	@Override public void exitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -64,13 +76,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx) { }
+	@Override public void enterConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConditional_loop_expression(AutomataParser.Conditional_loop_expressionContext ctx) { }
+	@Override public void exitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
