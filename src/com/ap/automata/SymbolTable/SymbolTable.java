@@ -2,6 +2,7 @@ package com.ap.automata.SymbolTable;
 
 import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
 import com.ap.automata.SymbolTable.exceptions.VariableAlreadyDefinedException;
+import com.ap.automata.SymbolTable.symbol.ISymbol;
 
 import java.util.HashMap;
 

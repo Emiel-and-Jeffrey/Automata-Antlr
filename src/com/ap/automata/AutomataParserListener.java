@@ -2,11 +2,9 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
-import com.ap.automata.SymbolTable.ISymbol;
-import com.ap.automata.SymbolTable.NumberSymbol;
 import com.ap.automata.SymbolTable.SymbolTable;
-import com.ap.automata.SymbolTable.VariableType;
-import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
+import com.ap.automata.SymbolTable.symbol.Symbol;
+import com.ap.automata.SymbolTable.value.NumberValue;
 import org.apache.commons.math3.special.Gamma;
 
 import java.util.Stack;
@@ -32,8 +30,8 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     @Override
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
-        Double variableValue = 0.0;
-        NumberSymbol symbol = new NumberSymbol(variableName, variableValue);
+        NumberValue value = new NumberValue(0.0);
+        Symbol symbol = new Symbol(variableName, value);
 
         symbolTable.AddSymbol(symbol);
     }
@@ -41,36 +39,29 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     @Override
     public void exitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
-        Double variableValue = stack.pop();
 
-        NumberSymbol symbol = new NumberSymbol(variableName, variableValue);
+        NumberValue value = new NumberValue(stack.pop());
+        Symbol symbol = new Symbol(variableName, value);
 
         symbolTable.AddSymbol(symbol);
     }
 
     @Override
-    public void exitVariable_assignment(AutomataParser.Variable_assignmentContext ctx) {
+    public void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        ISymbol symbol = symbolTable.GetSymbol(variableName);
-        if (symbol.getType() == VariableType.NUMBER) {
-            ((NumberSymbol) symbol).setValue(variableValue);
-        } else {
-            throw new TypeMismatchException("Symbol was not a number");
-        }
+        NumberValue number = symbolTable.GetSymbol(variableName).getValue().getValueAs(NumberValue.class);
+        number.setValue(variableValue);
     }
 
     @Override
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
 
-        ISymbol symbol = symbolTable.GetSymbol(variableName);
-        if (symbol.getType() == VariableType.NUMBER) {
-            stack.push(((NumberSymbol) symbol).getValue());
-        } else {
-            throw new TypeMismatchException("Symbol was not a number");
-        }
+
+        NumberValue number = symbolTable.GetSymbol(variableName).getValue().getValueAs(NumberValue.class);
+        stack.push(number.getValue());
     }
 
     @Override
@@ -132,7 +123,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     }
 
     @Override
-    public void exitPrint_expression(AutomataParser.Print_expressionContext ctx) {
+    public void exitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) {
         Double result = stack.pop();
         print(result.toString());
     }

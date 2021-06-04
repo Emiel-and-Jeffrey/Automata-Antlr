@@ -1,4 +1,4 @@
-package com.ap.automata.SymbolTable;
+package com.ap.automata.SymbolTable.value;
 
 /**
  * A variable type.

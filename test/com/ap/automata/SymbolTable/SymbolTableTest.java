@@ -2,6 +2,8 @@ package com.ap.automata.SymbolTable;
 
 import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
 import com.ap.automata.SymbolTable.exceptions.VariableAlreadyDefinedException;
+import com.ap.automata.SymbolTable.symbol.Symbol;
+import com.ap.automata.SymbolTable.value.NumberValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +21,8 @@ class SymbolTableTest {
 
     @Test
     public void addSymbol() {
-        NumberSymbol symbol = new NumberSymbol("name", 10);
+        NumberValue value = new NumberValue(0.0);
+        Symbol symbol = new Symbol("name", value);
         table.AddSymbol(symbol);
 
         assertEquals(symbol, table.GetSymbol(symbol.getName()));
@@ -27,7 +30,8 @@ class SymbolTableTest {
 
     @Test
     public void addSymbolAlreadyExistingVariable() {
-        StringSymbol symbol = new StringSymbol("name", "10");
+        NumberValue value = new NumberValue(0.0);
+        Symbol symbol = new Symbol("name", value);
         table.AddSymbol(symbol);
 
         Exception exception = assertThrows(VariableAlreadyDefinedException.class, () -> table.AddSymbol(symbol));
