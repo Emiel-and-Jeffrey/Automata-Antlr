@@ -3,6 +3,7 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.SymbolTable.symbol.Symbol;
 import com.ap.automata.SymbolTable.value.NumberValue;
 import org.apache.commons.math3.special.Gamma;
 
@@ -26,7 +27,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         symbolTable = table;
     }
 
-    /*@Override
+    @Override
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         NumberValue value = new NumberValue(0.0);
@@ -43,7 +44,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         Symbol symbol = new Symbol(variableName, value);
 
         symbolTable.AddSymbol(symbol);
-    }*/
+    }
 
     @Override
     public void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
