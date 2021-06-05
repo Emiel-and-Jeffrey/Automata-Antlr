@@ -2,6 +2,8 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataLexer;
 import com.ap.antlr.base.AutomataParser;
+import com.ap.antlr.base.z3SudokuALexer;
+import com.ap.antlr.base.z3SudokuAParser;
 import com.ap.automata.SymbolTable.SymbolTable;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -34,40 +36,57 @@ public class Main {
     }
 
     private static void HandleParsing(CharStream stream) {
-        AutomataLexer lexer = new AutomataLexer(stream);
+
+        z3SudokuALexer lexer = new z3SudokuALexer(stream);
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        AutomataParser parser = new AutomataParser(tokens);
-        ParseTree tree = parser.program();
+        z3SudokuAParser parser = new z3SudokuAParser(tokens);
+
+        ParseTree tree = parser.result();
+
+        z3SudokuAParserListener listener = new z3SudokuAParserListener();
 
         ParseTreeWalker walker = new ParseTreeWalker();
-        SymbolTable table = new SymbolTable();
 
-        AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
-        visitor.visit(tree);
-
-        AutomataParserListener listener = new AutomataParserListener(table);
         walker.walk(listener, tree);
 
-        String tokenString = tokens.getTokens()
-                .stream()
-                .map(token -> token.getText() + " ")
-                .collect(Collectors.joining());
-        String treeString = tree.toStringTree(parser);
-        String result = listener.getOutput();
+        System.out.println(listener.printSudokuGrid());
 
-        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
-        String[] vals = {tokenString, treeString, result};
-
-        System.out.println("------------------------------------------------------");
-        for (int i = 0; i < msg.length; i++) {
-            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
-        }
-        System.out.println("------------------------------------------------------");
-
-        List<Double> list = new ArrayList<>();
-        test(list);
+//        AutomataLexer lexer = new AutomataLexer(stream);
+//
+//        CommonTokenStream tokens = new CommonTokenStream(lexer);
+//
+//        AutomataParser parser = new AutomataParser(tokens);
+//        ParseTree tree = parser.program();
+//
+//        ParseTreeWalker walker = new ParseTreeWalker();
+//        SymbolTable table = new SymbolTable();
+//
+//        AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
+//        visitor.visit(tree);
+//
+//        AutomataParserListener listener = new AutomataParserListener(table);
+//        walker.walk(listener, tree);
+//
+//        String tokenString = tokens.getTokens()
+//                .stream()
+//                .map(token -> token.getText() + " ")
+//                .collect(Collectors.joining());
+//        String treeString = tree.toStringTree(parser);
+//        String result = listener.getOutput();
+//
+//        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
+//        String[] vals = {tokenString, treeString, result};
+//
+//        System.out.println("------------------------------------------------------");
+//        for (int i = 0; i < msg.length; i++) {
+//            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
+//        }
+//        System.out.println("------------------------------------------------------");
+//
+//        List<Double> list = new ArrayList<>();
+//        test(list);
     }
 
     public static void test(List<? extends Number> test) {
