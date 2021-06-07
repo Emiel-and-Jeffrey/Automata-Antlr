@@ -1,0 +1,3 @@
+number a = 100;
+number a = 200;
+// Expected output: VariableAlreadyDefinedException
