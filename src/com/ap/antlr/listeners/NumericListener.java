@@ -1,8 +1,5 @@
 package com.ap.antlr.listeners;
 
-import com.ap.antlr.base.AutomataParser;
-import com.ap.antlr.base.AutomataParserBaseListener;
-
 public class NumericListener extends AutomataParserBaseListener
 {
     /**

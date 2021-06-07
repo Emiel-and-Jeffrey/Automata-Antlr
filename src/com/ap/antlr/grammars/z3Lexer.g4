@@ -1,4 +1,4 @@
-lexer grammar z3SudokuALexer;
+lexer grammar z3Lexer;
 
 SAT: 'sat';
 

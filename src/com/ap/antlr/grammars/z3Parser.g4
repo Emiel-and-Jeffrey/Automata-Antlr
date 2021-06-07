@@ -1,5 +1,5 @@
-parser grammar z3SudokuAParser;
-options { tokenVocab= z3SudokuALexer; }
+parser grammar z3Parser;
+options { tokenVocab= z3Lexer; }
 
 result
     : SAT LPAREN MODEL value+ RPAREN;

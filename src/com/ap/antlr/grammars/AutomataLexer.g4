@@ -48,3 +48,4 @@ BOOLEAN: 'true'|'false';
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
 
 WS: [ \t\r\n]+ -> skip;
+COMMENT : '//' .+? ('\n'|EOF) -> skip ;

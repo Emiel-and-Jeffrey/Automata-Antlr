@@ -1,9 +1,6 @@
 package com.ap.automata;
 
-import com.ap.antlr.base.z3SudokuAParser;
-import com.ap.antlr.base.z3SudokuAParserBaseListener;
-
-public class z3SudokuAParserListener extends z3SudokuAParserBaseListener {
+public class z3ParserListener extends z3SudokuAParserBaseListener {
 
     int[][] sudokuGrid = new int[9][9];
 
