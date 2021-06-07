@@ -1,4 +1,4 @@
-lexer grammar z3Lexer;
+lexer grammar Z3Lexer;
 
 SAT: 'sat';
 

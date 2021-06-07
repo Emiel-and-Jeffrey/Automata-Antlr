@@ -1,5 +1,7 @@
 package com.ap.automata;
 
+import com.ap.antlr.base.AutomataParser;
+import com.ap.antlr.base.AutomataParserBaseListener;
 import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.symbol.Symbol;
 import com.ap.automata.SymbolTable.value.NumberValue;

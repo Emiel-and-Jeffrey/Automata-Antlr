@@ -1,5 +1,7 @@
 package com.ap.automata;
 
+import com.ap.antlr.base.AutomataParser;
+import com.ap.antlr.base.AutomataParserBaseVisitor;
 import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.symbol.Symbol;
 import com.ap.automata.SymbolTable.value.BooleanValue;
@@ -36,8 +38,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
         boolean ifStatementEvaluated = false;
 
-        for(int i = 0; i < conditions.size() && !ifStatementEvaluated; i++)
-        {
+        for (int i = 0; i < conditions.size() && !ifStatementEvaluated; i++) {
             BooleanValue ifStatementEvaluation = visit(conditions.get(i)).getValueAs(BooleanValue.class);
             ifStatementEvaluated = ifStatementEvaluation.getValue();
 
@@ -184,7 +185,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx) {
         return visit(ctx.logical_expression());
     }
-    
+
     @Override
     public Value visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) {
         return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(BooleanValue.class);
