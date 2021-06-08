@@ -22,7 +22,10 @@ EQUALS: '=';
 //reserved characters:
 LEFT_PARENTHESIS: '(';
 RIGHT_PARENTHESIS: ')';
+LEFT_BRACE: '{';
+RIGHT_BRACE: '}';
 DOT: '.';
+COMMA: ',';
 SEMICOLON: ';';
 EXLAMATION_MARK: '!';
 
@@ -30,6 +33,9 @@ EXLAMATION_MARK: '!';
 VARIABLE_TYPE_NUMBER: 'number';
 VARIABLE_TYPE_BOOLEAN: 'bool';
 VARIABLE_TYPE_STRING: 'string';
+
+TYPE_VOID: 'void';
+RETURN: 'return';
 
 //function keywords (capital letter is convention):
 PRINT: 'Print';

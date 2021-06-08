@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -29,6 +29,32 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(AutomataParser.StatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code FunctionDeclaration}
+	 * labeled alternative in {@link AutomataParser#function}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FunctionDeclarationVoid}
+	 * labeled alternative in {@link AutomataParser#function}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AutomataParser#parameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameter(AutomataParser.ParameterContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AutomataParser#function_return_types}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunction_return_types(AutomataParser.Function_return_typesContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code PrintExpressionNumeric}
 	 * labeled alternative in {@link AutomataParser#print_expression}.
 	 * @param ctx the parse tree
@@ -49,6 +75,90 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionParentheses}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionComparison}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionVariable}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionAnd}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionNegation}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionBoolean}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionOr}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThan}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThan}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThanOrEqual}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpressionEqualTo}
+	 * labeled alternative in {@link AutomataParser#comparison_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableNumericDeclaration}
 	 * labeled alternative in {@link AutomataParser#variable_declaration}.
@@ -154,88 +264,4 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionParentheses}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionComparison}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionVariable}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionAnd}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionNegation}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionBoolean}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code LogicalExpressionOr}
-	 * labeled alternative in {@link AutomataParser#logical_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThan}
-	 * labeled alternative in {@link AutomataParser#comparison_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ComparisonExpressionGreaterThanOrEqual}
-	 * labeled alternative in {@link AutomataParser#comparison_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThan}
-	 * labeled alternative in {@link AutomataParser#comparison_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ComparisonExpressionLessThanOrEqual}
-	 * labeled alternative in {@link AutomataParser#comparison_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ComparisonExpressionEqualTo}
-	 * labeled alternative in {@link AutomataParser#comparison_expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx);
 }
