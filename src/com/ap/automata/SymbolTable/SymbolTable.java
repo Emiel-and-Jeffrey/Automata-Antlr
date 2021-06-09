@@ -33,7 +33,7 @@ public class SymbolTable implements ISymbol {
      *
      * @param name the name you want the symbol for
      */
-    public <T extends ISymbol> T GetSymbol(String name, Class<T> type) throws UnknownVariableException {
+    public <T extends ISymbol> T getSymbol(String name, Class<T> type) throws UnknownVariableException {
         if (!table.containsKey(name)) {
             throw new UnknownVariableException(String.format("%s has not been defined", name));
         }

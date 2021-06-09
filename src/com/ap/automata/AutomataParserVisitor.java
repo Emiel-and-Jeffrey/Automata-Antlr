@@ -3,6 +3,7 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseVisitor;
 import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
 import com.ap.automata.SymbolTable.symbol.Function;
 import com.ap.automata.SymbolTable.symbol.Variable;
 import com.ap.automata.SymbolTable.value.BooleanValue;
@@ -12,16 +13,33 @@ import com.ap.automata.SymbolTable.value.VoidValue;
 import org.apache.commons.math3.special.Gamma;
 
 import java.util.List;
+import java.util.Stack;
 
 //first we need a value payload type
 //then implement the visitor methods
 
 public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
-    private final SymbolTable table;
+    private final SymbolTable globalTable;
+
+    private final Stack<SymbolTable> scopedTable;
 
     public AutomataParserVisitor(SymbolTable table) {
-        this.table = table;
+        this.globalTable = table;
+        this.scopedTable = new Stack<>();
+        scopedTable.push(globalTable); //just in case
+    }
+
+    private Value getValueFromTables(String symbol) {
+        Value value;
+        try {
+            value = scopedTable.peek().getSymbol(symbol, Variable.class).getValue();
+        }
+        catch (UnknownVariableException e) {
+            value = globalTable.getSymbol(symbol, Variable.class).getValue();
+        }
+
+        return value;
     }
 
     @Override
@@ -59,14 +77,14 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx) {
 
         Function function = new Function(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
-        table.AddSymbol(function);
+        globalTable.AddSymbol(function);
         return new VoidValue();
     }
 
     @Override
     public Value visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx) {
         Function function = new Function(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
-        table.AddSymbol(function);
+        globalTable.AddSymbol(function);
         return new VoidValue();
     }
 
@@ -84,7 +102,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     @Override
     public Value visitFunction_call(AutomataParser.Function_callContext ctx) {
 
-        var function = table.GetSymbol(ctx.IDENTIFIER().getText(), Function.class);
+        var function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Function.class);
         for (var statement : function.Run(new Value[0])) {
             visit(statement);
         }
@@ -109,14 +127,14 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
         NumberValue value = new NumberValue(0.0);
         Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(variable);
+        globalTable.AddSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) {
         Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
-        table.AddSymbol(variable);
+        globalTable.AddSymbol(variable);
         return variable.getValue();
     }
 
@@ -124,20 +142,20 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) {
         BooleanValue value = new BooleanValue(Boolean.FALSE);
         Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(variable);
+        globalTable.AddSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) {
         Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
-        table.AddSymbol(variable);
+        globalTable.AddSymbol(variable);
         return variable.getValue();
     }
 
     @Override
     public Value visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
-        Variable variable = table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class);
+        Variable variable = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Variable.class);
         NumberValue newValue = visit(ctx.numeric_expression()).getValueAs(NumberValue.class);
         variable.setValue(newValue);
         return newValue;
@@ -145,7 +163,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) {
-        Variable variable = table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class);
+        Variable variable = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Variable.class);
         BooleanValue newValue = visit(ctx.logical_expression()).getValueAs(BooleanValue.class);
         variable.setValue(newValue);
         return newValue;
@@ -191,7 +209,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(NumberValue.class);
+        return globalTable.getSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(NumberValue.class);
     }
 
     @Override
@@ -224,7 +242,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(BooleanValue.class);
+        return globalTable.getSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(BooleanValue.class);
     }
 
     @Override
