@@ -3,7 +3,7 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseVisitor;
 import com.ap.automata.SymbolTable.SymbolTable;
-import com.ap.automata.SymbolTable.symbol.Symbol;
+import com.ap.automata.SymbolTable.symbol.Variable;
 import com.ap.automata.SymbolTable.value.BooleanValue;
 import com.ap.automata.SymbolTable.value.NumberValue;
 import com.ap.automata.SymbolTable.value.Value;
@@ -70,49 +70,47 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
 
         NumberValue value = new NumberValue(0.0);
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(symbol);
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
+        table.AddSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) {
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
-        table.AddSymbol(symbol);
-        return symbol.getValue();
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
+        table.AddSymbol(variable);
+        return variable.getValue();
     }
 
     @Override
     public Value visitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) {
         BooleanValue value = new BooleanValue(Boolean.FALSE);
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(symbol);
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
+        table.AddSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) {
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
-        table.AddSymbol(symbol);
-        return symbol.getValue();
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
+        table.AddSymbol(variable);
+        return variable.getValue();
     }
 
     @Override
     public Value visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
-        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
-        NumberValue value = symbol.getValue().getValueAs(NumberValue.class);
+        Variable variable = table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class);
         NumberValue newValue = visit(ctx.numeric_expression()).getValueAs(NumberValue.class);
-        value.setValue(newValue.getValue());
-        return value;
+        variable.setValue(newValue);
+        return newValue;
     }
 
     @Override
     public Value visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) {
-        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
-        BooleanValue value = symbol.getValue().getValueAs(BooleanValue.class);
+        Variable variable = table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class);
         BooleanValue newValue = visit(ctx.logical_expression()).getValueAs(BooleanValue.class);
-        value.setValue(newValue.getValue());
-        return value;
+        variable.setValue(newValue);
+        return newValue;
     }
 
     @Override
@@ -155,7 +153,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(NumberValue.class);
+        return table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(NumberValue.class);
     }
 
     @Override
@@ -188,7 +186,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(BooleanValue.class);
+        return table.GetSymbol(ctx.IDENTIFIER().getText(), Variable.class).getValue().getValueAs(BooleanValue.class);
     }
 
     @Override
