@@ -3,6 +3,7 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseVisitor;
 import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.SymbolTable.symbol.Function;
 import com.ap.automata.SymbolTable.symbol.Variable;
 import com.ap.automata.SymbolTable.value.BooleanValue;
 import com.ap.automata.SymbolTable.value.NumberValue;
@@ -49,6 +50,43 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
         if (!ifStatementEvaluated && statements.size() == conditions.size() + 1) {
             visitChildren(statements.get(statements.size() - 1));
+        }
+
+        return new VoidValue();
+    }
+
+    @Override
+    public Value visitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx) {
+
+        Function function = new Function(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
+        table.AddSymbol(function);
+        return new VoidValue();
+    }
+
+    @Override
+    public Value visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx) {
+        Function function = new Function(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
+        table.AddSymbol(function);
+        return new VoidValue();
+    }
+
+    @Override
+    public Value visitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public Value visitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx) {
+
+        return visitChildren(ctx);
+    }
+
+    @Override
+    public Value visitFunction_call(AutomataParser.Function_callContext ctx) {
+
+        var function = table.GetSymbol(ctx.IDENTIFIER().getText(), Function.class);
+        for (var statement : function.Run(new Value[0])) {
+            visit(statement);
         }
 
         return new VoidValue();
@@ -214,7 +252,6 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) {
         Boolean leftStatement = visit(ctx.logical_expression(0)).getValueAs(BooleanValue.class).getValue();
         Boolean rightStatement = visit(ctx.logical_expression(1)).getValueAs(BooleanValue.class).getValue();
-
         return new BooleanValue(leftStatement || rightStatement);
     }
 

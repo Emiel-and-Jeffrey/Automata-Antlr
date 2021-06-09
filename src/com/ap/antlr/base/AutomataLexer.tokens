@@ -54,8 +54,13 @@ ELIHW=33
 NUMBER=34
 BOOLEAN=35
 IDENTIFIER=36
+<<<<<<< HEAD
 WS=37
 >>>>>>> Add rules for functions
+=======
+COMMENT=37
+WS=38
+>>>>>>> Implement basic functions
 '+'=1
 '*'=2
 '/'=3

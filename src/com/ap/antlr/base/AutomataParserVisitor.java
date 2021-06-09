@@ -43,6 +43,26 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AutomataParser#function_call}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunction_call(AutomataParser.Function_callContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FunctionParameterDeclaration}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FunctionParameterDeclarationBasic}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AutomataParser#parameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
