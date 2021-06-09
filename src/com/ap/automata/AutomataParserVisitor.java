@@ -76,6 +76,12 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     @Override
     public Value visitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx) {
 
+        //get parameter names
+        //get parameter types
+
+        //put parameter names in function
+        //convert parameter types to VariableType enum and put in function
+
         Function function = new Function(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
         globalTable.AddSymbol(function);
         return new VoidValue();
@@ -102,11 +108,26 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     @Override
     public Value visitFunction_call(AutomataParser.Function_callContext ctx) {
 
-        var function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Function.class);
+        Function function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Function.class);
+
+        SymbolTable table = new SymbolTable();
+
+        //get parameter values, and put them in scoped table
+
+        scopedTable.push(table);
+
+        //just run function here the scoped table will handle the function scope,
+        //dunno what this down here is
+
         for (var statement : function.Run(new Value[0])) {
             visit(statement);
         }
 
+        //run result statement
+
+        scopedTable.pop();
+
+        //return value of return statement
         return new VoidValue();
     }
 

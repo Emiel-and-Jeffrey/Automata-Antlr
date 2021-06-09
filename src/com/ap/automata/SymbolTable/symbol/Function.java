@@ -4,6 +4,7 @@ import com.ap.antlr.base.AutomataParser;
 import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 import com.ap.automata.SymbolTable.value.Value;
+import com.ap.automata.SymbolTable.value.VariableType;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.List;
@@ -13,6 +14,10 @@ import java.util.List;
  */
 public class Function implements ISymbol {
     private String name;
+
+    private String[] parameterNames;
+    private VariableType parameterTypes;
+
     private Value[] parameters;
 
 
