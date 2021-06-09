@@ -62,6 +62,40 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AutomataParser#function_call}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_call(AutomataParser.Function_callContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AutomataParser#function_call}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_call(AutomataParser.Function_callContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FunctionParameterDeclaration}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionParameterDeclaration}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FunctionParameterDeclarationBasic}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionParameterDeclarationBasic}
+	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AutomataParser#parameter}.
 	 * @param ctx the parse tree
 	 */

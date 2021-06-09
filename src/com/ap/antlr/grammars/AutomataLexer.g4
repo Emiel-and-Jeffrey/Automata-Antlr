@@ -53,4 +53,5 @@ NUMBER: MINUS?[0-9]+(DOT[0-9]+)?;
 BOOLEAN: 'true'|'false';
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
 
+COMMENT : '//' .+? ('\n'|EOF) -> skip ;
 WS: [ \t\r\n]+ -> skip;

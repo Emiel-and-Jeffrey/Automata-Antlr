@@ -59,7 +59,6 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
 
-
         NumberValue number = symbolTable.GetSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
         stack.push(number.getValue());
     }

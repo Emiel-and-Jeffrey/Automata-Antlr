@@ -18,17 +18,19 @@ statement
 
 // Function rules
 function
-    : function_return_types IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
-    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
+    : function_return_types IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
+    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
 
 function_call
     :  IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS;
 
+parameter_declaration
+    :   variable_declaration COMMA parameter_declaration                                                                                                     #FunctionParameterDeclaration
+    |   variable_declaration                                                                                                                                 #FunctionParameterDeclarationBasic;
+
 parameter
-    :   variable_declaration COMMA parameter
-    |   variable_declaration
-    |   IDENTIFIER COMMA parameter
-    |   IDENTIFIER;
+        : IDENTIFIER COMMA parameter
+        | IDENTIFIER;
 
 function_return_types
     :   VARIABLE_TYPE_NUMBER
