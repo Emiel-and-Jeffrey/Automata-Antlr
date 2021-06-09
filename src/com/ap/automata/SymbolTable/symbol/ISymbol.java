@@ -1,7 +1,5 @@
 package com.ap.automata.SymbolTable.symbol;
 
-import com.ap.automata.SymbolTable.value.Value;
-
 public interface ISymbol {
 
     /**
@@ -11,10 +9,4 @@ public interface ISymbol {
      */
     String getName();
 
-    /**
-     * A method that gets the symbol's value class
-     *
-     * @return the symbols value class
-     */
-    Value getValue();
 }

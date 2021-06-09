@@ -18,8 +18,8 @@ statement
 
 // Function rules
 function
-    :   function_return_types IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
-    |   TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
+    : function_return_types IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
+    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
 
 function_call
     :  IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS;
