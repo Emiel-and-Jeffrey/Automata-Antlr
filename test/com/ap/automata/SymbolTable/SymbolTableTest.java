@@ -25,7 +25,7 @@ class SymbolTableTest {
         Variable variable = new Variable("name", value);
         table.AddSymbol(variable);
 
-        assertEquals(variable, table.GetSymbol(variable.getName(), Variable.class));
+        assertEquals(variable, table.getSymbol(variable.getName(), Variable.class));
     }
 
     @Test
@@ -44,7 +44,7 @@ class SymbolTableTest {
     public void getSymbolUnknown() {
         String name = "fakeName";
 
-        Exception exception = assertThrows(UnknownVariableException.class, () -> table.GetSymbol(name, Variable.class));
+        Exception exception = assertThrows(UnknownVariableException.class, () -> table.getSymbol(name, Variable.class));
         String expectedMessage = name + " has not been defined";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);

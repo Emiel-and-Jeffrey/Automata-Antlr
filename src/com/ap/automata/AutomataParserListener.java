@@ -51,7 +51,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        NumberValue number = symbolTable.GetSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
+        NumberValue number = symbolTable.getSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
         number.setValue(variableValue);
     }
 
@@ -59,7 +59,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
 
-        NumberValue number = symbolTable.GetSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
+        NumberValue number = symbolTable.getSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
         stack.push(number.getValue());
     }
 
