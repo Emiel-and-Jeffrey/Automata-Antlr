@@ -11,13 +11,13 @@ statement
     : print_expression SEMICOLON
     | conditional_expression
     | conditional_loop_expression
-    | function
+    | function_declaration
     | function_call SEMICOLON
     | variable_declaration SEMICOLON
     | variable_assignment SEMICOLON;
 
 // Function rules
-function
+function_declaration
     : function_return_types IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
     | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
 
@@ -29,8 +29,8 @@ parameter_declaration
     |   variable_declaration                                                                                                                                 #FunctionParameterDeclarationBasic;
 
 parameter
-        : IDENTIFIER COMMA parameter
-        | IDENTIFIER;
+    : IDENTIFIER COMMA parameter
+    | IDENTIFIER;
 
 function_return_types
     :   VARIABLE_TYPE_NUMBER
@@ -39,7 +39,6 @@ function_return_types
 
 print_expression
     : PRINT numeric_expression                                                                                                  #PrintExpressionNumeric;
-
 
 // Logic rules
 conditional_expression
@@ -51,6 +50,7 @@ conditional_loop_expression
 logical_expression
     : IDENTIFIER                                                                                                                # LogicalExpressionVariable
     | BOOLEAN                                                                                                                   # LogicalExpressionBoolean
+    | function_call                                                                                                             # LogicalExpressionFunction
 	| LEFT_PARENTHESIS logical_expression RIGHT_PARENTHESIS                                                                     # LogicalExpressionParentheses
 	| logical_expression AND logical_expression                                                                                 # LogicalExpressionAnd
 	| logical_expression OR logical_expression                                                                                  # LogicalExpressionOr
@@ -79,6 +79,7 @@ variable_assignment
 numeric_expression
     : IDENTIFIER                                                                                                                # MathExpressionVariable
 	| NUMBER                                                                                                                    # MathExpressionBasicNumber
+	| function_call                                                                                                             # MathExpressionFunction
 	| LEFT_PARENTHESIS numeric_expression RIGHT_PARENTHESIS                                                                     # MathExpressionParentheses
 	| numeric_expression EXLAMATION_MARK                                                                                        # MathExpressionFactorial
     | numeric_expression POWER numeric_expression                                                                               # MathExpressionPower
