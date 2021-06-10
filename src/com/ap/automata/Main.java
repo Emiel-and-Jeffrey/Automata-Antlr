@@ -55,24 +55,24 @@ public class Main {
         AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
         visitor.visit(tree);
 
-        AutomataParserListener listener = new AutomataParserListener(table);
-        walker.walk(listener, tree);
-
-        String tokenString = tokens.getTokens()
-                .stream()
-                .map(token -> token.getText() + " ")
-                .collect(Collectors.joining());
-        String treeString = tree.toStringTree(parser);
-        String result = listener.getOutput();
-
-        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
-        String[] vals = {tokenString, treeString, result};
-
-        System.out.println("------------------------------------------------------");
-        for (int i = 0; i < msg.length; i++) {
-            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
-        }
-        System.out.println("------------------------------------------------------");
+//        AutomataParserListener listener = new AutomataParserListener(table);
+//        walker.walk(listener, tree);
+//
+//        String tokenString = tokens.getTokens()
+//                .stream()
+//                .map(token -> token.getText() + " ")
+//                .collect(Collectors.joining());
+//        String treeString = tree.toStringTree(parser);
+//        String result = listener.getOutput();
+//
+//        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
+//        String[] vals = {tokenString, treeString, result};
+//
+//        System.out.println("------------------------------------------------------");
+//        for (int i = 0; i < msg.length; i++) {
+//            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
+//        }
+//        System.out.println("------------------------------------------------------");
     }
 
     private static void HandleParsingZ3(CharStream stream) {

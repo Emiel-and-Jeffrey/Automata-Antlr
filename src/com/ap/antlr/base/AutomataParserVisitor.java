@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -29,15 +29,15 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStatement(AutomataParser.StatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code FunctionDeclaration}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * Visit a parse tree produced by the {@code FunctionDeclarationReturn}
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx);
+	T visitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code FunctionDeclarationVoid}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -49,19 +49,26 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunction_call(AutomataParser.Function_callContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code FunctionParameterDeclaration}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Visit a parse tree produced by the {@code ArgumentVariable}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	T visitArgumentVariable(AutomataParser.ArgumentVariableContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code FunctionParameterDeclarationBasic}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Visit a parse tree produced by the {@code ArgumentNumericExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	T visitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArgumentLogicalExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AutomataParser#parameter}.
 	 * @param ctx the parse tree
@@ -69,11 +76,11 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParameter(AutomataParser.ParameterContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AutomataParser#function_return_types}.
+	 * Visit a parse tree produced by {@link AutomataParser#value_types}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunction_return_types(AutomataParser.Function_return_typesContext ctx);
+	T visitValue_types(AutomataParser.Value_typesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code PrintExpressionNumeric}
 	 * labeled alternative in {@link AutomataParser#print_expression}.
@@ -130,6 +137,13 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LogicalExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code LogicalExpressionBoolean}
 	 * labeled alternative in {@link AutomataParser#logical_expression}.
@@ -277,6 +291,13 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MathExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MathExpressionDivision}
 	 * labeled alternative in {@link AutomataParser#numeric_expression}.

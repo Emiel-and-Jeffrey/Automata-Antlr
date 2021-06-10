@@ -5,5 +5,10 @@ public class VoidValue extends Value {
     public boolean isOfCorrectType(Class<? extends Value> type) {
         return type.equals(VoidValue.class);
     }
+
+    @Override
+    public VariableType getType() {
+        return VariableType.VOID;
+    }
     //does nothing!
 }

@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -38,26 +38,26 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitStatement(AutomataParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code FunctionDeclaration}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * Enter a parse tree produced by the {@code FunctionDeclarationReturn}
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx);
+	void enterFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code FunctionDeclaration}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * Exit a parse tree produced by the {@code FunctionDeclarationReturn}
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx);
+	void exitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code FunctionDeclarationVoid}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 */
 	void enterFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code FunctionDeclarationVoid}
-	 * labeled alternative in {@link AutomataParser#function}.
+	 * labeled alternative in {@link AutomataParser#function_declaration}.
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx);
@@ -72,29 +72,41 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitFunction_call(AutomataParser.Function_callContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code FunctionParameterDeclaration}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Enter a parse tree produced by the {@code ArgumentVariable}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	void enterArgumentVariable(AutomataParser.ArgumentVariableContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code FunctionParameterDeclaration}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Exit a parse tree produced by the {@code ArgumentVariable}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx);
+	void exitArgumentVariable(AutomataParser.ArgumentVariableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code FunctionParameterDeclarationBasic}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Enter a parse tree produced by the {@code ArgumentNumericExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	void enterArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code FunctionParameterDeclarationBasic}
-	 * labeled alternative in {@link AutomataParser#parameter_declaration}.
+	 * Exit a parse tree produced by the {@code ArgumentNumericExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx);
+	void exitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArgumentLogicalExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArgumentLogicalExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AutomataParser#parameter}.
 	 * @param ctx the parse tree
@@ -106,15 +118,15 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 */
 	void exitParameter(AutomataParser.ParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AutomataParser#function_return_types}.
+	 * Enter a parse tree produced by {@link AutomataParser#value_types}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunction_return_types(AutomataParser.Function_return_typesContext ctx);
+	void enterValue_types(AutomataParser.Value_typesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AutomataParser#function_return_types}.
+	 * Exit a parse tree produced by {@link AutomataParser#value_types}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunction_return_types(AutomataParser.Function_return_typesContext ctx);
+	void exitValue_types(AutomataParser.Value_typesContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code PrintExpressionNumeric}
 	 * labeled alternative in {@link AutomataParser#print_expression}.
@@ -211,6 +223,18 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#logical_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code LogicalExpressionBoolean}
 	 * labeled alternative in {@link AutomataParser#logical_expression}.
@@ -463,6 +487,18 @@ public interface AutomataParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MathExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MathExpressionFunction}
+	 * labeled alternative in {@link AutomataParser#numeric_expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code MathExpressionDivision}
 	 * labeled alternative in {@link AutomataParser#numeric_expression}.

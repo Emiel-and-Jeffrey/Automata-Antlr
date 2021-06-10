@@ -6,6 +6,8 @@ public abstract class Value {
 
     public abstract boolean isOfCorrectType(Class<? extends Value> type);
 
+    public abstract VariableType getType();
+
     public <T extends Value> T getValueAs(Class<T> type) {
         if (!isOfCorrectType(type))
             throw new TypeMismatchException("Types are not equal");
