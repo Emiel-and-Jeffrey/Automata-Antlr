@@ -18,24 +18,28 @@ statement
 
 // Function rules
 function_declaration
-    : function_return_types IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclaration
-    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter_declaration? RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                     #FunctionDeclarationVoid;
+    : value_types IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclarationReturn
+    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                           #FunctionDeclarationVoid;
 
 function_call
-    :  IDENTIFIER LEFT_PARENTHESIS parameter? RIGHT_PARENTHESIS;
+    :  IDENTIFIER LEFT_PARENTHESIS argument* RIGHT_PARENTHESIS;
 
-parameter_declaration
-    :   variable_declaration COMMA parameter_declaration                                                                                                     #FunctionParameterDeclaration
-    |   variable_declaration                                                                                                                                 #FunctionParameterDeclarationBasic;
+argument
+    : IDENTIFIER COMMA          #ArgumentVariable
+    | numeric_expression COMMA  #ArgumentNumericExpression
+    | logical_expression COMMA  #ArgumentLogicalExpression
+    | IDENTIFIER                #ArgumentVariable
+    | numeric_expression        #ArgumentNumericExpression
+    | logical_expression        #ArgumentLogicalExpression;
 
 parameter
-    : IDENTIFIER COMMA parameter
-    | IDENTIFIER;
+    : value_types IDENTIFIER COMMA
+    | value_types IDENTIFIER;
 
-function_return_types
-    :   VARIABLE_TYPE_NUMBER
-    |   VARIABLE_TYPE_BOOLEAN
-    |   VARIABLE_TYPE_STRING;
+value_types
+    : VARIABLE_TYPE_NUMBER
+    | VARIABLE_TYPE_BOOLEAN
+    | VARIABLE_TYPE_STRING;
 
 print_expression
     : PRINT numeric_expression                                                                                                  #PrintExpressionNumeric;

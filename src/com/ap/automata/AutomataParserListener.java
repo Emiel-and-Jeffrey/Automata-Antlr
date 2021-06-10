@@ -33,7 +33,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         NumberValue value = new NumberValue(0.0);
         Variable variable = new Variable(variableName, value);
 
-        symbolTable.AddSymbol(variable);
+        symbolTable.addSymbol(variable);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         NumberValue value = new NumberValue(stack.pop());
         Variable variable = new Variable(variableName, value);
 
-        symbolTable.AddSymbol(variable);
+        symbolTable.addSymbol(variable);
     }
 
     @Override

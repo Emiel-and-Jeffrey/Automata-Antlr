@@ -20,4 +20,9 @@ public class NumberValue extends Value {
     public boolean isOfCorrectType(Class<? extends Value> type) {
         return type.equals(NumberValue.class);
     }
+
+    @Override
+    public VariableType getType() {
+        return VariableType.NUMBER;
+    }
 }

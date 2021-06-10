@@ -23,7 +23,7 @@ class SymbolTableTest {
     public void addSymbol() {
         NumberValue value = new NumberValue(0.0);
         Variable variable = new Variable("name", value);
-        table.AddSymbol(variable);
+        table.addSymbol(variable);
 
         assertEquals(variable, table.getSymbol(variable.getName(), Variable.class));
     }
@@ -32,9 +32,9 @@ class SymbolTableTest {
     public void addSymbolAlreadyExistingVariable() {
         NumberValue value = new NumberValue(0.0);
         Variable variable = new Variable("name", value);
-        table.AddSymbol(variable);
+        table.addSymbol(variable);
 
-        Exception exception = assertThrows(VariableAlreadyDefinedException.class, () -> table.AddSymbol(variable));
+        Exception exception = assertThrows(VariableAlreadyDefinedException.class, () -> table.addSymbol(variable));
         String expectedMessage = variable.getName() + " has already been defined";
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);

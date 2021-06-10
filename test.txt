@@ -1,0 +1,17 @@
+void foo (number i)
+{
+	Print i;
+}
+
+void bar (bool j, number b)
+{
+	if j then
+		foo(b + 1);
+	else
+		foo(b - 1);
+	fi
+}
+
+bool a = false;
+
+bar(a, 30);

@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -52,13 +52,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx) { }
+	@Override public void enterFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDeclaration(AutomataParser.FunctionDeclarationContext ctx) { }
+	@Override public void exitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -88,25 +88,37 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx) { }
+	@Override public void enterArgumentVariable(AutomataParser.ArgumentVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionParameterDeclaration(AutomataParser.FunctionParameterDeclarationContext ctx) { }
+	@Override public void exitArgumentVariable(AutomataParser.ArgumentVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx) { }
+	@Override public void enterArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionParameterDeclarationBasic(AutomataParser.FunctionParameterDeclarationBasicContext ctx) { }
+	@Override public void exitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -124,13 +136,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction_return_types(AutomataParser.Function_return_typesContext ctx) { }
+	@Override public void enterValue_types(AutomataParser.Value_typesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_return_types(AutomataParser.Function_return_typesContext ctx) { }
+	@Override public void exitValue_types(AutomataParser.Value_typesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -227,6 +239,18 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -479,6 +503,18 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -19,4 +19,9 @@ public class BooleanValue extends Value {
     public boolean isOfCorrectType(Class<? extends Value> type) {
         return type.equals(BooleanValue.class);
     }
+
+    @Override
+    public VariableType getType() {
+        return VariableType.BOOL;
+    }
 }

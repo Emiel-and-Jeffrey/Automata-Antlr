@@ -21,7 +21,7 @@ public class SymbolTable implements ISymbol {
      *
      * @param symbol the symbol you want to add
      */
-    public void AddSymbol(ISymbol symbol) throws VariableAlreadyDefinedException {
+    public void addSymbol(ISymbol symbol) throws VariableAlreadyDefinedException {
         if (table.containsKey(symbol.getName())) {
             throw new VariableAlreadyDefinedException(String.format("%s has already been defined", symbol.getName()));
         }
