@@ -18,17 +18,23 @@ statement
 
 // Function rules
 function_declaration
-    : value_types IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN statement RIGHT_BRACE        #FunctionDeclarationReturn
-    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                           #FunctionDeclarationVoid;
+    : value_types IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RETURN return_expression SEMICOLON RIGHT_BRACE #FunctionDeclarationReturn
+    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameter* RIGHT_PARENTHESIS LEFT_BRACE statement* RIGHT_BRACE                                      #FunctionDeclarationVoid;
 
 function_call
     :  IDENTIFIER LEFT_PARENTHESIS argument* RIGHT_PARENTHESIS;
 
 argument
-    : IDENTIFIER COMMA          #ArgumentVariable
+    : NUMBER COMMA              #ArgumentNumberExpression
+    | BOOLEAN COMMA             #ArgumentBoolExpression
+    | IDENTIFIER COMMA          #ArgumentVariable
+    | function_call COMMA       #ArgumentFunction
     | numeric_expression COMMA  #ArgumentNumericExpression
     | logical_expression COMMA  #ArgumentLogicalExpression
+    | NUMBER                    #ArgumentNumberExpression
+    | BOOLEAN                   #ArgumentBoolExpression
     | IDENTIFIER                #ArgumentVariable
+    | function_call             #ArgumentFunction
     | numeric_expression        #ArgumentNumericExpression
     | logical_expression        #ArgumentLogicalExpression;
 
@@ -41,6 +47,12 @@ value_types
     | VARIABLE_TYPE_BOOLEAN
     | VARIABLE_TYPE_STRING;
 
+return_expression
+    : IDENTIFIER            #ReturnVariable
+    | function_call         #ReturnFunction
+    | logical_expression    #ReturnLogicExpression
+    | numeric_expression    #ReturnNumericExpression;
+
 print_expression
     : PRINT numeric_expression                                                                                                  #PrintExpressionNumeric;
 
@@ -52,8 +64,8 @@ conditional_loop_expression
     : WHILE logical_expression THEN statement_block ELIHW                                                                       #ConditionalExpressionWhile;
 
 logical_expression
-    : IDENTIFIER                                                                                                                # LogicalExpressionVariable
-    | BOOLEAN                                                                                                                   # LogicalExpressionBoolean
+    : BOOLEAN                                                                                                                   # LogicalExpressionBoolean
+    | IDENTIFIER                                                                                                                # LogicalExpressionVariable
     | function_call                                                                                                             # LogicalExpressionFunction
 	| LEFT_PARENTHESIS logical_expression RIGHT_PARENTHESIS                                                                     # LogicalExpressionParentheses
 	| logical_expression AND logical_expression                                                                                 # LogicalExpressionAnd

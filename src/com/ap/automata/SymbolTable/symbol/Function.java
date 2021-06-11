@@ -5,6 +5,7 @@ import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 import com.ap.automata.SymbolTable.value.Value;
 import com.ap.automata.SymbolTable.value.VariableType;
+import com.ap.automata.SymbolTable.value.VoidValue;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Class that represents a symbol inside of the Symbol Table
  */
-public class VoidFunction implements ISymbol {
+public class Function implements ISymbol {
     private final String name;
 
     private final String[] parameterNames;
@@ -20,7 +21,7 @@ public class VoidFunction implements ISymbol {
 
     private final List<AutomataParser.StatementContext> functionBody;
 
-    public VoidFunction(String name, String[] parameterNames, VariableType[] parameterTypes, List<AutomataParser.StatementContext> functionBody) {
+    public Function(String name, String[] parameterNames, VariableType[] parameterTypes, List<AutomataParser.StatementContext> functionBody) {
         this.name = name;
         this.parameterNames = parameterNames;
         this.parameterTypes = parameterTypes;
@@ -35,31 +36,16 @@ public class VoidFunction implements ISymbol {
         return parameterTypes;
     }
 
-    public List<AutomataParser.StatementContext> GetFunctionBody() {
+    public List<AutomataParser.StatementContext> getFunctionBody() {
         return functionBody;
+    }
+
+    public AutomataParser.Return_expressionContext getReturnStatement() {
+        return null;
     }
 
     @Override
     public String getName() {
         return name;
     }
-
-//    /**
-//     * Checks whether the specified parameters are valid for this Function
-//     *
-//     * @param parameters THe paramaters you want to check
-//     * @return True if the parameters are of the same type
-//     */
-//    private boolean AreValidParameters(Value[] parameters) {
-//
-//        if (this.parameters.length != parameters.length)
-//            return false;
-//
-//        for (int i = 0; i < this.parameters.length; i++) {
-//            if (!this.parameters[i].isOfCorrectType(parameters[i].getClass())) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
 }
