@@ -49,12 +49,33 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFunction_call(AutomataParser.Function_callContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ArgumentNumberExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArgumentBoolExpression}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ArgumentVariable}
 	 * labeled alternative in {@link AutomataParser#argument}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArgumentVariable(AutomataParser.ArgumentVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArgumentFunction}
+	 * labeled alternative in {@link AutomataParser#argument}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ArgumentNumericExpression}
 	 * labeled alternative in {@link AutomataParser#argument}.
@@ -81,6 +102,34 @@ public interface AutomataParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitValue_types(AutomataParser.Value_typesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ReturnVariable}
+	 * labeled alternative in {@link AutomataParser#return_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnVariable(AutomataParser.ReturnVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ReturnFunction}
+	 * labeled alternative in {@link AutomataParser#return_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnFunction(AutomataParser.ReturnFunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ReturnLogicExpression}
+	 * labeled alternative in {@link AutomataParser#return_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnLogicExpression(AutomataParser.ReturnLogicExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ReturnNumericExpression}
+	 * labeled alternative in {@link AutomataParser#return_expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnNumericExpression(AutomataParser.ReturnNumericExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code PrintExpressionNumeric}
 	 * labeled alternative in {@link AutomataParser#print_expression}.

@@ -6,7 +6,8 @@ import com.ap.automata.SymbolTable.SymbolTable;
 import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
 import com.ap.automata.SymbolTable.symbol.ISymbol;
-import com.ap.automata.SymbolTable.symbol.VoidFunction;
+import com.ap.automata.SymbolTable.symbol.Function;
+import com.ap.automata.SymbolTable.symbol.ReturnFunction;
 import com.ap.automata.SymbolTable.symbol.Variable;
 import com.ap.automata.SymbolTable.value.*;
 import org.apache.commons.math3.special.Gamma;
@@ -73,14 +74,22 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     @Override
     public Value visitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) {
 
-        //get parameter names
-        //get parameter types
+        List<String> parameterNames = new ArrayList<>();
+        List<VariableType> parameterTypes = new ArrayList<>();
 
-        //put parameter names in function
-        //convert parameter types to VariableType enum and put in function
+        for (AutomataParser.ParameterContext parameter : ctx.parameter()) {
+            parameterNames.add(parameter.IDENTIFIER().getText());
+            parameterTypes.add(VariableType.valueOf(parameter.value_types().getText().toUpperCase()));
+        }
 
-//        VoidFunction function = new VoidFunction(ctx.IDENTIFIER().getText(), new Value[0], ctx.statement());
-//        globalTable.AddSymbol(function);
+        ReturnFunction function = new ReturnFunction(
+                ctx.IDENTIFIER().getText(),
+                parameterNames.toArray(new String[0]),
+                parameterTypes.toArray(new VariableType[0]),
+                ctx.statement(),
+                ctx.return_expression());
+
+        globalTable.addSymbol(function);
         return new VoidValue();
     }
 
@@ -88,16 +97,32 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx) {
 
         List<String> parameterNames = new ArrayList<>();
-        List<VariableType> parameterType = new ArrayList<>();
+        List<VariableType> parameterTypes = new ArrayList<>();
         for (AutomataParser.ParameterContext parameter : ctx.parameter()) {
             parameterNames.add(parameter.IDENTIFIER().getText());
-            String test = parameter.value_types().getText();
-            parameterType.add(VariableType.valueOf(parameter.value_types().getText().toUpperCase()));
+            parameterTypes.add(VariableType.valueOf(parameter.value_types().getText().toUpperCase()));
         }
 
-        VoidFunction function = new VoidFunction(ctx.IDENTIFIER().getText(), parameterNames.toArray(new String[0]), parameterType.toArray(new VariableType[0]), ctx.statement());
+        Function function = new Function(
+                ctx.IDENTIFIER().getText(),
+                parameterNames.toArray(new String[0]),
+                parameterTypes.toArray(new VariableType[0]),
+                ctx.statement());
+
         globalTable.addSymbol(function);
         return new VoidValue();
+    }
+
+    @Override
+    public Value visitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) {
+        Double number = Double.valueOf(ctx.NUMBER().getText());
+        return new NumberValue(number);
+    }
+
+    @Override
+    public Value visitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) {
+        Boolean value = Boolean.valueOf(ctx.BOOLEAN().getText());
+        return new BooleanValue(value);
     }
 
     @Override
@@ -106,9 +131,29 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     }
 
     @Override
+    public Value visitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) {
+        return visit(ctx.function_call());
+    }
+
+    @Override
+    public Value visitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) {
+        return visit(ctx.numeric_expression());
+    }
+
+    @Override
+    public Value visitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) {
+        return visit(ctx.logical_expression());
+    }
+
+    @Override
+    public Value visitReturnVariable(AutomataParser.ReturnVariableContext ctx) {
+        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue();
+    }
+
+    @Override
     public Value visitFunction_call(AutomataParser.Function_callContext ctx) {
 
-        VoidFunction function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), VoidFunction.class);
+        Function function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Function.class);
 
         SymbolTable table = new SymbolTable();
 
@@ -135,16 +180,22 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
         scopedTable.push(table);
 
-        for (AutomataParser.StatementContext statement : function.GetFunctionBody()) {
+        for (AutomataParser.StatementContext statement : function.getFunctionBody()) {
             visit(statement);
         }
 
-        //run result statement
+        AutomataParser.Return_expressionContext returnStatement = function.getReturnStatement();
+        Value returnValue;
+        if(returnStatement != null) {
+            returnValue = visit(returnStatement);
+        }
+        else {
+            returnValue = new VoidValue();
+        }
 
         scopedTable.pop();
 
-        //return value of return statement
-        return new VoidValue();
+        return returnValue;
     }
 
     @Override
