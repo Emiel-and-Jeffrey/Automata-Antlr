@@ -3,16 +3,14 @@ package com.ap.antlr.listeners;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 
-public class NumericListener extends AutomataParserBaseListener
-{
+public class NumericListener extends AutomataParserBaseListener {
     /**
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionSum(AutomataParser.MathExpressionSumContext ctx)
-    {
+    public void enterMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) {
     }
 
     /**
@@ -21,8 +19,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx)
-    {
+    public void exitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) {
     }
 
     /**
@@ -31,8 +28,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx)
-    {
+    public void enterMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) {
     }
 
     /**
@@ -41,8 +37,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx)
-    {
+    public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) {
     }
 
     /**
@@ -51,8 +46,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx)
-    {
+    public void enterMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) {
     }
 
     /**
@@ -61,8 +55,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx)
-    {
+    public void exitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) {
     }
 
     /**
@@ -71,8 +64,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx)
-    {
+    public void enterMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) {
     }
 
     /**
@@ -81,8 +73,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx)
-    {
+    public void exitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) {
     }
 
     /**
@@ -91,8 +82,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx)
-    {
+    public void enterMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) {
     }
 
     /**
@@ -101,8 +91,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx)
-    {
+    public void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) {
     }
 
     /**
@@ -111,8 +100,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx)
-    {
+    public void enterMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) {
     }
 
     /**
@@ -121,8 +109,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx)
-    {
+    public void exitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) {
     }
 
     /**
@@ -131,8 +118,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx)
-    {
+    public void enterMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) {
     }
 
     /**
@@ -141,8 +127,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx)
-    {
+    public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) {
     }
 
     /**
@@ -151,8 +136,7 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx)
-    {
+    public void enterMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) {
     }
 
     /**
@@ -161,7 +145,6 @@ public class NumericListener extends AutomataParserBaseListener
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx)
-    {
+    public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) {
     }
 }

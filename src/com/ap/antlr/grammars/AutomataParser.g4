@@ -38,7 +38,7 @@ numeric_expression
 	| NUMBER                                                                                                                    # MathExpressionBasicNumber
 	| LEFT_PARENTHESIS numeric_expression RIGHT_PARENTHESIS                                                                     # MathExpressionParentheses
 	| numeric_expression EXLAMATION_MARK                                                                                        # MathExpressionFactorial
-        | numeric_expression POWER numeric_expression                                                                           # MathExpressionPower
+    | numeric_expression POWER numeric_expression                                                                               # MathExpressionPower
 	| numeric_expression TIMES numeric_expression                                                                               # MathExpressionTimes
     | numeric_expression DIVISION numeric_expression                                                                            # MathExpressionDivision
 	| numeric_expression ADD numeric_expression                                                                                 # MathExpressionSum

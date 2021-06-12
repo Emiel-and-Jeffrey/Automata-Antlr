@@ -1,9 +1,9 @@
 package com.ap.automata;
 
-import com.ap.antlr.base.z3SudokuAParser;
-import com.ap.antlr.base.z3SudokuAParserBaseListener;
+import com.ap.antlr.base.Z3Parser;
+import com.ap.antlr.base.Z3ParserBaseListener;
 
-public class z3SudokuAParserListener extends z3SudokuAParserBaseListener {
+public class Z3ParserListener extends Z3ParserBaseListener {
 
     int[][] sudokuGrid = new int[9][9];
 
@@ -12,7 +12,7 @@ public class z3SudokuAParserListener extends z3SudokuAParserBaseListener {
 
         output.append("╔═╦═╦═╦═╦═╦═╦═╦═╦═╗" + '\n');
 
-        for (int y = 0; y < 9; y++){
+        for (int y = 0; y < 9; y++) {
 
             output.append("║");
 
@@ -21,14 +21,14 @@ public class z3SudokuAParserListener extends z3SudokuAParserBaseListener {
             }
 
             output.append('\n');
-            output.append((y == 8)? "╚═╩═╩═╩═╩═╩═╩═╩═╩═╝" : "╠═╬═╬═╬═╬═╬═╬═╬═╬═╣" + '\n');
+            output.append((y == 8) ? "╚═╩═╩═╩═╩═╩═╩═╩═╩═╝" : "╠═╬═╬═╬═╬═╬═╬═╬═╬═╣" + '\n');
         }
 
         return output.toString();
     }
 
     @Override
-    public void exitValue(z3SudokuAParser.ValueContext ctx) {
+    public void exitValue(Z3Parser.ValueContext ctx) {
         int x = Integer.parseInt(ctx.field().NUMBER(0).getText()) - 1;
         int y = Integer.parseInt(ctx.field().NUMBER(1).getText()) - 1;
         int value = Integer.parseInt(ctx.NUMBER().getText());

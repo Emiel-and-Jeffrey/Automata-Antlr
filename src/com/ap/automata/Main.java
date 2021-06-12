@@ -2,8 +2,8 @@ package com.ap.automata;
 
 import com.ap.antlr.base.AutomataLexer;
 import com.ap.antlr.base.AutomataParser;
-import com.ap.antlr.base.z3SudokuALexer;
-import com.ap.antlr.base.z3SudokuAParser;
+import com.ap.antlr.base.Z3Lexer;
+import com.ap.antlr.base.Z3Parser;
 import com.ap.automata.SymbolTable.SymbolTable;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -20,18 +20,21 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Please enter your filepath:");
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        File file = new File(input);
+        while (true) {
 
-        if (!IsFileValid(file)) {
-            System.out.printf("File was not valid");
-            return;
+            System.out.println("Please enter your filepath:");
+            Scanner sc = new Scanner(System.in);
+            String input = sc.nextLine();
+            File file = new File(input);
+
+            if (!IsFileValid(file)) {
+                System.out.printf("File was not valid");
+                return;
+            }
+            CharStream targetStream = CharStreams.fromFileName(input);
+            HandleParsing(targetStream);
+            //HandleParsingZ3(targetStream);
         }
-        CharStream targetStream = CharStreams.fromFileName(input);
-        HandleParsing(targetStream);
-        //HandleParsingZ3(targetStream);
     }
 
     private static void HandleParsing(CharStream stream) {
@@ -71,15 +74,15 @@ public class Main {
     }
 
     private static void HandleParsingZ3(CharStream stream) {
-        z3SudokuALexer lexer = new z3SudokuALexer(stream);
+        Z3Lexer lexer = new Z3Lexer(stream);
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        z3SudokuAParser parser = new z3SudokuAParser(tokens);
+        Z3Parser parser = new Z3Parser(tokens);
 
         ParseTree tree = parser.result();
 
-        z3SudokuAParserListener listener = new z3SudokuAParserListener();
+        Z3ParserListener listener = new Z3ParserListener();
 
         ParseTreeWalker walker = new ParseTreeWalker();
 

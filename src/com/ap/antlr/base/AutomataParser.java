@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\AutomataParser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -22,7 +22,7 @@ public class AutomataParser extends Parser {
 		EQUALS=13, LEFT_PARENTHESIS=14, RIGHT_PARENTHESIS=15, DOT=16, SEMICOLON=17, 
 		EXLAMATION_MARK=18, VARIABLE_TYPE_NUMBER=19, VARIABLE_TYPE_BOOLEAN=20, 
 		VARIABLE_TYPE_STRING=21, PRINT=22, IF=23, THEN=24, FI=25, ELSE=26, WHILE=27, 
-		ELIHW=28, NUMBER=29, BOOLEAN=30, IDENTIFIER=31, WS=32;
+		ELIHW=28, NUMBER=29, BOOLEAN=30, IDENTIFIER=31, WS=32, COMMENT=33;
 	public static final int
 		RULE_program = 0, RULE_statement_block = 1, RULE_statement = 2, RULE_print_expression = 3, 
 		RULE_conditional_expression = 4, RULE_conditional_loop_expression = 5, 
@@ -53,7 +53,7 @@ public class AutomataParser extends Parser {
 			"EQUALS", "LEFT_PARENTHESIS", "RIGHT_PARENTHESIS", "DOT", "SEMICOLON", 
 			"EXLAMATION_MARK", "VARIABLE_TYPE_NUMBER", "VARIABLE_TYPE_BOOLEAN", "VARIABLE_TYPE_STRING", 
 			"PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", "ELIHW", "NUMBER", "BOOLEAN", 
-			"IDENTIFIER", "WS"
+			"IDENTIFIER", "WS", "COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -1696,7 +1696,7 @@ public class AutomataParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u00af\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u00af\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\3\2\3\2\3\2\3\3\7\3\35\n\3\f\3\16\3 \13\3\3\4\3\4\3\4\3\4"+
 		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4-\n\4\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6"+
