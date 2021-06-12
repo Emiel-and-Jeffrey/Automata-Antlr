@@ -20,10 +20,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         while (true) {
+            Scanner sc = new Scanner(System.in);
+            String input;
+            int choice;
+
+            System.out.println("Select file type:");
+            System.out.println("1) custom language");
+            System.out.println("2) sudoku A-type");
+            System.out.println("3) sudoku B-type");
+            input = sc.nextLine();
+
+            try {
+                choice = Integer.parseInt(input);
+                if (choice < 1 || choice > 3) {
+                    System.out.println("invalid file type specified");
+                    continue;
+                }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("invalid file type specified");
+                continue;
+            }
 
             System.out.println("Please enter your filepath:");
-            Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine();
+            input = sc.nextLine();
+
             File file = new File(input);
 
             if (!IsFileValid(file)) {
@@ -31,9 +52,12 @@ public class Main {
                 return;
             }
             CharStream targetStream = CharStreams.fromFileName(input);
-            //HandleParsing(targetStream);
-            //HandleParsingZ3A(targetStream);
-            HandleParsingZ3B(targetStream);
+
+            switch (choice) {
+                case 1 -> HandleParsing(targetStream);
+                case 2 -> HandleParsingZ3A(targetStream);
+                case 3 -> HandleParsingZ3B(targetStream);
+            }
         }
     }
 
