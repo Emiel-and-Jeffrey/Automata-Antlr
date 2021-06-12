@@ -11,13 +11,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -35,8 +31,9 @@ public class Main {
                 return;
             }
             CharStream targetStream = CharStreams.fromFileName(input);
-            HandleParsing(targetStream);
-            //HandleParsingZ3(targetStream);
+            //HandleParsing(targetStream);
+            //HandleParsingZ3A(targetStream);
+            HandleParsingZ3B(targetStream);
         }
     }
 
@@ -75,7 +72,7 @@ public class Main {
 //        System.out.println("------------------------------------------------------");
     }
 
-    private static void HandleParsingZ3(CharStream stream) {
+    private static void HandleParsingZ3A(CharStream stream) {
         Z3Lexer lexer = new Z3Lexer(stream);
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -84,7 +81,25 @@ public class Main {
 
         ParseTree tree = parser.result();
 
-        Z3ParserListener listener = new Z3ParserListener();
+        Z3AParserListener listener = new Z3AParserListener();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        walker.walk(listener, tree);
+
+        System.out.println(listener.printSudokuGrid());
+    }
+
+    private static void HandleParsingZ3B(CharStream stream) {
+        Z3Lexer lexer = new Z3Lexer(stream);
+
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        Z3Parser parser = new Z3Parser(tokens);
+
+        ParseTree tree = parser.result();
+
+        Z3BParserListener listener = new Z3BParserListener();
 
         ParseTreeWalker walker = new ParseTreeWalker();
 

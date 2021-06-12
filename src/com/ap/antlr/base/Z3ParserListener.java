@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -18,15 +18,41 @@ public interface Z3ParserListener extends ParseTreeListener {
 	 */
 	void exitResult(Z3Parser.ResultContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Z3Parser#statement}.
+	 * Enter a parse tree produced by the {@code StatementFunction}
+	 * labeled alternative in {@link Z3Parser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatement(Z3Parser.StatementContext ctx);
+	void enterStatementFunction(Z3Parser.StatementFunctionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Z3Parser#statement}.
+	 * Exit a parse tree produced by the {@code StatementFunction}
+	 * labeled alternative in {@link Z3Parser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatement(Z3Parser.StatementContext ctx);
+	void exitStatementFunction(Z3Parser.StatementFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code StatementIfElse}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementIfElse(Z3Parser.StatementIfElseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code StatementIfElse}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementIfElse(Z3Parser.StatementIfElseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code StatementNumber}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementNumber(Z3Parser.StatementNumberContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code StatementNumber}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementNumber(Z3Parser.StatementNumberContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Z3Parser#function}.
 	 * @param ctx the parse tree

@@ -55,4 +55,3 @@ IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]*;
 
 COMMENT : '//' .+? ('\n'|EOF) -> skip ;
 WS: [ \t\r\n]+ -> skip;
-COMMENT : '//' .+? ('\n'|EOF) -> skip ;

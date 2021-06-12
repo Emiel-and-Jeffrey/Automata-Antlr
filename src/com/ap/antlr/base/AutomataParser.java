@@ -19,22 +19,11 @@ public class AutomataParser extends Parser {
 	public static final int
 		ADD=1, TIMES=2, DIVISION=3, MINUS=4, POWER=5, GREATER_THAN=6, LESS_THAN=7, 
 		GREATER_THAN_OR_EQUAL=8, LESS_THAN_OR_EQUAL=9, EQUAL_TO=10, AND=11, OR=12, 
-<<<<<<< HEAD
-		EQUALS=13, LEFT_PARENTHESIS=14, RIGHT_PARENTHESIS=15, DOT=16, SEMICOLON=17, 
-		EXLAMATION_MARK=18, VARIABLE_TYPE_NUMBER=19, VARIABLE_TYPE_BOOLEAN=20, 
-		VARIABLE_TYPE_STRING=21, PRINT=22, IF=23, THEN=24, FI=25, ELSE=26, WHILE=27, 
-		ELIHW=28, NUMBER=29, BOOLEAN=30, IDENTIFIER=31, WS=32, COMMENT=33;
-=======
 		EQUALS=13, LEFT_PARENTHESIS=14, RIGHT_PARENTHESIS=15, LEFT_BRACE=16, RIGHT_BRACE=17, 
 		DOT=18, COMMA=19, SEMICOLON=20, EXLAMATION_MARK=21, VARIABLE_TYPE_NUMBER=22, 
 		VARIABLE_TYPE_BOOLEAN=23, VARIABLE_TYPE_STRING=24, TYPE_VOID=25, RETURN=26, 
 		PRINT=27, IF=28, THEN=29, FI=30, ELSE=31, WHILE=32, ELIHW=33, NUMBER=34, 
-<<<<<<< HEAD
-		BOOLEAN=35, IDENTIFIER=36, WS=37;
->>>>>>> Add rules for functions
-=======
 		BOOLEAN=35, IDENTIFIER=36, COMMENT=37, WS=38;
->>>>>>> Implement basic functions
 	public static final int
 		RULE_program = 0, RULE_statement_block = 1, RULE_statement = 2, RULE_function_declaration = 3, 
 		RULE_function_call = 4, RULE_argument = 5, RULE_parameter = 6, RULE_value_types = 7, 
@@ -69,11 +58,7 @@ public class AutomataParser extends Parser {
 			"DOT", "COMMA", "SEMICOLON", "EXLAMATION_MARK", "VARIABLE_TYPE_NUMBER", 
 			"VARIABLE_TYPE_BOOLEAN", "VARIABLE_TYPE_STRING", "TYPE_VOID", "RETURN", 
 			"PRINT", "IF", "THEN", "FI", "ELSE", "WHILE", "ELIHW", "NUMBER", "BOOLEAN", 
-<<<<<<< HEAD
-			"IDENTIFIER", "WS", "COMMENT"
-=======
 			"IDENTIFIER", "COMMENT", "WS"
->>>>>>> Implement basic functions
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -2578,23 +2563,7 @@ public class AutomataParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u00af\4\2\t\2\4"+
-=======
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'\u00e2\4\2\t\2\4"+
->>>>>>> Add rules for functions
-=======
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(\u00f6\4\2\t\2\4"+
->>>>>>> Implement basic functions
-=======
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(\u010a\4\2\t\2\4"+
->>>>>>> added parameters to functions
-=======
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(\u011d\4\2\t\2\4"+
->>>>>>> really really really ugly solution to return types but i think i got it
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\3\2\3\2\3\2\3\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
