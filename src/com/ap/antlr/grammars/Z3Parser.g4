@@ -7,7 +7,7 @@ result
 statement
     : LPAREN function statement* RPAREN                                          #StatementFunction
     | LPAREN IF_ELSE LPAREN logical_expression RPAREN statement statement RPAREN #StatementIfElse
-    | numeric_expression                                                         #StatementNumber;
+    | value                                                                      #StatementNumber;
 
 
 function
@@ -17,22 +17,26 @@ parameter
     : LPAREN IDENTIFIER types RPAREN;
 
 logical_expression
-	: AND  LPAREN logical_expression RPAREN LPAREN  logical_expression RPAREN   # LogicalExpressionAnd
-	| comparison_expression                                                     # LogicalExpressionComparison;
+	: AND  (LPAREN value RPAREN)*  # LogicalExpressionAnd
+	| OR   (LPAREN value RPAREN)*   # LogicalExpressionOr
+	| NOT  (LPAREN value RPAREN)   # LogicalExpressionNot;
 
-numeric_expression
-    : IDENTIFIER                                                                # MathExpressionVariable
-	| NUMBER                                                                    # MathExpressionBasicNumber;
+value
+    : IDENTIFIER                                                                # ValueVariable
+    | STRING_LITERAL                                                            # ValueString
+	| NUMBER                                                                    # ValueBasicNumber
+	| comparison_expression                                                     # ValueComparisonExpresssion;
 
 comparison_expression
-    : IDENTIFIER                                                                # ComparisonExpressionVariable
-    | GREATER_THAN numeric_expression numeric_expression                        # ComparisonExpressionGreaterThan
-    | GREATER_THAN_OR_EQUAL numeric_expression numeric_expression               # ComparisonExpressionGreaterThanOrEqual
-    | LESS_THAN numeric_expression numeric_expression                           # ComparisonExpressionLessThan
-    | LESS_THAN_OR_EQUAL numeric_expression numeric_expression                  # ComparisonExpressionLessThanOrEqual
-    | EQUALS  numeric_expression numeric_expression                             # ComparisonExpressionEqualTo;
+    : GREATER_THAN value value                        # ComparisonExpressionGreaterThan
+    | GREATER_THAN_OR_EQUAL value value               # ComparisonExpressionGreaterThanOrEqual
+    | LESS_THAN value value                           # ComparisonExpressionLessThan
+    | LESS_THAN_OR_EQUAL value value                  # ComparisonExpressionLessThanOrEqual
+    | EQUALS value*                                  # ComparisonExpressionEqualTo;
 
 types
-    : INT;
+    : INT
+    | STRING
+    | BOOL;
 
 
