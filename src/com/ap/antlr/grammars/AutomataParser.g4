@@ -29,8 +29,8 @@ conditional_structure
     : IF expression THEN statement_block (ELSE IF expression THEN statement_block)* (ELSE statement_block)? FI #ConditionalStructureIf;
 
 function_declaration
-    : value_type IDENTIFIER LEFT_PARENTHESIS ?parameters RIGHT_PARENTHESIS LEFT_BRACE statement_block RETURN expression SEMICOLON RIGHT_BRACE   #FunctionDeclarationReturn
-    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS ?parameters RIGHT_PARENTHESIS LEFT_BRACE statement_block RIGHT_BRACE                                #FunctionDeclarationVoid;
+    : value_type IDENTIFIER LEFT_PARENTHESIS parameters? RIGHT_PARENTHESIS LEFT_BRACE statement_block RETURN expression SEMICOLON RIGHT_BRACE   #FunctionDeclarationReturn
+    | TYPE_VOID IDENTIFIER LEFT_PARENTHESIS parameters? RIGHT_PARENTHESIS LEFT_BRACE statement_block RIGHT_BRACE                                #FunctionDeclarationVoid;
 
 parameters
     : parameter (COMMA parameter)*;
@@ -39,7 +39,7 @@ parameter
     : value_type IDENTIFIER;
 
 function_call
-    :  IDENTIFIER LEFT_PARENTHESIS expression* RIGHT_PARENTHESIS #FunctionCall;
+    :  IDENTIFIER LEFT_PARENTHESIS (expression (COMMA expression)*)? RIGHT_PARENTHESIS #FunctionCall;
 
 variable_declaration
     : value_type IDENTIFIER                     #VariableDeclarationDefault

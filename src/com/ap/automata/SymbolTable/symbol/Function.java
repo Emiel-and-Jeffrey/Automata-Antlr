@@ -19,9 +19,9 @@ public class Function implements ISymbol {
     private final String[] parameterNames;
     private final VariableType[] parameterTypes;
 
-    private final List<AutomataParser.StatementContext> functionBody;
+    private final AutomataParser.Statement_blockContext functionBody;
 
-    public Function(String name, String[] parameterNames, VariableType[] parameterTypes, List<AutomataParser.StatementContext> functionBody) {
+    public Function(String name, String[] parameterNames, VariableType[] parameterTypes, AutomataParser.Statement_blockContext functionBody) {
         this.name = name;
         this.parameterNames = parameterNames;
         this.parameterTypes = parameterTypes;
@@ -36,11 +36,11 @@ public class Function implements ISymbol {
         return parameterTypes;
     }
 
-    public List<AutomataParser.StatementContext> getFunctionBody() {
+    public AutomataParser.Statement_blockContext getFunctionBody() {
         return functionBody;
     }
 
-    public AutomataParser.Return_expressionContext getReturnStatement() {
+    public AutomataParser.ExpressionContext getReturnStatement() {
         return null;
     }
 
