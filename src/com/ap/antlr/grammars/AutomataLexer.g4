@@ -27,17 +27,16 @@ RIGHT_BRACE: '}';
 DOT: '.';
 COMMA: ',';
 SEMICOLON: ';';
-EXLAMATION_MARK: '!';
+EXCLAMATION_MARK: '!';
 
 //types (lowercase is convention):
-VARIABLE_TYPE_NUMBER: 'number';
-VARIABLE_TYPE_BOOLEAN: 'bool';
-VARIABLE_TYPE_STRING: 'string';
+VALUE_TYPE_NUMBER: 'number';
+VALUE_TYPE_BOOLEAN: 'bool';
 
 TYPE_VOID: 'void';
 RETURN: 'return';
 
-//function keywords (capital letter is convention):
+//internal function keywords (capital letter is convention):
 PRINT: 'Print';
 
 //conditional operators
