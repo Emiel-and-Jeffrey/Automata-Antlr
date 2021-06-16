@@ -6,7 +6,9 @@ package com.ap.automata.SymbolTable.value;
  */
 public enum VariableType {
     NUMBER("number"),
-    STRING("string");
+    BOOL("bool"),
+    STRING("string"),
+    VOID("void");
 
     private final String text;
 

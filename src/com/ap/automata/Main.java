@@ -14,17 +14,37 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
         while (true) {
+            Scanner sc = new Scanner(System.in);
+            String input;
+            int choice;
+
+            System.out.println("Select file type:");
+            System.out.println("1) custom language");
+            System.out.println("2) sudoku A-type");
+            System.out.println("3) sudoku B-type");
+            input = sc.nextLine();
+
+            try {
+                choice = Integer.parseInt(input);
+                if (choice < 1 || choice > 3) {
+                    System.out.println("invalid file type specified");
+                    continue;
+                }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("invalid file type specified");
+                continue;
+            }
 
             System.out.println("Please enter your filepath:");
-            Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine();
+            input = sc.nextLine();
+
             File file = new File(input);
 
             if (!IsFileValid(file)) {
@@ -32,13 +52,16 @@ public class Main {
                 return;
             }
             CharStream targetStream = CharStreams.fromFileName(input);
-            HandleParsing(targetStream);
-            //HandleParsingZ3(targetStream);
+
+            switch (choice) {
+                case 1 -> HandleParsing(targetStream);
+                case 2 -> HandleParsingZ3A(targetStream);
+                case 3 -> HandleParsingZ3B(targetStream);
+            }
         }
     }
 
     private static void HandleParsing(CharStream stream) {
-
 
         AutomataLexer lexer = new AutomataLexer(stream);
 
@@ -53,27 +76,27 @@ public class Main {
         AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
         visitor.visit(tree);
 
-        AutomataParserListener listener = new AutomataParserListener(table);
-        walker.walk(listener, tree);
-
-        String tokenString = tokens.getTokens()
-                .stream()
-                .map(token -> token.getText() + " ")
-                .collect(Collectors.joining());
-        String treeString = tree.toStringTree(parser);
-        String result = listener.getOutput();
-
-        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
-        String[] vals = {tokenString, treeString, result};
-
-        System.out.println("------------------------------------------------------");
-        for (int i = 0; i < msg.length; i++) {
-            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
-        }
-        System.out.println("------------------------------------------------------");
+//        AutomataParserListener listener = new AutomataParserListener(table);
+//        walker.walk(listener, tree);
+//
+//        String tokenString = tokens.getTokens()
+//                .stream()
+//                .map(token -> token.getText() + " ")
+//                .collect(Collectors.joining());
+//        String treeString = tree.toStringTree(parser);
+//        String result = listener.getOutput();
+//
+//        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
+//        String[] vals = {tokenString, treeString, result};
+//
+//        System.out.println("------------------------------------------------------");
+//        for (int i = 0; i < msg.length; i++) {
+//            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
+//        }
+//        System.out.println("------------------------------------------------------");
     }
 
-    private static void HandleParsingZ3(CharStream stream) {
+    private static void HandleParsingZ3A(CharStream stream) {
         Z3Lexer lexer = new Z3Lexer(stream);
 
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -82,7 +105,25 @@ public class Main {
 
         ParseTree tree = parser.result();
 
-        Z3ParserListener listener = new Z3ParserListener();
+        Z3AParserListener listener = new Z3AParserListener();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        walker.walk(listener, tree);
+
+        System.out.println(listener.printSudokuGrid());
+    }
+
+    private static void HandleParsingZ3B(CharStream stream) {
+        Z3Lexer lexer = new Z3Lexer(stream);
+
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        Z3Parser parser = new Z3Parser(tokens);
+
+        ParseTree tree = parser.result();
+
+        Z3BParserListener listener = new Z3BParserListener();
 
         ParseTreeWalker walker = new ParseTreeWalker();
 

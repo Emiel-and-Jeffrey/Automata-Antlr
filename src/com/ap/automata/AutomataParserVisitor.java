@@ -3,24 +3,41 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseVisitor;
 import com.ap.automata.SymbolTable.SymbolTable;
-import com.ap.automata.SymbolTable.symbol.Symbol;
-import com.ap.automata.SymbolTable.value.BooleanValue;
-import com.ap.automata.SymbolTable.value.NumberValue;
-import com.ap.automata.SymbolTable.value.Value;
-import com.ap.automata.SymbolTable.value.VoidValue;
+import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
+import com.ap.automata.SymbolTable.exceptions.UnknownVariableException;
+import com.ap.automata.SymbolTable.symbol.ISymbol;
+import com.ap.automata.SymbolTable.symbol.Function;
+import com.ap.automata.SymbolTable.symbol.ReturnFunction;
+import com.ap.automata.SymbolTable.symbol.Variable;
+import com.ap.automata.SymbolTable.value.*;
 import org.apache.commons.math3.special.Gamma;
 
+import java.util.ArrayList;
 import java.util.List;
-
-//first we need a value payload type
-//then implement the visitor methods
+import java.util.Stack;
 
 public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
-    private final SymbolTable table;
+    private final SymbolTable globalTable;
+
+    private final Stack<SymbolTable> scopedTable;
 
     public AutomataParserVisitor(SymbolTable table) {
-        this.table = table;
+        this.globalTable = table;
+        this.scopedTable = new Stack<>();
+        scopedTable.push(globalTable); //just in case
+    }
+
+    private Variable getValueFromTables(String symbol) {
+        Variable variable;
+        try {
+            variable = scopedTable.peek().getSymbol(symbol, Variable.class);
+        }
+        catch (UnknownVariableException e) {
+            variable = globalTable.getSymbol(symbol, Variable.class);
+        }
+
+        return variable;
     }
 
     @Override
@@ -55,6 +72,133 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     }
 
     @Override
+    public Value visitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) {
+
+        List<String> parameterNames = new ArrayList<>();
+        List<VariableType> parameterTypes = new ArrayList<>();
+
+        for (AutomataParser.ParameterContext parameter : ctx.parameter()) {
+            parameterNames.add(parameter.IDENTIFIER().getText());
+            parameterTypes.add(VariableType.valueOf(parameter.value_types().getText().toUpperCase()));
+        }
+
+        ReturnFunction function = new ReturnFunction(
+                ctx.IDENTIFIER().getText(),
+                parameterNames.toArray(new String[0]),
+                parameterTypes.toArray(new VariableType[0]),
+                ctx.statement(),
+                ctx.return_expression());
+
+        globalTable.addSymbol(function);
+        return new VoidValue();
+    }
+
+    @Override
+    public Value visitFunctionDeclarationVoid(AutomataParser.FunctionDeclarationVoidContext ctx) {
+
+        List<String> parameterNames = new ArrayList<>();
+        List<VariableType> parameterTypes = new ArrayList<>();
+        for (AutomataParser.ParameterContext parameter : ctx.parameter()) {
+            parameterNames.add(parameter.IDENTIFIER().getText());
+            parameterTypes.add(VariableType.valueOf(parameter.value_types().getText().toUpperCase()));
+        }
+
+        Function function = new Function(
+                ctx.IDENTIFIER().getText(),
+                parameterNames.toArray(new String[0]),
+                parameterTypes.toArray(new VariableType[0]),
+                ctx.statement());
+
+        globalTable.addSymbol(function);
+        return new VoidValue();
+    }
+
+    @Override
+    public Value visitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) {
+        Double number = Double.valueOf(ctx.NUMBER().getText());
+        return new NumberValue(number);
+    }
+
+    @Override
+    public Value visitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) {
+        Boolean value = Boolean.valueOf(ctx.BOOLEAN().getText());
+        return new BooleanValue(value);
+    }
+
+    @Override
+    public Value visitArgumentVariable(AutomataParser.ArgumentVariableContext ctx) {
+        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue();
+    }
+
+    @Override
+    public Value visitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) {
+        return visit(ctx.function_call());
+    }
+
+    @Override
+    public Value visitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) {
+        return visit(ctx.numeric_expression());
+    }
+
+    @Override
+    public Value visitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) {
+        return visit(ctx.logical_expression());
+    }
+
+    @Override
+    public Value visitReturnVariable(AutomataParser.ReturnVariableContext ctx) {
+        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue();
+    }
+
+    @Override
+    public Value visitFunction_call(AutomataParser.Function_callContext ctx) {
+
+        Function function = globalTable.getSymbol(ctx.IDENTIFIER().getText(), Function.class);
+
+        SymbolTable table = new SymbolTable();
+
+        String[] parameterNames = function.getParameterNames();
+        VariableType[] parameterTypes = function.getParameterTypes();
+
+        List<AutomataParser.ArgumentContext> arguments = ctx.argument();
+
+        for (int i = 0; i < arguments.size(); i++) {
+            VariableType parameterType = parameterTypes[i];
+            AutomataParser.ArgumentContext argument = arguments.get(i);
+
+            Value value = visit(arguments.get(i));
+
+            //i thought this was necessary but we can also ignore it here
+            //then this exception just gets thrown later down the line
+            if(value.getType() != parameterTypes[i]) {
+                throw new TypeMismatchException("Value of incorrect type supplied");
+            }
+
+            ISymbol symbol = new Variable(parameterNames[i], value);
+            table.addSymbol(symbol);
+        }
+
+        scopedTable.push(table);
+
+        for (AutomataParser.StatementContext statement : function.getFunctionBody()) {
+            visit(statement);
+        }
+
+        AutomataParser.Return_expressionContext returnStatement = function.getReturnStatement();
+        Value returnValue;
+        if(returnStatement != null) {
+            returnValue = visit(returnStatement);
+        }
+        else {
+            returnValue = new VoidValue();
+        }
+
+        scopedTable.pop();
+
+        return returnValue;
+    }
+
+    @Override
     public Value visitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) {
 
         while (visit(ctx.logical_expression()).getValueAs(BooleanValue.class).getValue()) {
@@ -70,49 +214,53 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
 
         NumberValue value = new NumberValue(0.0);
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(symbol);
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
+
+        scopedTable.peek().addSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) {
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
-        table.AddSymbol(symbol);
-        return symbol.getValue();
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.numeric_expression()));
+
+        scopedTable.peek().addSymbol(variable);
+        return variable.getValue();
     }
 
     @Override
     public Value visitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) {
         BooleanValue value = new BooleanValue(Boolean.FALSE);
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), value);
-        table.AddSymbol(symbol);
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), value);
+
+        scopedTable.peek().addSymbol(variable);
         return value;
     }
 
     @Override
     public Value visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) {
-        Symbol symbol = new Symbol(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
-        table.AddSymbol(symbol);
-        return symbol.getValue();
+        Variable variable = new Variable(ctx.IDENTIFIER().getText(), visit(ctx.logical_expression()));
+
+        scopedTable.peek().addSymbol(variable);
+        return variable.getValue();
     }
 
     @Override
     public Value visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) {
-        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
-        NumberValue value = symbol.getValue().getValueAs(NumberValue.class);
+
+        Variable variable = getValueFromTables(ctx.IDENTIFIER().getText());
         NumberValue newValue = visit(ctx.numeric_expression()).getValueAs(NumberValue.class);
-        value.setValue(newValue.getValue());
-        return value;
+        variable.setValue(newValue);
+        return newValue;
     }
 
     @Override
     public Value visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) {
-        Symbol symbol = table.GetSymbol(ctx.IDENTIFIER().getText());
-        BooleanValue value = symbol.getValue().getValueAs(BooleanValue.class);
+
+        Variable variable = getValueFromTables(ctx.IDENTIFIER().getText());
         BooleanValue newValue = visit(ctx.logical_expression()).getValueAs(BooleanValue.class);
-        value.setValue(newValue.getValue());
-        return value;
+        variable.setValue(newValue);
+        return newValue;
     }
 
     @Override
@@ -155,7 +303,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(NumberValue.class);
+        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue().getValueAs(NumberValue.class);
     }
 
     @Override
@@ -188,7 +336,8 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
     @Override
     public Value visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) {
-        return table.GetSymbol(ctx.IDENTIFIER().getText()).getValue().getValueAs(BooleanValue.class);
+
+        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue().getValueAs(BooleanValue.class);
     }
 
     @Override
@@ -216,7 +365,6 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) {
         Boolean leftStatement = visit(ctx.logical_expression(0)).getValueAs(BooleanValue.class).getValue();
         Boolean rightStatement = visit(ctx.logical_expression(1)).getValueAs(BooleanValue.class).getValue();
-
         return new BooleanValue(leftStatement || rightStatement);
     }
 

@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -120,6 +120,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitResult(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitResult(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ResultContext result() throws RecognitionException {
@@ -138,7 +143,7 @@ public class Z3Parser extends Parser {
 			setState(22);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==LPAREN || _la==NUMBER) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LPAREN) | (1L << IDENTIFIER) | (1L << NUMBER))) != 0)) {
 				{
 				{
 				setState(19);
@@ -165,12 +170,70 @@ public class Z3Parser extends Parser {
 	}
 
 	public static class StatementContext extends ParserRuleContext {
+		public StatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_statement; }
+	 
+		public StatementContext() { }
+		public void copyFrom(StatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class StatementNumberContext extends StatementContext {
+		public Numeric_expressionContext numeric_expression() {
+			return getRuleContext(Numeric_expressionContext.class,0);
+		}
+		public StatementNumberContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).enterStatementNumber(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitStatementNumber(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitStatementNumber(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class StatementFunctionContext extends StatementContext {
+		public TerminalNode LPAREN() { return getToken(Z3Parser.LPAREN, 0); }
+		public FunctionContext function() {
+			return getRuleContext(FunctionContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(Z3Parser.RPAREN, 0); }
+		public List<StatementContext> statement() {
+			return getRuleContexts(StatementContext.class);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
+		}
+		public StatementFunctionContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).enterStatementFunction(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitStatementFunction(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitStatementFunction(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class StatementIfElseContext extends StatementContext {
 		public List<TerminalNode> LPAREN() { return getTokens(Z3Parser.LPAREN); }
 		public TerminalNode LPAREN(int i) {
 			return getToken(Z3Parser.LPAREN, i);
 		}
-		public FunctionContext function() {
-			return getRuleContext(FunctionContext.class,0);
+		public TerminalNode IF_ELSE() { return getToken(Z3Parser.IF_ELSE, 0); }
+		public Logical_expressionContext logical_expression() {
+			return getRuleContext(Logical_expressionContext.class,0);
 		}
 		public List<TerminalNode> RPAREN() { return getTokens(Z3Parser.RPAREN); }
 		public TerminalNode RPAREN(int i) {
@@ -182,22 +245,19 @@ public class Z3Parser extends Parser {
 		public StatementContext statement(int i) {
 			return getRuleContext(StatementContext.class,i);
 		}
-		public TerminalNode IF_ELSE() { return getToken(Z3Parser.IF_ELSE, 0); }
-		public Logical_expressionContext logical_expression() {
-			return getRuleContext(Logical_expressionContext.class,0);
-		}
-		public TerminalNode NUMBER() { return getToken(Z3Parser.NUMBER, 0); }
-		public StatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_statement; }
+		public StatementIfElseContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).enterStatement(this);
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).enterStatementIfElse(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitStatement(this);
+			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitStatementIfElse(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitStatementIfElse(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -210,6 +270,7 @@ public class Z3Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
+				_localctx = new StatementFunctionContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(27);
@@ -219,7 +280,7 @@ public class Z3Parser extends Parser {
 				setState(32);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==LPAREN || _la==NUMBER) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LPAREN) | (1L << IDENTIFIER) | (1L << NUMBER))) != 0)) {
 					{
 					{
 					setState(29);
@@ -235,6 +296,7 @@ public class Z3Parser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new StatementIfElseContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(37);
@@ -256,10 +318,11 @@ public class Z3Parser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new StatementNumberContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(46);
-				match(NUMBER);
+				numeric_expression();
 				}
 				break;
 			}
@@ -300,6 +363,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitFunction(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitFunction(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -366,6 +434,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitParameter(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitParameter(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParameterContext parameter() throws RecognitionException {
@@ -419,6 +492,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitLogicalExpressionComparison(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitLogicalExpressionComparison(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class LogicalExpressionAndContext extends Logical_expressionContext {
 		public TerminalNode AND() { return getToken(Z3Parser.AND, 0); }
@@ -444,6 +522,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitLogicalExpressionAnd(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitLogicalExpressionAnd(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -524,6 +607,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitMathExpressionBasicNumber(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitMathExpressionBasicNumber(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class MathExpressionVariableContext extends Numeric_expressionContext {
 		public TerminalNode IDENTIFIER() { return getToken(Z3Parser.IDENTIFIER, 0); }
@@ -535,6 +623,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitMathExpressionVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitMathExpressionVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -604,6 +697,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionGreaterThan(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionGreaterThan(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ComparisonExpressionLessThanContext extends Comparison_expressionContext {
 		public TerminalNode LESS_THAN() { return getToken(Z3Parser.LESS_THAN, 0); }
@@ -621,6 +719,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionLessThan(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionLessThan(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ComparisonExpressionLessThanOrEqualContext extends Comparison_expressionContext {
@@ -640,6 +743,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionLessThanOrEqual(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionLessThanOrEqual(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ComparisonExpressionEqualToContext extends Comparison_expressionContext {
 		public TerminalNode EQUALS() { return getToken(Z3Parser.EQUALS, 0); }
@@ -657,6 +765,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionEqualTo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionEqualTo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class ComparisonExpressionGreaterThanOrEqualContext extends Comparison_expressionContext {
@@ -676,6 +789,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionGreaterThanOrEqual(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionGreaterThanOrEqual(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	public static class ComparisonExpressionVariableContext extends Comparison_expressionContext {
 		public TerminalNode IDENTIFIER() { return getToken(Z3Parser.IDENTIFIER, 0); }
@@ -687,6 +805,11 @@ public class Z3Parser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitComparisonExpressionVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitComparisonExpressionVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -794,6 +917,11 @@ public class Z3Parser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof Z3ParserListener ) ((Z3ParserListener)listener).exitTypes(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Z3ParserVisitor ) return ((Z3ParserVisitor<? extends T>)visitor).visitTypes(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TypesContext types() throws RecognitionException {
@@ -832,10 +960,10 @@ public class Z3Parser extends Parser {
 		"\2\2\33\34\7\6\2\2\34\3\3\2\2\2\35\36\7\5\2\2\36\"\5\6\4\2\37!\5\4\3\2"+
 		" \37\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3\2\2\2#%\3\2\2\2$\"\3\2\2\2%&\7"+
 		"\6\2\2&\62\3\2\2\2\'(\7\5\2\2()\7\16\2\2)*\7\5\2\2*+\5\n\6\2+,\7\6\2\2"+
-		",-\5\4\3\2-.\5\4\3\2./\7\6\2\2/\62\3\2\2\2\60\62\7\22\2\2\61\35\3\2\2"+
-		"\2\61\'\3\2\2\2\61\60\3\2\2\2\62\5\3\2\2\2\63\64\7\17\2\2\64\65\7\21\2"+
-		"\2\659\7\5\2\2\668\5\b\5\2\67\66\3\2\2\28;\3\2\2\29\67\3\2\2\29:\3\2\2"+
-		"\2:<\3\2\2\2;9\3\2\2\2<=\7\6\2\2=>\5\20\t\2>\7\3\2\2\2?@\7\5\2\2@A\7\21"+
+		",-\5\4\3\2-.\5\4\3\2./\7\6\2\2/\62\3\2\2\2\60\62\5\f\7\2\61\35\3\2\2\2"+
+		"\61\'\3\2\2\2\61\60\3\2\2\2\62\5\3\2\2\2\63\64\7\17\2\2\64\65\7\21\2\2"+
+		"\659\7\5\2\2\668\5\b\5\2\67\66\3\2\2\28;\3\2\2\29\67\3\2\2\29:\3\2\2\2"+
+		":<\3\2\2\2;9\3\2\2\2<=\7\6\2\2=>\5\20\t\2>\7\3\2\2\2?@\7\5\2\2@A\7\21"+
 		"\2\2AB\5\20\t\2BC\7\6\2\2C\t\3\2\2\2DE\7\r\2\2EF\7\5\2\2FG\5\n\6\2GH\7"+
 		"\6\2\2HI\7\5\2\2IJ\5\n\6\2JK\7\6\2\2KN\3\2\2\2LN\5\16\b\2MD\3\2\2\2ML"+
 		"\3\2\2\2N\13\3\2\2\2OR\7\21\2\2PR\7\22\2\2QO\3\2\2\2QP\3\2\2\2R\r\3\2"+

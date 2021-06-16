@@ -9,8 +9,8 @@ import java.util.HashMap;
 /**
  * The symbol table class is used to keep track of variables
  */
-public class SymbolTable {
-    private HashMap<String, ISymbol> table;
+public class SymbolTable implements ISymbol {
+    private final HashMap<String, ISymbol> table;
 
     public SymbolTable() {
         table = new HashMap<>();
@@ -21,7 +21,7 @@ public class SymbolTable {
      *
      * @param symbol the symbol you want to add
      */
-    public void AddSymbol(ISymbol symbol) throws VariableAlreadyDefinedException {
+    public void addSymbol(ISymbol symbol) throws VariableAlreadyDefinedException {
         if (table.containsKey(symbol.getName())) {
             throw new VariableAlreadyDefinedException(String.format("%s has already been defined", symbol.getName()));
         }
@@ -33,10 +33,15 @@ public class SymbolTable {
      *
      * @param name the name you want the symbol for
      */
-    public <T extends ISymbol> T GetSymbol(String name) throws UnknownVariableException {
+    public <T extends ISymbol> T getSymbol(String name, Class<T> type) throws UnknownVariableException {
         if (!table.containsKey(name)) {
             throw new UnknownVariableException(String.format("%s has not been defined", name));
         }
-        return (T) table.get(name);
+        return type.cast(table.get(name));
+    }
+
+    @Override
+    public String getName() {
+        return "SymbolTable";
     }
 }

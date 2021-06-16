@@ -4,7 +4,9 @@ import com.ap.automata.SymbolTable.exceptions.TypeMismatchException;
 
 public abstract class Value {
 
-    protected abstract boolean isOfCorrectType(Class<? extends Value> type);
+    public abstract boolean isOfCorrectType(Class<? extends Value> type);
+
+    public abstract VariableType getType();
 
     public <T extends Value> T getValueAs(Class<T> type) {
         if (!isOfCorrectType(type))

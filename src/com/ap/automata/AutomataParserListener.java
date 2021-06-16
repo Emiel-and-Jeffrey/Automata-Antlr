@@ -3,7 +3,7 @@ package com.ap.automata;
 import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 import com.ap.automata.SymbolTable.SymbolTable;
-import com.ap.automata.SymbolTable.symbol.Symbol;
+import com.ap.automata.SymbolTable.symbol.Variable;
 import com.ap.automata.SymbolTable.value.NumberValue;
 import org.apache.commons.math3.special.Gamma;
 
@@ -31,9 +31,9 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         NumberValue value = new NumberValue(0.0);
-        Symbol symbol = new Symbol(variableName, value);
+        Variable variable = new Variable(variableName, value);
 
-        symbolTable.AddSymbol(symbol);
+        symbolTable.addSymbol(variable);
     }
 
     @Override
@@ -41,9 +41,9 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
 
         NumberValue value = new NumberValue(stack.pop());
-        Symbol symbol = new Symbol(variableName, value);
+        Variable variable = new Variable(variableName, value);
 
-        symbolTable.AddSymbol(symbol);
+        symbolTable.addSymbol(variable);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
         String variableName = ctx.IDENTIFIER().getText();
         Double variableValue = stack.pop();
 
-        NumberValue number = symbolTable.GetSymbol(variableName).getValue().getValueAs(NumberValue.class);
+        NumberValue number = symbolTable.getSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
         number.setValue(variableValue);
     }
 
@@ -59,8 +59,7 @@ public class AutomataParserListener extends AutomataParserBaseListener {
     public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
 
-
-        NumberValue number = symbolTable.GetSymbol(variableName).getValue().getValueAs(NumberValue.class);
+        NumberValue number = symbolTable.getSymbol(variableName, Variable.class).getValue().getValueAs(NumberValue.class);
         stack.push(number.getValue());
     }
 
