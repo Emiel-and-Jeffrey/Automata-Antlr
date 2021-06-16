@@ -57,11 +57,7 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     public Value visitLoopStructureWhile(AutomataParser.LoopStructureWhileContext ctx) {
 
         while (visit(ctx.expression()).getValueAs(BooleanValue.class).getValue()) {
-
-            //can this not be replaced with visit statement block?
-            for (var statement : ctx.statement_block().statement()) {
-                visit(statement);
-            }
+            visit(ctx.statement_block());
         }
         return new VoidValue();
     }
@@ -78,14 +74,13 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
             BooleanValue ifStatementEvaluation = visit(conditions.get(i)).getValueAs(BooleanValue.class);
             ifStatementEvaluated = ifStatementEvaluation.getValue();
 
-            //same thing here
             if (ifStatementEvaluated) {
-                visitChildren(statements.get(i));
+                visit(statements.get(i));
             }
         }
 
         if (!ifStatementEvaluated && statements.size() == conditions.size() + 1) {
-            visitChildren(statements.get(statements.size() - 1));
+            visit(statements.get(statements.size() - 1));
         }
 
         return new VoidValue();
@@ -134,43 +129,6 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
         return new VoidValue();
     }
 
-//    @Override
-//    public Value visitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) {
-//        Double number = Double.valueOf(ctx.NUMBER().getText());
-//        return new NumberValue(number);
-//    }
-//
-//    @Override
-//    public Value visitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) {
-//        Boolean value = Boolean.valueOf(ctx.BOOLEAN().getText());
-//        return new BooleanValue(value);
-//    }
-//
-//    @Override
-//    public Value visitArgumentVariable(AutomataParser.ArgumentVariableContext ctx) {
-//        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue();
-//    }
-//
-//    @Override
-//    public Value visitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) {
-//        return visit(ctx.function_call());
-//    }
-//
-//    @Override
-//    public Value visitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) {
-//        return visit(ctx.numeric_expression());
-//    }
-//
-//    @Override
-//    public Value visitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) {
-//        return visit(ctx.logical_expression());
-//    }
-//
-//    @Override
-//    public Value visitReturnVariable(AutomataParser.ReturnVariableContext ctx) {
-//        return getValueFromTables(ctx.IDENTIFIER().getText()).getValue();
-//    }
-
     @Override
     public Value visitFunctionCall(AutomataParser.FunctionCallContext ctx) {
 
@@ -200,20 +158,10 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
 
         scopedTable.push(table);
 
-        //visitchildren?
-        for (AutomataParser.StatementContext statement : function.getFunctionBody().statement()) {
-            visit(statement);
-        }
+        visit(function.getFunctionBody());
 
         AutomataParser.ExpressionContext returnStatement = function.getReturnStatement();
-        //ternary operator
-        Value returnValue;
-        if(returnStatement != null) {
-            returnValue = visit(returnStatement);
-        }
-        else {
-            returnValue = new VoidValue();
-        }
+        Value returnValue = (returnStatement != null) ? visit(returnStatement) : new VoidValue();
 
         scopedTable.pop();
 
@@ -268,7 +216,6 @@ public class AutomataParserVisitor extends AutomataParserBaseVisitor<Value> {
     //if required add:
     //expressionvalue visitor
     //expressionfunctioncall visitor
-    //expressionparentheses visitor
 
     @Override
     public Value visitExpressionParentheses(AutomataParser.ExpressionParenthesesContext ctx) {
