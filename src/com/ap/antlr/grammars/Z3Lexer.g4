@@ -22,7 +22,7 @@ NOT: 'not';
 IF_ELSE: 'ite';
 
 FUNC: 'define-fun';
-VARIABLE: 'let';
+LET: 'let';
 
 INT: 'Int';
 STRING: 'String';
