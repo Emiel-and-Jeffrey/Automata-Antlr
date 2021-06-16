@@ -28,13 +28,19 @@ public class Main {
             System.out.println("1) custom language");
             System.out.println("2) sudoku A-type");
             System.out.println("3) sudoku B-type");
+            System.out.println("4) exit");
             input = sc.nextLine();
 
             try {
                 choice = Integer.parseInt(input);
-                if (choice < 1 || choice > 3) {
+                if (choice < 1 || choice > 4) {
                     System.out.println("invalid file type specified");
                     continue;
+                }
+
+                if (choice == 4) {
+                    System.out.println("bye!");
+                    System.exit(0);
                 }
             }
             catch (NumberFormatException e) {
@@ -75,25 +81,6 @@ public class Main {
 
         AutomataParserVisitor visitor = new AutomataParserVisitor(new SymbolTable());
         visitor.visit(tree);
-
-//        AutomataParserListener listener = new AutomataParserListener(table);
-//        walker.walk(listener, tree);
-//
-//        String tokenString = tokens.getTokens()
-//                .stream()
-//                .map(token -> token.getText() + " ")
-//                .collect(Collectors.joining());
-//        String treeString = tree.toStringTree(parser);
-//        String result = listener.getOutput();
-//
-//        String[] msg = {"Lexed tokens ", "Generated tree ", "Result "};
-//        String[] vals = {tokenString, treeString, result};
-//
-//        System.out.println("------------------------------------------------------");
-//        for (int i = 0; i < msg.length; i++) {
-//            System.out.printf("%22s: %10s%n", msg[i], vals[i]);
-//        }
-//        System.out.println("------------------------------------------------------");
     }
 
     private static void HandleParsingZ3A(CharStream stream) {
