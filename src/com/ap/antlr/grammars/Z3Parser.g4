@@ -16,7 +16,7 @@ value
 	| NUMBER                  # ValueBasicNumber
 	| comparison_expression   # ValueComparisonExpresssion
 	| function_call           # ValueFunctionCall
-	| logical_expression      # ValueLogicalExpression
+	| z3_logical_expression   # ValueLogicalExpression
 	| numeric_expression      # ValueNumericExpression;
 
 function
@@ -32,7 +32,7 @@ variable
 parameter
     : LPAREN IDENTIFIER types RPAREN;
 
-logical_expression
+z3_logical_expression
 	: LPAREN AND value* RPAREN # LogicalExpressionAnd
 	| LPAREN OR value* RPAREN  # LogicalExpressionOr
 	| LPAREN NOT value RPAREN  # LogicalExpressionNot;

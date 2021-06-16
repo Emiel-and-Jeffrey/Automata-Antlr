@@ -1,4 +1,4 @@
-// Generated from C:/Users/emiel/Desktop/semester 4/automata/Automata-Antlr/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
+// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -28,6 +28,18 @@ public class Z3ParserBaseListener implements Z3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatnentVariableDeclaration(Z3Parser.StatnentVariableDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatnentVariableDeclaration(Z3Parser.StatnentVariableDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStatementFunction(Z3Parser.StatementFunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -52,13 +64,97 @@ public class Z3ParserBaseListener implements Z3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatementNumber(Z3Parser.StatementNumberContext ctx) { }
+	@Override public void enterStatementValue(Z3Parser.StatementValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatementNumber(Z3Parser.StatementNumberContext ctx) { }
+	@Override public void exitStatementValue(Z3Parser.StatementValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueVariable(Z3Parser.ValueVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueVariable(Z3Parser.ValueVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueString(Z3Parser.ValueStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueString(Z3Parser.ValueStringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueBasicNumber(Z3Parser.ValueBasicNumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueBasicNumber(Z3Parser.ValueBasicNumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueComparisonExpresssion(Z3Parser.ValueComparisonExpresssionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueComparisonExpresssion(Z3Parser.ValueComparisonExpresssionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueFunctionCall(Z3Parser.ValueFunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueFunctionCall(Z3Parser.ValueFunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueLogicalExpression(Z3Parser.ValueLogicalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueLogicalExpression(Z3Parser.ValueLogicalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueNumericExpression(Z3Parser.ValueNumericExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueNumericExpression(Z3Parser.ValueNumericExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -71,6 +167,30 @@ public class Z3ParserBaseListener implements Z3ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunction(Z3Parser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunction_call(Z3Parser.Function_callContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunction_call(Z3Parser.Function_callContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariable(Z3Parser.VariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariable(Z3Parser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -100,49 +220,49 @@ public class Z3ParserBaseListener implements Z3ParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionComparison(Z3Parser.LogicalExpressionComparisonContext ctx) { }
+	@Override public void enterLogicalExpressionOr(Z3Parser.LogicalExpressionOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionComparison(Z3Parser.LogicalExpressionComparisonContext ctx) { }
+	@Override public void exitLogicalExpressionOr(Z3Parser.LogicalExpressionOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionVariable(Z3Parser.MathExpressionVariableContext ctx) { }
+	@Override public void enterLogicalExpressionNot(Z3Parser.LogicalExpressionNotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionVariable(Z3Parser.MathExpressionVariableContext ctx) { }
+	@Override public void exitLogicalExpressionNot(Z3Parser.LogicalExpressionNotContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMathExpressionBasicNumber(Z3Parser.MathExpressionBasicNumberContext ctx) { }
+	@Override public void enterNumericExpressionAdd(Z3Parser.NumericExpressionAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMathExpressionBasicNumber(Z3Parser.MathExpressionBasicNumberContext ctx) { }
+	@Override public void exitNumericExpressionAdd(Z3Parser.NumericExpressionAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionVariable(Z3Parser.ComparisonExpressionVariableContext ctx) { }
+	@Override public void enterNumericExpressionMinus(Z3Parser.NumericExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionVariable(Z3Parser.ComparisonExpressionVariableContext ctx) { }
+	@Override public void exitNumericExpressionMinus(Z3Parser.NumericExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

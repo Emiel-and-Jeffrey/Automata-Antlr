@@ -1,7 +1,6 @@
 package com.ap.automata;
 
 import com.ap.antlr.base.Z3Parser;
-import com.ap.antlr.base.Z3ParserBaseListener;
 
 import java.util.Stack;
 
@@ -11,7 +10,6 @@ public class Z3BParserListener extends Z3ParserListener {
 
     @Override
     public void exitStatementIfElse(Z3Parser.StatementIfElseContext ctx) {
-        System.out.println(ctx.logical_expression().getChild(2).getText());
         int y = coordinates.pop() - 1;
         int x = coordinates.pop() - 1;
 
@@ -22,7 +20,7 @@ public class Z3BParserListener extends Z3ParserListener {
 
     @Override
     public void exitComparisonExpressionEqualTo(Z3Parser.ComparisonExpressionEqualToContext ctx) {
-        int coordinate = Integer.parseInt(ctx.numeric_expression(1).getText());
+        int coordinate = Integer.parseInt(ctx.value(1).getText());
         coordinates.push(coordinate);
     }
 }
