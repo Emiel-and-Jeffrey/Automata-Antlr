@@ -10,7 +10,6 @@ GREATER_THAN: '>' ;
 LESS_THAN: '<' ;
 GREATER_THAN_OR_EQUAL: '>=' ;
 LESS_THAN_OR_EQUAL: '<=' ;
-EXLAMATION_MARK: '!';
 DOT: '.';
 
 MINUS: '-';
@@ -28,7 +27,7 @@ INT: 'Int';
 STRING: 'String';
 BOOL: 'Bool';
 
-IDENTIFIER: [a-zA-Z_][!]*[a-zA-Z_0-9]*;
+IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9!]*;
 STRING_LITERAL:  '"' ~('"')* '"';
 
 NUMBER: [0-9]+;

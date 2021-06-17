@@ -5,6 +5,7 @@ import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.Z3Lexer;
 import com.ap.antlr.base.Z3Parser;
 import com.ap.automata.SymbolTable.SymbolTable;
+import com.ap.automata.graph.GraphViz;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -12,6 +13,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -28,16 +30,16 @@ public class Main {
             System.out.println("1) custom language");
             System.out.println("2) sudoku A-type");
             System.out.println("3) sudoku B-type");
+            System.out.println("4) Z3 Graph");
             input = sc.nextLine();
 
             try {
                 choice = Integer.parseInt(input);
-                if (choice < 1 || choice > 3) {
+                if (choice < 1 || choice > 4) {
                     System.out.println("invalid file type specified");
                     continue;
                 }
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("invalid file type specified");
                 continue;
             }
@@ -57,6 +59,7 @@ public class Main {
                 case 1 -> HandleParsing(targetStream);
                 case 2 -> HandleParsingZ3A(targetStream);
                 case 3 -> HandleParsingZ3B(targetStream);
+                case 4 -> HandleZ3Graph(targetStream);
             }
         }
     }
@@ -130,6 +133,46 @@ public class Main {
         walker.walk(listener, tree);
 
         System.out.println(listener.printSudokuGrid());
+    }
+
+    private static void HandleZ3Graph(CharStream stream) {
+        Z3Lexer lexer = new Z3Lexer(stream);
+
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        Z3Parser parser = new Z3Parser(tokens);
+
+        ParseTree tree = parser.result();
+
+        var listener = new GraphListener();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        walker.walk(listener, tree);
+
+        GraphViz graphViz = new GraphViz();
+        try {
+
+            File file = new File("abc.dot");
+            if (!file.exists() && file.createNewFile())
+            {
+                System.out.println(file.getAbsolutePath());
+            }
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(graphViz.drawGraph(listener.getGraph()));
+            fileWriter.close();
+
+            String[] cmd = {"C:\\Program Files\\Graphviz\\bin\\dot.exe", "-Tpng", "-oabc.png", "abc.dot"};
+
+            Process p = Runtime.getRuntime().exec(cmd);
+            p.waitFor();
+
+        } catch (Exception e) {
+            System.out.println("Failed to call graphViz" + e.getMessage());
+            return;
+        }
+        System.out.println("Image generated");
     }
 
     private static boolean IsFileValid(File file) {

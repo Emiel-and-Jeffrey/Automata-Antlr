@@ -1,4 +1,4 @@
-// Generated from B:/Code/School/Jaar 2/Semester 4/Automata/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
+// Generated from C:/School/Antlr/src/com/ap/antlr/grammars\Z3Parser.g4 by ANTLR 4.9.1
 package com.ap.antlr.base;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -17,18 +17,6 @@ public interface Z3ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitResult(Z3Parser.ResultContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code StatnentVariableDeclaration}
-	 * labeled alternative in {@link Z3Parser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterStatnentVariableDeclaration(Z3Parser.StatnentVariableDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code StatnentVariableDeclaration}
-	 * labeled alternative in {@link Z3Parser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitStatnentVariableDeclaration(Z3Parser.StatnentVariableDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code StatementFunction}
 	 * labeled alternative in {@link Z3Parser#statement}.
@@ -53,6 +41,18 @@ public interface Z3ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatementIfElse(Z3Parser.StatementIfElseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code StatementVariableDeclaration}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementVariableDeclaration(Z3Parser.StatementVariableDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code StatementVariableDeclaration}
+	 * labeled alternative in {@link Z3Parser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementVariableDeclaration(Z3Parser.StatementVariableDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code StatementValue}
 	 * labeled alternative in {@link Z3Parser#statement}.
@@ -160,6 +160,16 @@ public interface Z3ParserListener extends ParseTreeListener {
 	 */
 	void exitFunction(Z3Parser.FunctionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Z3Parser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterParameter(Z3Parser.ParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Z3Parser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitParameter(Z3Parser.ParameterContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Z3Parser#function_call}.
 	 * @param ctx the parse tree
 	 */
@@ -180,48 +190,38 @@ public interface Z3ParserListener extends ParseTreeListener {
 	 */
 	void exitVariable(Z3Parser.VariableContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Z3Parser#parameter}.
-	 * @param ctx the parse tree
-	 */
-	void enterParameter(Z3Parser.ParameterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Z3Parser#parameter}.
-	 * @param ctx the parse tree
-	 */
-	void exitParameter(Z3Parser.ParameterContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code LogicalExpressionAnd}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void enterLogicalExpressionAnd(Z3Parser.LogicalExpressionAndContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code LogicalExpressionAnd}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void exitLogicalExpressionAnd(Z3Parser.LogicalExpressionAndContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code LogicalExpressionOr}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void enterLogicalExpressionOr(Z3Parser.LogicalExpressionOrContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code LogicalExpressionOr}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void exitLogicalExpressionOr(Z3Parser.LogicalExpressionOrContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code LogicalExpressionNot}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void enterLogicalExpressionNot(Z3Parser.LogicalExpressionNotContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code LogicalExpressionNot}
-	 * labeled alternative in {@link Z3Parser#z3_logical_expression}.
+	 * labeled alternative in {@link Z3Parser#logical_expression}.
 	 * @param ctx the parse tree
 	 */
 	void exitLogicalExpressionNot(Z3Parser.LogicalExpressionNotContext ctx);
