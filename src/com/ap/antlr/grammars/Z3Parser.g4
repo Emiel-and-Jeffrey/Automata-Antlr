@@ -5,7 +5,7 @@ result
     : SAT LPAREN MODEL statement* RPAREN;
 
 statement
-    : LPAREN variable RPAREN                          #StatnentVariableDeclaration
+    : LPAREN variable RPAREN                          #StatementVariableDeclaration
     | LPAREN function statement* RPAREN               #StatementFunction
     | LPAREN IF_ELSE value statement statement RPAREN #StatementIfElse
     | value                                           #StatementValue;
@@ -16,7 +16,7 @@ value
 	| NUMBER                  # ValueBasicNumber
 	| comparison_expression   # ValueComparisonExpresssion
 	| function_call           # ValueFunctionCall
-	| z3_logical_expression   # ValueLogicalExpression
+	| logical_expression   # ValueLogicalExpression
 	| numeric_expression      # ValueNumericExpression;
 
 function
@@ -27,12 +27,12 @@ function_call
     |  LPAREN IDENTIFIER.IDENTIFIER value* RPAREN;
 
 variable
-    :   LET LPAREN value* RPAREN;
+    :   LET LPAREN value*;
 
 parameter
     : LPAREN IDENTIFIER types RPAREN;
 
-z3_logical_expression
+logical_expression
 	: LPAREN AND value* RPAREN # LogicalExpressionAnd
 	| LPAREN OR value* RPAREN  # LogicalExpressionOr
 	| LPAREN NOT value RPAREN  # LogicalExpressionNot;
