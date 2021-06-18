@@ -38,6 +38,27 @@ public class AutomataParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitPrintCall(AutomataParser.PrintCallContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitLoopStructureWhile(AutomataParser.LoopStructureWhileContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitConditionalStructureIf(AutomataParser.ConditionalStructureIfContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -52,49 +73,7 @@ public class AutomataParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunction_call(AutomataParser.Function_callContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentVariable(AutomataParser.ArgumentVariableContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParameters(AutomataParser.ParametersContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -108,257 +87,180 @@ public class AutomataParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitValue_types(AutomataParser.Value_typesContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunctionCall(AutomataParser.FunctionCallContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnVariable(AutomataParser.ReturnVariableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableDeclarationDefault(AutomataParser.VariableDeclarationDefaultContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnFunction(AutomataParser.ReturnFunctionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableDeclaration(AutomataParser.VariableDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnLogicExpression(AutomataParser.ReturnLogicExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableAssignment(AutomataParser.VariableAssignmentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReturnNumericExpression(AutomataParser.ReturnNumericExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionLessThanOrEqual(AutomataParser.BooleanExpressionLessThanOrEqualContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionDivision(AutomataParser.NumericExpressionDivisionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionTimes(AutomataParser.NumericExpressionTimesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionAdd(AutomataParser.NumericExpressionAddContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionMinus(AutomataParser.NumericExpressionMinusContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionNegate(AutomataParser.BooleanExpressionNegateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionGreaterThanOrEqual(AutomataParser.BooleanExpressionGreaterThanOrEqualContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionOr(AutomataParser.BooleanExpressionOrContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionPower(AutomataParser.NumericExpressionPowerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionFactorial(AutomataParser.NumericExpressionFactorialContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionValue(AutomataParser.ExpressionValueContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumericExpressionNegate(AutomataParser.NumericExpressionNegateContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionParentheses(AutomataParser.ExpressionParenthesesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionGreaterThan(AutomataParser.BooleanExpressionGreaterThanContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionEqualTo(AutomataParser.BooleanExpressionEqualToContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionFunctionCall(AutomataParser.ExpressionFunctionCallContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionAnd(AutomataParser.BooleanExpressionAndContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBooleanExpressionLessThan(AutomataParser.BooleanExpressionLessThanContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitValueVariable(AutomataParser.ValueVariableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitValueBoolean(AutomataParser.ValueBooleanContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitValueNumber(AutomataParser.ValueNumberContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitValue_type(AutomataParser.Value_typeContext ctx) { return visitChildren(ctx); }
 }

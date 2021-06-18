@@ -1,8 +1,8 @@
-package com.ap.antlr.listeners;
+package com.ap.automata.deprecated;
 
-import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 
+@Deprecated
 public class NumericListener extends AutomataParserBaseListener {
     /**
      * {@inheritDoc}

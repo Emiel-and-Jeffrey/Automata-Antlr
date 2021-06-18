@@ -52,6 +52,42 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPrintCall(AutomataParser.PrintCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintCall(AutomataParser.PrintCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopStructureWhile(AutomataParser.LoopStructureWhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopStructureWhile(AutomataParser.LoopStructureWhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConditionalStructureIf(AutomataParser.ConditionalStructureIfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConditionalStructureIf(AutomataParser.ConditionalStructureIfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFunctionDeclarationReturn(AutomataParser.FunctionDeclarationReturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -76,85 +112,13 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction_call(AutomataParser.Function_callContext ctx) { }
+	@Override public void enterParameters(AutomataParser.ParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_call(AutomataParser.Function_callContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentNumberExpression(AutomataParser.ArgumentNumberExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentBoolExpression(AutomataParser.ArgumentBoolExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentVariable(AutomataParser.ArgumentVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentVariable(AutomataParser.ArgumentVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentFunction(AutomataParser.ArgumentFunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentNumericExpression(AutomataParser.ArgumentNumericExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArgumentLogicalExpression(AutomataParser.ArgumentLogicalExpressionContext ctx) { }
+	@Override public void exitParameters(AutomataParser.ParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -172,445 +136,313 @@ public class AutomataParserBaseListener implements AutomataParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterValue_types(AutomataParser.Value_typesContext ctx) { }
+	@Override public void enterFunctionCall(AutomataParser.FunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitValue_types(AutomataParser.Value_typesContext ctx) { }
+	@Override public void exitFunctionCall(AutomataParser.FunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnVariable(AutomataParser.ReturnVariableContext ctx) { }
+	@Override public void enterVariableDeclarationDefault(AutomataParser.VariableDeclarationDefaultContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnVariable(AutomataParser.ReturnVariableContext ctx) { }
+	@Override public void exitVariableDeclarationDefault(AutomataParser.VariableDeclarationDefaultContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnFunction(AutomataParser.ReturnFunctionContext ctx) { }
+	@Override public void enterVariableDeclaration(AutomataParser.VariableDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnFunction(AutomataParser.ReturnFunctionContext ctx) { }
+	@Override public void exitVariableDeclaration(AutomataParser.VariableDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnLogicExpression(AutomataParser.ReturnLogicExpressionContext ctx) { }
+	@Override public void enterVariableAssignment(AutomataParser.VariableAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnLogicExpression(AutomataParser.ReturnLogicExpressionContext ctx) { }
+	@Override public void exitVariableAssignment(AutomataParser.VariableAssignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReturnNumericExpression(AutomataParser.ReturnNumericExpressionContext ctx) { }
+	@Override public void enterBooleanExpressionLessThanOrEqual(AutomataParser.BooleanExpressionLessThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturnNumericExpression(AutomataParser.ReturnNumericExpressionContext ctx) { }
+	@Override public void exitBooleanExpressionLessThanOrEqual(AutomataParser.BooleanExpressionLessThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) { }
+	@Override public void enterNumericExpressionDivision(AutomataParser.NumericExpressionDivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintExpressionNumeric(AutomataParser.PrintExpressionNumericContext ctx) { }
+	@Override public void exitNumericExpressionDivision(AutomataParser.NumericExpressionDivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx) { }
+	@Override public void enterNumericExpressionTimes(AutomataParser.NumericExpressionTimesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConditionalExpressionIf(AutomataParser.ConditionalExpressionIfContext ctx) { }
+	@Override public void exitNumericExpressionTimes(AutomataParser.NumericExpressionTimesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) { }
+	@Override public void enterNumericExpressionAdd(AutomataParser.NumericExpressionAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConditionalExpressionWhile(AutomataParser.ConditionalExpressionWhileContext ctx) { }
+	@Override public void exitNumericExpressionAdd(AutomataParser.NumericExpressionAddContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx) { }
+	@Override public void enterNumericExpressionMinus(AutomataParser.NumericExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionParentheses(AutomataParser.LogicalExpressionParenthesesContext ctx) { }
+	@Override public void exitNumericExpressionMinus(AutomataParser.NumericExpressionMinusContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx) { }
+	@Override public void enterBooleanExpressionNegate(AutomataParser.BooleanExpressionNegateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionComparison(AutomataParser.LogicalExpressionComparisonContext ctx) { }
+	@Override public void exitBooleanExpressionNegate(AutomataParser.BooleanExpressionNegateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) { }
+	@Override public void enterBooleanExpressionGreaterThanOrEqual(AutomataParser.BooleanExpressionGreaterThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionVariable(AutomataParser.LogicalExpressionVariableContext ctx) { }
+	@Override public void exitBooleanExpressionGreaterThanOrEqual(AutomataParser.BooleanExpressionGreaterThanOrEqualContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx) { }
+	@Override public void enterBooleanExpressionOr(AutomataParser.BooleanExpressionOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionAnd(AutomataParser.LogicalExpressionAndContext ctx) { }
+	@Override public void exitBooleanExpressionOr(AutomataParser.BooleanExpressionOrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx) { }
+	@Override public void enterNumericExpressionPower(AutomataParser.NumericExpressionPowerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionNegation(AutomataParser.LogicalExpressionNegationContext ctx) { }
+	@Override public void exitNumericExpressionPower(AutomataParser.NumericExpressionPowerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx) { }
+	@Override public void enterNumericExpressionFactorial(AutomataParser.NumericExpressionFactorialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionFunction(AutomataParser.LogicalExpressionFunctionContext ctx) { }
+	@Override public void exitNumericExpressionFactorial(AutomataParser.NumericExpressionFactorialContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) { }
+	@Override public void enterExpressionValue(AutomataParser.ExpressionValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionBoolean(AutomataParser.LogicalExpressionBooleanContext ctx) { }
+	@Override public void exitExpressionValue(AutomataParser.ExpressionValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) { }
+	@Override public void enterNumericExpressionNegate(AutomataParser.NumericExpressionNegateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalExpressionOr(AutomataParser.LogicalExpressionOrContext ctx) { }
+	@Override public void exitNumericExpressionNegate(AutomataParser.NumericExpressionNegateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) { }
+	@Override public void enterExpressionParentheses(AutomataParser.ExpressionParenthesesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionGreaterThan(AutomataParser.ComparisonExpressionGreaterThanContext ctx) { }
+	@Override public void exitExpressionParentheses(AutomataParser.ExpressionParenthesesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) { }
+	@Override public void enterBooleanExpressionGreaterThan(AutomataParser.BooleanExpressionGreaterThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionGreaterThanOrEqual(AutomataParser.ComparisonExpressionGreaterThanOrEqualContext ctx) { }
+	@Override public void exitBooleanExpressionGreaterThan(AutomataParser.BooleanExpressionGreaterThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) { }
+	@Override public void enterBooleanExpressionEqualTo(AutomataParser.BooleanExpressionEqualToContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionLessThan(AutomataParser.ComparisonExpressionLessThanContext ctx) { }
+	@Override public void exitBooleanExpressionEqualTo(AutomataParser.BooleanExpressionEqualToContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) { }
+	@Override public void enterExpressionFunctionCall(AutomataParser.ExpressionFunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionLessThanOrEqual(AutomataParser.ComparisonExpressionLessThanOrEqualContext ctx) { }
+	@Override public void exitExpressionFunctionCall(AutomataParser.ExpressionFunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) { }
+	@Override public void enterBooleanExpressionAnd(AutomataParser.BooleanExpressionAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComparisonExpressionEqualTo(AutomataParser.ComparisonExpressionEqualToContext ctx) { }
+	@Override public void exitBooleanExpressionAnd(AutomataParser.BooleanExpressionAndContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) { }
+	@Override public void enterBooleanExpressionLessThan(AutomataParser.BooleanExpressionLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableNumericDeclaration(AutomataParser.VariableNumericDeclarationContext ctx) { }
+	@Override public void exitBooleanExpressionLessThan(AutomataParser.BooleanExpressionLessThanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) { }
+	@Override public void enterValueVariable(AutomataParser.ValueVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableNumericInitialization(AutomataParser.VariableNumericInitializationContext ctx) { }
+	@Override public void exitValueVariable(AutomataParser.ValueVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) { }
+	@Override public void enterValueBoolean(AutomataParser.ValueBooleanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableBooleanDeclaration(AutomataParser.VariableBooleanDeclarationContext ctx) { }
+	@Override public void exitValueBoolean(AutomataParser.ValueBooleanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) { }
+	@Override public void enterValueNumber(AutomataParser.ValueNumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableBooleanInitialization(AutomataParser.VariableBooleanInitializationContext ctx) { }
+	@Override public void exitValueNumber(AutomataParser.ValueNumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) { }
+	@Override public void enterValue_type(AutomataParser.Value_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableNumericAssignment(AutomataParser.VariableNumericAssignmentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariableBooleanAssignment(AutomataParser.VariableBooleanAssignmentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionSum(AutomataParser.MathExpressionSumContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionBasicNumber(AutomataParser.MathExpressionBasicNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionTimes(AutomataParser.MathExpressionTimesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionMinus(AutomataParser.MathExpressionMinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionFactorial(AutomataParser.MathExpressionFactorialContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionVariable(AutomataParser.MathExpressionVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionParentheses(AutomataParser.MathExpressionParenthesesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionPower(AutomataParser.MathExpressionPowerContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionFunction(AutomataParser.MathExpressionFunctionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMathExpressionDivision(AutomataParser.MathExpressionDivisionContext ctx) { }
+	@Override public void exitValue_type(AutomataParser.Value_typeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
