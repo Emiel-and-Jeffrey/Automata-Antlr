@@ -5,10 +5,19 @@ result
     : SAT LPAREN MODEL statement* RPAREN;
 
 statement
-    : LPAREN function statement* RPAREN                                          #StatementFunction
-    | LPAREN IF_ELSE LPAREN logical_expression RPAREN statement statement RPAREN #StatementIfElse
-    | numeric_expression                                                         #StatementNumber;
+    : LPAREN function statement* RPAREN               #StatementFunction
+    | LPAREN IF_ELSE value statement statement RPAREN #StatementIfElse
+    | LPAREN variable RPAREN                          #StatementVariableDeclaration
+    | value                                           #StatementValue;
 
+value
+    : IDENTIFIER              # ValueVariable
+    | STRING_LITERAL          # ValueString
+	| NUMBER                  # ValueBasicNumber
+	| comparison_expression   # ValueComparisonExpresssion
+	| function_call           # ValueFunctionCall
+	| logical_expression      # ValueLogicalExpression
+	| numeric_expression      # ValueNumericExpression;
 
 function
     : FUNC IDENTIFIER LPAREN parameter* RPAREN types;
@@ -16,23 +25,33 @@ function
 parameter
     : LPAREN IDENTIFIER types RPAREN;
 
+function_call
+    :  LPAREN IDENTIFIER value* RPAREN
+    |  LPAREN IDENTIFIER.IDENTIFIER value* RPAREN;
+
+variable
+    :   LET LPAREN value*;
+
+
 logical_expression
-	: AND  LPAREN logical_expression RPAREN LPAREN  logical_expression RPAREN   # LogicalExpressionAnd
-	| comparison_expression                                                     # LogicalExpressionComparison;
+	: LPAREN AND value* RPAREN # LogicalExpressionAnd
+	| LPAREN OR value* RPAREN  # LogicalExpressionOr
+	| LPAREN NOT value RPAREN  # LogicalExpressionNot;
 
 numeric_expression
-    : IDENTIFIER                                                                # MathExpressionVariable
-	| NUMBER                                                                    # MathExpressionBasicNumber;
+    : LPAREN ADD value* RPAREN   # NumericExpressionAdd
+    | LPAREN MINUS value* RPAREN # NumericExpressionMinus;
 
 comparison_expression
-    : IDENTIFIER                                                                # ComparisonExpressionVariable
-    | GREATER_THAN numeric_expression numeric_expression                        # ComparisonExpressionGreaterThan
-    | GREATER_THAN_OR_EQUAL numeric_expression numeric_expression               # ComparisonExpressionGreaterThanOrEqual
-    | LESS_THAN numeric_expression numeric_expression                           # ComparisonExpressionLessThan
-    | LESS_THAN_OR_EQUAL numeric_expression numeric_expression                  # ComparisonExpressionLessThanOrEqual
-    | EQUALS  numeric_expression numeric_expression                             # ComparisonExpressionEqualTo;
+    : LPAREN GREATER_THAN value value RPAREN          # ComparisonExpressionGreaterThan
+    | LPAREN GREATER_THAN_OR_EQUAL value value RPAREN # ComparisonExpressionGreaterThanOrEqual
+    | LPAREN LESS_THAN value value RPAREN             # ComparisonExpressionLessThan
+    | LPAREN LESS_THAN_OR_EQUAL value value RPAREN    # ComparisonExpressionLessThanOrEqual
+    | LPAREN EQUALS value* RPAREN                     # ComparisonExpressionEqualTo;
 
 types
-    : INT;
+    : INT
+    | STRING
+    | BOOL;
 
 
