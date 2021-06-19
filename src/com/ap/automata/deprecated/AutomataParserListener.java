@@ -1,14 +1,11 @@
-package com.ap.automata;
+package com.ap.automata.deprecated;
 
-import com.ap.antlr.base.AutomataParser;
 import com.ap.antlr.base.AutomataParserBaseListener;
 import com.ap.automata.SymbolTable.SymbolTable;
-import com.ap.automata.SymbolTable.symbol.Variable;
-import com.ap.automata.SymbolTable.value.NumberValue;
-import org.apache.commons.math3.special.Gamma;
 
 import java.util.Stack;
 
+@Deprecated
 public class AutomataParserListener extends AutomataParserBaseListener {
     private Stack<Double> stack = new Stack<>();
     private SymbolTable symbolTable;
