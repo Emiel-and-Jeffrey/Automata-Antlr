@@ -1,0 +1,9 @@
+void HelloWorld(int a, int b, int c)
+{
+    Print(a + b + c);
+}
+HelloWorld(10,5,20);
+HelloWorld(100, 50, 200);
+HelloWorld(1, 0.5, 2);
+
+// Expected output: 35 350 3.5

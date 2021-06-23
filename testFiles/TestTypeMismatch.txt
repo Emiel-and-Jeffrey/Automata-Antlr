@@ -1,0 +1,4 @@
+bool a = false;
+Print a * 100;
+
+// Expected output: TypeMismatchException

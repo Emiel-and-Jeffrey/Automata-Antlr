@@ -1,0 +1,9 @@
+void HelloWorld()
+{
+    Print(15);
+}
+HelloWorld();
+HelloWorld();
+HelloWorld();
+
+// Expected output: 15 15 15

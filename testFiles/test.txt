@@ -1,0 +1,59 @@
+number baz (number i)
+{
+	number a = i! / 4;
+	return a + 15;
+}
+
+bool bim(number i)
+{
+	bool v;
+	
+	if i <= 5 then
+		v = true;
+	else
+		v = false;
+	fi
+	
+	return v;
+}
+
+void foo (number i)
+{
+	Print i;
+}
+
+void bar (bool j, number b)
+{
+	number i = 0;
+	
+	while i <= b * 2 then
+		foo(i);
+		i = i + 1;
+	elihw
+
+	if j then
+		foo(b + 1);
+	else
+		foo(b - 1);
+	fi
+}
+
+void boing (number k)
+{
+	if (k < 20) then
+		foo(k);
+		boing(k + 1);
+	fi
+}
+
+bar(bim(6), (50 * 2) - 10);
+Print true;
+boing(0);
+
+number i = 10;
+bool switch = false;
+while baz(i) <= 326918592015 then
+	Print switch;
+	switch = !switch;
+	i = i+1
+elihw
